@@ -6,7 +6,7 @@
 <struts>
 
 	<constant name="struts.multipart.saveDir" value="/tmp"/> 
-	<constant name="struts.multipart.maxSize" value="102400000"/>
+	<constant name="struts.multipart.maxSize" value="102400000"/> 
 
 </struts>
 
