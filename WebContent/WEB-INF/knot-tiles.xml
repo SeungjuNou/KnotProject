@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    
+<tiles-definitions>
+	<definition name="main" template="/tiles/main_layout.jsp">
+		<put-attribute name="header" value="/tiles/header/main_header.jsp" />
+		<put-attribute name="body" value="/tiles/body/main_body.jsp" />
+		<put-attribute name="footer" value="/tiles/footer/footer.jsp" />
+	</definition>	
+	
+	<definition name="category" template="/tiles/category_layout.jsp">
+		<put-attribute name="header" value="/tiles/header/category_header.jsp" />
+		<put-attribute name="body" value="/tiles/body/category_body.jsp" />
+		<put-attribute name="footer" value="/tiles/footer/footer.jsp" />
+	</definition>	
+
+	<definition name="itemview" template="/tiles/itemview_layout.jsp">
+		<put-attribute name="header" value="/tiles/header/itemview_header.jsp" />
+		<put-attribute name="body" value="/tiles/body/itemview_body.jsp" />
+		<put-attribute name="footer" value="/tiles/footer/footer.jsp" />
+	</definition>	
+	
+	<definition name="admin" template="/tiles/admin_layout.jsp">
+		<put-attribute name="header" value="/tiles/header/admin_header.jsp" />
+		<put-attribute name="body" value="/tiles/body/admin_body.jsp" />
+		<put-attribute name="footer" value="/tiles/footer/footer.jsp" />
+	</definition>	
+	
+	<definition name="other" template="/tiles/other_layout.jsp">
+		<put-attribute name="header" value="/tiles/header/other_header.jsp" />
+		<put-attribute name="body" value="/tiles/body/other_body.jsp" />
+		<put-attribute name="footer" value="/tiles/footer/footer.jsp" />
+	</definition>
+</tiles-definitions>
+    
