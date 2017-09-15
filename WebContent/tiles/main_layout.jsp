@@ -20,6 +20,21 @@
 	list-style: none;
 	
 }
+
+html, body { 
+  	height: 100%;
+  	overflow: hidden;
+  	margin: 0px;
+	padding: 0px;
+	background-position: : fixed;
+	background-image: url('https:/farm5.staticflickr.com/4411/36955427271_b25cf1aeb8_o.jpg');
+	background-size:	cover;
+	background-repeat: no-repeat;
+
+	} 
+.lay_header {
+	height: 100%;
+}
 	
 </style>
 </head>
@@ -27,7 +42,7 @@
 	
 	<div class="main">
 		<ul class="main_layout">
-			<li>
+			<li class="lay_header">
 				<tiles:insertAttribute name="header" />
 			</li>
 			<li>
@@ -36,6 +51,38 @@
 			<li>
 				<tiles:insertAttribute name="footer" />		
 			</li>
+
+			<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
+		<li>asdfsadfasfdas</li>
 		</ul>
 	</div>
 </body>

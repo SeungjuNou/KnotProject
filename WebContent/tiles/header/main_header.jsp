@@ -5,7 +5,7 @@
 			<ul id="topnav">
 					<li id="logo">
 						<a href="#">
-							<img src="image/logo.png" width="166"  alt="logo"> 
+							<img src="image/logo.png" width="156"  alt="logo"> 
 						</a>
 					</li>
 					<li id="login">
@@ -54,6 +54,10 @@
 				    </ul>
 			    </div>
 			</div>
+
+			<ul class="lastline">
+				<li></li>
+			</ul>
 
 
 		</div>

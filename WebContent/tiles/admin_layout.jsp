@@ -22,6 +22,8 @@
 		<li>
 			<tiles:insertAttribute name="footer" />		
 		</li>
+
+
 	</ul>
 </body>
 </html>
