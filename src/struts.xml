@@ -7,6 +7,17 @@
 
 	<constant name="struts.multipart.saveDir" value="/tmp"/> 
 	<constant name="struts.multipart.maxSize" value="102400000"/> 
+	
+	<package name="main" extends="struts-default, tiles-default">
+	
+	
+
+
+		<action name="main" class="item.action.list.ItemListAction">
+			<result type="tiles">main</result>
+		</action>
+	
+	</package>
 
 </struts>
 
