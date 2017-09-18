@@ -65,7 +65,7 @@
 
 	#top_logo {
 		width: 40%;
-		margin-top: 2%; 
+		margin-top: 1%; 
 		text-align: left;
 	}
 
@@ -148,16 +148,17 @@
 	width: 55%;
 	height: 80%;
 	text-align: left;
+	margin-top: 0px;
 }
 
 #top_logo img {
-	width: 300px;
+	width: 400px;
 	height: auto;
 }
 
 #top_member {
 	display: inline-block;
-	width: 40%;
+	width: 44%;
 	height: auto;
 	text-align: right;
 }
