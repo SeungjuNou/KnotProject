@@ -8,82 +8,79 @@
 <title></title>
 <link rel="stylesheet" href="css/maincss.css" type="text/css">
 <style type="text/css">
-	.main {
-	margin: 0px;
-	padding: 0px;
-	border: 0px;
-	overflow: auto;
-	list-style-type: none;
+
+	html, body {
+	height: 100%; 
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
 }
 
-.main_layout {
-	list-style: none;
-	
-}
-
-html, body { 
-  	height: 100%;
-  	overflow: hidden;
-  	margin: 0px;
-	padding: 0px;
-	background-position: : fixed;
-	background-image: url('https:/farm5.staticflickr.com/4411/36955427271_b25cf1aeb8_o.jpg');
-	background-size:	cover;
-	background-repeat: no-repeat;
-
-	} 
-.lay_header {
+.main, .main_layout {
 	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
-	
+
+.main_layout li {
+	float: left;
+	display: inline-block;
+}
+
+.content {
+	width: 100%;
+	height: 1000px;	
+	background-color: white;
+}
+
+.foot {
+	width: 100%;
+	height: 20%;
+	background-color: black;
+}
+
+
 </style>
 </head>
 <body>
 	
 	<div class="main">
 		<ul class="main_layout">
-			<li class="lay_header">
+			<li class="head">
 				<tiles:insertAttribute name="header" />
 			</li>
-			<li>
+			<li class="content">
 				<tiles:insertAttribute name="body" />
+				ss
 			</li>
-			<li>
+			<li class="foot">
 				<tiles:insertAttribute name="footer" />		
 			</li>
-
-			<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
-		<li>asdfsadfasfdas</li>
 		</ul>
 	</div>
+
+
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/idangerous.swiper-2.1.min.js"></script>
+<script>
+var mySwiper = new Swiper('.swiper-container', {
+	pagination : '.pagination',
+	loop : true,
+	grabCursor : true,
+	paginationClickable : true
+})
+
+$('.arrow-left').on('click', function (e) {
+	e.preventDefault()
+	mySwiper.swipePrev()
+});
+
+$('.arrow-right').on('click', function (e) {
+	e.preventDefault();
+	mySwiper.swipeNext();
+})
+</script>
+
 </body>
 </html>

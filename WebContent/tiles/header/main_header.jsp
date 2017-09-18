@@ -1,65 +1,96 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<div id="header">
-		<div id="inner">	
-			<ul id="topnav">
-					<li id="logo">
-						<a href="#">
-							<img src="image/logo.png" width="156"  alt="logo"> 
-						</a>
-					</li>
-					<li id="login">
-						<p>
-							<a href="" style="text-decoration:none">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" style="text-decoration:none">Join</a> 
-						</p>
-						
+	<div class="header">
 
-					</li>
+		<div class="head_top">
+
+			<ul>
+				<li id="top_logo">
+					<a href="#">
+						<img src="image/logo.png" width="166"  alt="logo"> 
+					</a>
+				</li>
+
+				<li id="top_menu">
+					<a href="#">
+						<img src="image/mobileMenu.png">
+					</a>
+				</li>
+
+				<li id="top_member">
+						<a href="#">Login</a>
+						<a href="#">Join</a>
+				</li>
 			</ul>
+	
+		</div>
 
-			<div class="searchform">
-				<div class="searchinner">
-					<div class="search">
-						<p>나에게 없는 재능을 갖는 새로운 방법</p> <br>
-						<form action="" class="findform">
-							<span class='green_window'>
-								<input type='text' class='input_text' />
-							
-							<button type='submit' class='sch_smit'>검색</button>
-						</span>
-						</form>
+		<div class="head_mid">
+			<div class="mid_inner">
+				<ul>
+					<li>input</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div id="cate">
+							<span></span>
+							<ul>
+								<li id="left">
+									<a class="arrow-left" href="#">
+										<img src="image/more.png">
+									</a> 
+								</li>
+								<li id="cate_img"><img src="image/need.png" width="150"></li>
+								<li id="cate_img"><img src="image/trip.png" width="150"></li>
+								<li id="cate_img"><img src="image/rentacar.png" width="150"></li>
+								<li id="cate_img"><img src="image/house.png" width="150"></li>
+								<li id="cate_img"><img src="image/restaurant.png" width="150"></li>
+								<li id="right">
+									<a class="arrow-right" href="#">
+										<img src="image/more.png"></a>
+								</li>
+							</ul>
+							<span></span>
 					</div>
 				</div>
+
+				<div class="swiper-slide">
+					<div id="cate">
+							<span></span>
+							<ul>
+								<li id="left">
+									<a class="arrow-left" href="#">
+										<img src="image/more.png" alt="">
+									</a> 
+								</li>
+								<li id="cate_img"><img src="image/need.png" width="150"></li>
+								<li id="cate_img"><img src="image/trip.png" width="150"></li>
+								<li id="cate_img"><img src="image/rentacar.png" width="150"></li>
+								<li id="cate_img"><img src="image/house.png" width="150"></li>
+								<li id="cate_img"><img src="image/restaurant.png" width="150"></li>
+								<li id="right">
+									<a class="arrow-right" href="#">
+										<img src="image/more.png" alt=""></a>
+								</li>
+							</ul>
+							<span></span>
+					</div>
+				</div>
+
+			<div class="pagination">
+				
 			</div>
 
-
-			<div class="container">
-			    <div id="slides">
-				    <ul>
-				      	<li>
-				      		<img src="image/house.png" width="100px">
-				      	</li>
-				      	<li>
-				      		<img src="image/house.png" width="100px">
-				      	</li>
-				      	<li>
-				      		<img src="image//house.png" width="100px">
-				      	</li>
-				      	<li>
-				      		<img src="image//house.png" width="100px">
-				      	</li>
-				      	<li>
-				      		<img src="image//house.png" width="100px">
-				      	</li>
-				    </ul>
-			    </div>
+		
 			</div>
-
-			<ul class="lastline">
-				<li></li>
-			</ul>
-
-
+		
 		</div>
+	
 	</div>
+
+
 
