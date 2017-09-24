@@ -7,7 +7,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <head>
-<title></title>
+<title>Knot 마이페이지</title>
 <link rel="stylesheet" href="css/footer.css?ver=0" type="text/css">
 <link rel="stylesheet" href="css/other_header.css?ver=0" type="text/css">
 <link rel="stylesheet" href="css/myPage_header.css?ver=0" type="text/css">

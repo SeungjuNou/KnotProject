@@ -33,6 +33,13 @@
 		
 	</package>
 	
+	<package name="admin" extends="struts-default, tiles-default">
+		
+		<action name="admin_main" class="item.action.list.ItemListAction">
+			<result type="tiles">admin</result>
+		</action>
+		
+	</package>
 
 </struts>
 

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<title>Knot</title>
 <link rel="stylesheet" href="css/main_header.css?ver=0" type="text/css">
 <link rel="stylesheet" href="css/footer.css?ver=0" type="text/css">
 <style type="text/css">
