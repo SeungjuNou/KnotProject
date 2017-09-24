@@ -6,7 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
-<link rel="stylesheet" href="css/maincss.css" type="text/css">
+<link rel="stylesheet" href="css/main_header.css?ver=0" type="text/css">
+<link rel="stylesheet" href="css/footer.css?ver=0" type="text/css">
 <style type="text/css">
 
 	html, body {
@@ -25,19 +26,18 @@
 
 .main_layout li {
 	float: left;
-	display: inline-block;
+	list-style: none;
 }
 
 .content {
 	width: 100%;
 	height: 1000px;	
-	background-color: white;
+	background-color: gray;
 }
 
-.foot {
-	width: 100%;
-	height: 20%;
-	background-color: black;
+
+#footer {
+	display: none;
 }
 
 
@@ -59,7 +59,6 @@
 			</li>
 		</ul>
 	</div>
-
 
 <script src="js/jquery-1.10.1.min.js"></script>
 <script src="js/idangerous.swiper-2.1.min.js"></script>

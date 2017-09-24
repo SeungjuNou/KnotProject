@@ -10,6 +10,7 @@
 <title></title>
 <link rel="stylesheet" href="css/footer.css?ver=0" type="text/css">
 <link rel="stylesheet" href="css/other_header.css?ver=0" type="text/css">
+<link rel="stylesheet" href="css/myPage_header.css?ver=0" type="text/css">
 <link rel="stylesheet" href="css/other_reset.css?ver=0" type="text/css">
 <style type="text/css">
 
