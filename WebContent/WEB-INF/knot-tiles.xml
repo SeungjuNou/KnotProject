@@ -22,6 +22,13 @@
 		<put-attribute name="body" value="/tiles/body/myPage_body.jsp" />
 		<put-attribute name="footer" value="/tiles/footer/footer.jsp" />
 	</definition>
+
+	<definition name="admin" template="/tiles/admin_layout.jsp">
+		<put-attribute name="header" value="/tiles/header/admin_header.jsp" />
+		<put-attribute name="body" value="/tiles/body/admin_body.jsp" />
+	</definition>
+
+
 	
 </tiles-definitions>
     

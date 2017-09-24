@@ -7,23 +7,99 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <head>
-<title></title>
+<title>Knot 관리자 페이지</title>
+<link rel="stylesheet" href="css/admin_header.css?ver=1" type="text/css">
+<link rel="stylesheet" href="css/admin_reset.css?ver=0" type="text/css">
+<style type="text/css">
+
+	html, body {
+	height: 100%; 
+	width: 100%;
+	margin: 0;
+	padding: 0; 
+	overflow-x:hidden; overflow-y:auto;
+}
+
+ul, ul li {
+	list-style: none;
+}
+
+#container {
+width:960px;
+margin-left: auto;
+margin-right: auto;
+padding: 0;
+}
+
+.clear {
+clear: both;
+margin: 0;
+padding: 0;
+}
+
+p {
+margin: 1.6em 0;
+line-height: 1.6em;
+}
+
+h2 {
+font-size: 20px;
+line-height: 20px;
+margin: 22px 0 18px 0;
+}
+
+</style>
+
 </head>
 <body>
 	
 	
 	<ul>
-		<li>
+		<li class="head">
 			<tiles:insertAttribute name="header" />
 		</li>
-		<li>
+		<li class="body">
 			<tiles:insertAttribute name="body" />
+			<ul>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+				<li>asdfjkl;asfk;l</li>
+			</ul>
 		</li>
-		<li>
-			<tiles:insertAttribute name="footer" />		
-		</li>
-
-
 	</ul>
 </body>
 </html>
