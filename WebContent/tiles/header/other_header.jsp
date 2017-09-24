@@ -6,14 +6,14 @@
 			
 				<div id="top_logo">
 					<a href="#">
-						<img src="image/logo.png">
+						<img src="image/icon/logo.png">
 					</a>
 				</div> 
  
 				<fieldset id="top_find">
 					<form action="#">
 						<button onclick="other.action" class="find_button">
-							<img src="image/find2.png">
+							<img src="image/icon/find2.png">
 						</button>
 						<input type="text" name="find" class="top_text" placeholder="필요한 재능을 찾아보세요" />
 					</form>
@@ -23,7 +23,7 @@
 					<ul id="nav2">
 						<li>
 							<a href="#">
-								<img src="image/member.png">
+								<img src="image/icon/member.png">
 							</a>
 							<ul>
 								<a href="mypage.action"><li>마이페이지</li></a>

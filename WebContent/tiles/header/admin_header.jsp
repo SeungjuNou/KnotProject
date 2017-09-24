@@ -11,7 +11,7 @@
 
 						<li>
 							<a href="main.action">
-								<img src="image/logo2.png" alt="main" height="70px">
+								<img src="image/icon/logo2.png" alt="main" height="70px">
 							</a>
 						</li>
 						
