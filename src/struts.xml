@@ -9,15 +9,30 @@
 	<constant name="struts.multipart.maxSize" value="102400000"/> 
 	
 	<package name="main" extends="struts-default, tiles-default">
-	
-	
-
-
+		
 		<action name="main" class="item.action.list.ItemListAction">
 			<result type="tiles">main</result>
 		</action>
-	
+
 	</package>
+	
+	<package name="other" extends="struts-default, tiles-default">
+
+		<action name="other" class="item.action.list.ItemListAction">
+			<result type="tiles">other</result>
+		</action>
+
+	</package>
+
+
+	<package name="myPage" extends="struts-default, tiles-default">
+		
+		<action name="myPage_main" class="item.action.list.ItemListAction">
+			<result type="tiles">myPage</result>
+		</action>
+		
+	</package>
+	
 
 </struts>
 

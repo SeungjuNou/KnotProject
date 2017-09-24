@@ -1,0 +1,52 @@
+
+
+a {
+	color: gray;
+	text-decoration: none;
+}
+
+#under_top {
+	width: 100%;
+	height: 100px;
+}
+
+#ut_inner {
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#ut_inner ul {
+	width: auto;
+	height: 70px;
+	margin: 10px auto;
+	padding-top: 30px;
+	border-bottom: solid 1px gray;
+}
+
+#ut_inner ul li {
+	height: 70px;
+	width: 14%;
+	float: left;   
+	font-weight: bold;
+	color: black;
+	vertical-align: middle;
+	display: inline-block;
+	margin:auto auto;
+	text-decoration: none;
+	font-size: 1.1em;
+	text-align: center;
+	line-height: 5;
+}
+
+#myPage_bu, #myPage_bu a {
+	line-height:75px;
+	color: white; 
+	font-size: 1.3em;
+	margin-top: 30px;
+}
+
+#myPage_bu {
+	background-color: #487BCC;
+}
+

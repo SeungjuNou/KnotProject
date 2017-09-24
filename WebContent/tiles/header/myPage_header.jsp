@@ -5,7 +5,7 @@
 			<div id="top_inner">
 			
 				<div id="top_logo">
-					<a href="#">
+					<a href="main.action">
 						<img src="image/logo.png">
 					</a>
 				</div> 
@@ -98,3 +98,47 @@
 		<!--=====================================
 				/Top Fixed Navigation Menu END 
 		======================================-->
+
+
+
+		<div id="under_top">
+			<div id="ut_inner">
+				<ul>
+					<li id="myPage_bu">
+						<a href="#">
+							MY Page
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							회원정보
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							예약 내역
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							문의하기
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							공지사항
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							자주묻는 질문
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							회원탈퇴
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
