@@ -44,9 +44,18 @@ public class ListAction extends ActionSupport {
 		System.out.println(getListName());
 		if (getListName().equals("memberList")) {
 			complete(memberList());
+		} else if (getListName().equals("qnaList")) {
+			complete(qnaList());
+		} else if (getListName().equals("faqList")) {
+			complete(faqList());
+		} else if (getListName().equals("itemList")) {
+			complete(itemList());
+		} else if (getListName().equals("noticeList")) {
+			complete(noticeList());
+		} else {
+			complete(memberList());
 		}
 
-		
 		return SUCCESS;
 		
 	} //execute 메서드 종료. 
@@ -59,7 +68,27 @@ public class ListAction extends ActionSupport {
 		return list;
 	} //memberList 메서드 종료. 
 
+	public List qnaList() throws Exception { 
+		return list;
+	}
 	
+	public List faqList() throws Exception { 
+		return list;
+	}
+
+	public List itemList() throws Exception { 
+		return list;
+	}
+
+	public List noticeList() throws Exception { 
+		return list;
+	}
+
+	public List mainList() throws Exception { 
+		return list;
+	}
+
+
 	public void complete(List list) throws Exception {
 		totalCount = list.size(); 
 
