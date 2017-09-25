@@ -29,6 +29,11 @@
 	</definition>
 
 
+	<definition name="memberList" extends="admin">
+		<put-attribute name="body" value="/member/memberList.jsp" />
+	</definition>
+
+
 	
 </tiles-definitions>
     
