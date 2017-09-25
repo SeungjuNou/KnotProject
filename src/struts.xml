@@ -38,7 +38,12 @@
 		<action name="admin_main" class="item.action.list.ItemListAction">
 			<result type="tiles">admin</result>
 		</action>
-		
+
+		<action name="member_list" class="totalList.ListAction">
+			<interceptor-ref name="params"/>
+			<result type="tiles">memberList</result>
+		</action>
+			
 	</package>
 
 </struts>

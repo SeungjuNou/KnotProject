@@ -60,45 +60,6 @@ margin: 22px 0 18px 0;
 		</li>
 		<li class="body">
 			<tiles:insertAttribute name="body" />
-			<ul>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-			</ul>
 		</li>
 	</ul>
 </body>
