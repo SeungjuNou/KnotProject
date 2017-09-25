@@ -21,10 +21,8 @@
 		</dataSource>
 	</transactionManager>
 	
-	<sqlMap resource="/admin/sql/adminSQL.xml"/>
-	<sqlMap resource="/board/sql/boardSQL.xml"/>
-	<sqlMap resource="/item/sql/itemSQL.xml"/>
+	
 	<sqlMap resource="/member/sql/memberSQL.xml"/>
-	<sqlMap resource="/reserve/sql/reserveSQL.xml"/>
+
 	
 </sqlMapConfig>

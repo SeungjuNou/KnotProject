@@ -10,7 +10,7 @@
 	
 	<package name="main" extends="struts-default, tiles-default">
 		
-		<action name="main" class="item.action.list.ItemListAction">
+		<action name="main" class="totalList.ListAction">
 			<result type="tiles">main</result>
 		</action>
 
@@ -18,7 +18,7 @@
 	
 	<package name="other" extends="struts-default, tiles-default">
 
-		<action name="other" class="item.action.list.ItemListAction">
+		<action name="other" class="totalList.ListAction">
 			<result type="tiles">other</result>
 		</action>
 
@@ -27,7 +27,7 @@
 
 	<package name="myPage" extends="struts-default, tiles-default">
 		
-		<action name="myPage_main" class="item.action.list.ItemListAction">
+		<action name="myPage_main" class="totalList.ListAction">
 			<result type="tiles">myPage</result>
 		</action>
 		
@@ -35,11 +35,13 @@
 	
 	<package name="admin" extends="struts-default, tiles-default">
 		
-		<action name="admin_main" class="item.action.list.ItemListAction">
+		<action name="admin_main" class="totalList.ListAction">
 			<result type="tiles">admin</result>
 		</action>
 
 		<action name="member_list" class="totalList.ListAction">
+			<param name="listName">memberList</param>
+			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">memberList</result>
 		</action>

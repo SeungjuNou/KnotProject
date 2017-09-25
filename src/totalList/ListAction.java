@@ -27,7 +27,7 @@ public class ListAction extends ActionSupport {
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private PagingAction page; 	// 페이징 클래스
 	private String find = ""; // 검색 내용 
-	private String listName = "memberList"; // 사용자가 요청하는 리스트이름.
+	private String listName = ""; // 사용자가 요청하는 리스트이름.
 	
 
 	public ListAction() throws IOException {
@@ -41,8 +41,26 @@ public class ListAction extends ActionSupport {
 	//사용자의 요청을 파악해서 원하는 메서드를 호출하는 메서드
 	public String execute() throws Exception {
 
-		memberList();
+		System.out.println(getListName());
+		if (getListName().equals("memberList")) {
+			complete(memberList());
+		}
 
+		
+		return SUCCESS;
+		
+	} //execute 메서드 종료. 
+
+
+	//회원목록 리스트를 불러오는 메서드. 
+	public List memberList() throws Exception { 
+		list = new ArrayList<memberVO>();
+		list = sqlMapper.queryForList("selectMemAll");
+		return list;
+	} //memberList 메서드 종료. 
+
+	
+	public void complete(List list) throws Exception {
 		totalCount = list.size(); 
 
 		page = new PagingAction(currentPage, totalCount, blockCount, blockPage);
@@ -56,19 +74,9 @@ public class ListAction extends ActionSupport {
 		System.out.println(page.getStartCount() + ": getStartCount");
 		System.out.println(lastCount + ": lastCount");
 		list = list.subList(page.getStartCount(), lastCount); 
-
-		return SUCCESS;
-		
-	} //execute 메서드 종료. 
+	}
 
 
-	//회원목록 리스트를 불러오는 메서드. 
-	public void memberList() throws Exception { 
-		list = new ArrayList<memberVO>();
-		list = sqlMapper.queryForList("selectMemAll");
-	} //memberList 메서드 종료. 
-
-	
 
 	public List getList() {
 		return list;
