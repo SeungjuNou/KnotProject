@@ -8,7 +8,6 @@ public class memberVO {
 	private String mem_id;
 	private String mem_pwd;
 	private String mem_name;
-	private Date mem_birth;
 	private String mem_phone;
 	private String mem_img;
 	private String memo;
@@ -41,12 +40,7 @@ public class memberVO {
 	public void setMem_name(String mem_name) {
 		this.mem_name = mem_name;
 	}
-	public Date getMem_birth() {
-		return mem_birth;
-	}
-	public void setMem_birth(Date mem_birth) {
-		this.mem_birth = mem_birth;
-	}
+
 	public String getMem_phone() {
 		return mem_phone;
 	}
