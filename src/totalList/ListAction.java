@@ -6,7 +6,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
  
 import java.util.*;
-import model.member.*;
+import model.*;
 import totalList.PagingAction;
 
 import java.io.Reader;
