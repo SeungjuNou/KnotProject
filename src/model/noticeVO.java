@@ -1,4 +1,4 @@
-package model.notice;
+package model;
 
 import java.util.Date;
 

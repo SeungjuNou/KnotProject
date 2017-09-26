@@ -1,4 +1,4 @@
-package model.areaCategory;
+package model;
 
 public class areaCategoryVO {
 	

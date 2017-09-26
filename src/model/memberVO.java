@@ -1,4 +1,4 @@
-package model.member;
+package model;
 
 import java.util.Date;
 

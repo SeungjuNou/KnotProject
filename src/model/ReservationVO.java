@@ -1,4 +1,4 @@
-package model.reservation;
+package model;
 
 import java.util.Date;
 

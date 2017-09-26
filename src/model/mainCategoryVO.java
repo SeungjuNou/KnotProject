@@ -1,4 +1,4 @@
-package model.mainCategory;
+package model;
 
 public class mainCategoryVO {
 	
