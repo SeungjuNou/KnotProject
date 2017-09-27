@@ -45,6 +45,34 @@
 			<interceptor-ref name="params"/>
 			<result type="tiles">memberList</result>
 		</action>
+		
+		<action name="qna_list" class="totalList.ListAction">
+			<param name="listName">qnaList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">qnaList</result>
+		</action>
+		
+		<action name="faq_list" class="totalList.ListAction">
+			<param name="listName">faqList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">faqList</result>
+		</action>
+		
+		<action name="item_list" class="totalList.ListAction">
+			<param name="listName">itemList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">itemList</result>
+		</action>
+		
+		<action name="notice_list" class="totalList.ListAction">
+			<param name="listName">noticeList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">noticeList</result>
+		</action>
 			
 	</package>
 

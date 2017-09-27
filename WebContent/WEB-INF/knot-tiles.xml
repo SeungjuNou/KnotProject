@@ -32,8 +32,38 @@
 	<definition name="memberList" extends="admin">
 		<put-attribute name="body" value="/member/memberList.jsp" />
 	</definition>
-
-
+	
+	<definition name="qnaList" extends="admin">
+		<put-attribute name="body" value="/cs/qna/qnaList.jsp" />
+	</definition>
+	
+	<definition name="faqList" extends="admin">
+		<put-attribute name="body" value="/cs/faq/faqList.jsp" />
+	</definition>
+	
+	<definition name="itemList" extends="admin">
+		<put-attribute name="body" value="/cs/view/itemList.jsp" />
+	</definition>
+	
+	<definition name="noticeList" extends="admin">
+		<put-attribute name="body" value="/cs/notice/noticeList.jsp" />
+	</definition>
+	
+	<definition name="qnaList" extends="other">
+		<put-attribute name="body" value="/cs/qna/qnaList.jsp" />
+	</definition>
+	
+	<definition name="faqList" extends="other">
+		<put-attribute name="body" value="/cs/faq/faqList.jsp" />
+	</definition>
+	
+	<definition name="itemList" extends="other">
+		<put-attribute name="body" value="/cs/view/itemList.jsp" />
+	</definition>
+	
+	<definition name="noticeList" extends="other">
+		<put-attribute name="body" value="/cs/notice/noticeList.jsp" />
+	</definition>
 	
 </tiles-definitions>
     
