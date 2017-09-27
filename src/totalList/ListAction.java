@@ -22,7 +22,7 @@ public class ListAction extends ActionSupport {
 	
 	private int currentPage = 1;	//현재 페이지
 	private int totalCount; 		// 총 게시물의 수
-	private int blockCount = 5;	// 한 페이지의 게시물의 수
+	private int blockCount;	// 한 페이지의 게시물의 수
 	private int blockPage = 5; 	// 한 화면에 보여줄 페이지 수
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private PagingAction page; 	// 페이징 클래스
@@ -63,6 +63,7 @@ public class ListAction extends ActionSupport {
 
 	//회원목록 리스트를 불러오는 메서드. 
 	public List memberList() throws Exception { 
+		blockCount = 10; //회원목록은 10개씩 띄운다. 
 		list = new ArrayList<memberVO>();
 		list = sqlMapper.queryForList("selectMemAll");
 		return list;
@@ -93,7 +94,7 @@ public class ListAction extends ActionSupport {
 
 	public void complete(List list) throws Exception {
 		totalCount = list.size(); 
-
+		System.out.println(blockCount);
 		page = new PagingAction(currentPage, totalCount, blockCount, blockPage);
 		pagingHtml = page.getPagingHtml().toString(); 
 
@@ -102,8 +103,6 @@ public class ListAction extends ActionSupport {
 		if (page.getEndCount() < totalCount)
 			lastCount = page.getEndCount();
 
-		System.out.println(page.getStartCount() + ": getStartCount");
-		System.out.println(lastCount + ": lastCount");
 		list = list.subList(page.getStartCount(), lastCount); 
 	}
 
