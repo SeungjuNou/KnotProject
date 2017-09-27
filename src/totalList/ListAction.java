@@ -76,7 +76,7 @@ public class ListAction extends ActionSupport {
 	public List faqList() throws Exception { 
 		return list;
 	}
-
+	//상품리스트를 불러오는 메서드
 	public List itemList() throws Exception { 
 		list = new ArrayList<itemVO>();
 		list = sqlMapper.queryForList("selectItemAll");

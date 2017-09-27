@@ -36,7 +36,7 @@
 	<package name="admin" extends="struts-default, tiles-default">
 		
 		<action name="admin_main" class="totalList.ListAction">
-			<result type="tiles">admin</result>
+			<result type="tiles">adminMain</result>
 		</action>
 
 		<action name="member_list" class="totalList.ListAction">
@@ -72,6 +72,13 @@
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">noticeList</result>
+		</action>
+		
+		<action name="category_list" class="totalList.ListAction">
+			<param name="listName">categoryList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">categoryList</result>
 		</action>
 			
 	</package>
