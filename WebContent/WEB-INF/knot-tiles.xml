@@ -38,16 +38,12 @@
 		<put-attribute name="body" value="/main/adminMain.jsp" />
 	</definition>
 	
-	<definition name="categoryMain" extends="admin">
+	<definition name="categoryMain" extends="other">
 		<put-attribute name="body" value="/main/categoryMain.jsp" />
 	</definition>
 	
-	<definition name="memberMain" extends="admin">
+	<definition name="memberMain" extends="other">
 		<put-attribute name="body" value="/main/memberMain.jsp" />
-	</definition>
-	
-	<definition name="sellerMain" extends="otehr">
-		<put-attribute name="body" value="/main/sellerMain.jsp" />
 	</definition>
 
 
