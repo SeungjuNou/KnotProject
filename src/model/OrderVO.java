@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class ReservationVO {
+public class OrderVO {
 	
 	private int re_item_no;
 	private String re_item;

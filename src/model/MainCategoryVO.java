@@ -1,6 +1,6 @@
 package model;
 
-public class mainCategoryVO {
+public class MainCategoryVO {
 	
 	private int cat_no;
 	private String cat_name;

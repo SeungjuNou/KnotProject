@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class memberVO {
+public class MemberVO {
 
 	private int mem_no;
 	private String mem_id;

@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class noticeVO {
+public class NoticeVO {
 	
 	private int noti_no;
 	private Date noti_date;

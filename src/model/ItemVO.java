@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class itemVO {
+public class ItemVO {
 	
 	private int item_no;
 	private String item_name;
