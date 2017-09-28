@@ -1,6 +1,6 @@
 package model;
 
-public class areaCategoryVO {
+public class AreaCategoryVO {
 	
 	private int area_cat_no;
 	private String area_cat_name;
