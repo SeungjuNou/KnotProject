@@ -64,7 +64,7 @@ public class ListAction extends ActionSupport {
 	//회원목록 리스트를 불러오는 메서드. 
 	public List memberList() throws Exception { 
 		blockCount = 10; //회원목록은 10개씩 띄운다. 
-		list = new ArrayList<memberVO>();
+		list = new ArrayList<MemberVO>();
 		list = sqlMapper.queryForList("selectMemAll");
 		return list;
 	} //memberList 메서드 종료. 
@@ -82,7 +82,7 @@ public class ListAction extends ActionSupport {
 	}
 	//상품리스트를 불러오는 메서드
 	public List itemList() throws Exception { 
-		list = new ArrayList<itemVO>();
+		list = new ArrayList<ItemVO>();
 		list = sqlMapper.queryForList("selectItemAll");
 		return list;
 	}
