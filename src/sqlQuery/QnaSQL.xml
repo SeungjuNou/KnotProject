@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+
+	<typeAlias alias="qna" type="model.QnaVO" />
+
+	<resultMap id="qnaRes" class="qna">
+		<result property="qna_no" column="QNA_NO"/>
+		<result property="qna_mem_id" column="QNA_MEM_ID"/>
+		<result property="qna_name" column="QNA_NAME"/>
+		<result property="qna_subject" column="QNA_SUBJECT"/>
+		<result property="qna_content" column="QNA_CONTENT"/>
+		<result property="qna_answer" column="QNA_ANSWER"/>
+		<result property="qna_date" column="QNA_DATE"/>
+		<result property="qna_img" column="QNA_IMG"/>
+		<result property="qna_check" column="QNA_CHECK"/>
+	</resultMap>
+
+	<sql id="qna-select-all">
+		select * from QNA
+	</sql>
+
+	<select id="selectQnaAll" resultMap="qnaRes" parameterClass="int">
+		<include refid="qna-select-all" />
+		ORDER BY QNA_NO DESC
+	</select>
+
+
+</sqlMap>

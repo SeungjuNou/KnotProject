@@ -50,7 +50,7 @@
 			<param name="listName">qnaList</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
-			<result type="tiles">qnaList</result>
+			<result type="tiles">other_qnaList</result>
 		</action>
 		
 		<action name="faq_list" class="totalList.ListAction">
@@ -84,7 +84,3 @@
 	</package>
 
 </struts>
-
-
-
-
