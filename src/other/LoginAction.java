@@ -1,4 +1,4 @@
-package member.action.login;
+package other;
 
 public class LoginAction {
 
