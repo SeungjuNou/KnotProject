@@ -11,7 +11,7 @@
 	<package name="main" extends="struts-default, tiles-default">
 		
 		<action name="main" class="totalList.ListAction">
-			<param name="listName">memberList</param>
+			<param name="listName">mainList</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">main</result>
