@@ -28,6 +28,24 @@
 			<result type="tiles">other</result>
 		</action>
 
+		<action name="notice_write" class="write.NoticeWriteAction" method="form">
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">noticeWrite</result>
+		</action>
+		
+		<action name="notice_writeAction" class="write.NoticeWriteAction">
+		<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="redirect-action">notice_list</result>
+		</action>
+		
+		<action name="notice_view" class="view.NoticeViewAction">
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">noticeView</result>
+		</action>
+ 
 	</package>
 
 
@@ -51,6 +69,13 @@
 			<interceptor-ref name="params"/>
 			<result type="tiles">memberList</result>
 		</action>
+		
+		 <action name="notice_list" class="totalList.ListAction">
+			<param name="listName">noticeList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">others_noticeList</result>
+		</action> 
 
 	</package>
 	

@@ -191,7 +191,7 @@
 	</definition>
 	
 	<definition name="noticeView" extends="other">
-		<put-attribute name="body" value="/write/noticeView.jsp" />
+		<put-attribute name="body" value="/view/noticeView.jsp" />
 	</definition>
 	
 	<definition name="orderView" extends="other">
