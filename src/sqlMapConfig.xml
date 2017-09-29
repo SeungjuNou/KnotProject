@@ -24,7 +24,10 @@
 	
 	<sqlMap resource="/sqlQuery/memberSQL.xml"/>
 	<sqlMap resource="/sqlQuery/qnaSQL.xml"/>
+<<<<<<< HEAD
 	<sqlMap resource="/sqlQuery/noticeSQL.xml"/>
 	
+=======
+>>>>>>> 786fde59b6ee53cb302ae7b798165170d3de84d7
 	
 </sqlMapConfig>
