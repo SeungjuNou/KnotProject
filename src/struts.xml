@@ -11,6 +11,9 @@
 	<package name="main" extends="struts-default, tiles-default">
 		
 		<action name="main" class="totalList.ListAction">
+			<param name="listName">memberList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
 			<result type="tiles">main</result>
 		</action>
 
@@ -19,6 +22,9 @@
 	<package name="other" extends="struts-default, tiles-default">
 
 		<action name="other" class="totalList.ListAction">
+			<param name="listName">memberList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
 			<result type="tiles">other</result>
 		</action>
 
@@ -28,59 +34,25 @@
 	<package name="myPage" extends="struts-default, tiles-default">
 		
 		<action name="myPage_main" class="totalList.ListAction">
+			<param name="listName">memberList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
 			<result type="tiles">myPage</result>
 		</action>
 		
 	</package>
 	
+	
 	<package name="admin" extends="struts-default, tiles-default">
 		
-		<action name="admin_main" class="totalList.ListAction">
-			<result type="tiles">adminMain</result>
-		</action>
-
 		<action name="member_list" class="totalList.ListAction">
 			<param name="listName">memberList</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">memberList</result>
 		</action>
-		
-		<action name="qna_list" class="totalList.ListAction">
-			<param name="listName">qnaList</param>
-			<interceptor-ref name="staticParams"/>
-			<interceptor-ref name="params"/>
-			<result type="tiles">other_qnaList</result>
-		</action>
-		
-		<action name="faq_list" class="totalList.ListAction">
-			<param name="listName">faqList</param>
-			<interceptor-ref name="staticParams"/>
-			<interceptor-ref name="params"/>
-			<result type="tiles">faqList</result>
-		</action>
-		
-		<action name="item_list" class="totalList.ListAction">
-			<param name="listName">itemList</param>
-			<interceptor-ref name="staticParams"/>
-			<interceptor-ref name="params"/>
-			<result type="tiles">itemList</result>
-		</action>
-		
-		<action name="notice_list" class="totalList.ListAction">
-			<param name="listName">noticeList</param>
-			<interceptor-ref name="staticParams"/>
-			<interceptor-ref name="params"/>
-			<result type="tiles">noticeList</result>
-		</action>
-		
-		<action name="category_list" class="totalList.ListAction">
-			<param name="listName">categoryList</param>
-			<interceptor-ref name="staticParams"/>
-			<interceptor-ref name="params"/>
-			<result type="tiles">categoryList</result>
-		</action>
-			
+
 	</package>
+	
 
 </struts>

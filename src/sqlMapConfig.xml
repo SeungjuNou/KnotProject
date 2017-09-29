@@ -22,7 +22,7 @@
 	</transactionManager>
 	
 	
-	<sqlMap resource="/member/sql/memberSQL.xml"/>
-	<sqlMap resource="/sqlQuery/QnaSQL.xml"/>
+	<sqlMap resource="/sqlQuery/memberSQL.xml"/>
+	<sqlMap resource="/sqlQuery/qnaSQL.xml"/>
 	
 </sqlMapConfig>

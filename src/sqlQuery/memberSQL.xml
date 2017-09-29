@@ -3,7 +3,7 @@
 
 <sqlMap>
 
-	<typeAlias alias="member" type="model.memberVO" />
+	<typeAlias alias="member" type="model.MemberVO" />
 
 	<resultMap id="memberRes" class="member">
 		<result property="mem_no" column="MEM_NO"/>
