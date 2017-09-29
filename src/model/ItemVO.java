@@ -15,6 +15,8 @@ public class ItemVO {
 	private int item_readhit;
 	private String sal_id;
 	private String sal_name;
+	private String book_disab;
+	private String item_sal_check;
 	private String re_date;
 	
 	
@@ -89,6 +91,18 @@ public class ItemVO {
 	}
 	public void setRe_date(String re_date) {
 		this.re_date = re_date;
+	}
+	public String getBook_disab() {
+		return book_disab;
+	}
+	public String getItem_sal_check() {
+		return item_sal_check;
+	}
+	public void setBook_disab(String book_disab) {
+		this.book_disab = book_disab;
+	}
+	public void setItem_sal_check(String item_sal_check) {
+		this.item_sal_check = item_sal_check;
 	}
 	
 	
