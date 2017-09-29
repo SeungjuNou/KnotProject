@@ -20,12 +20,12 @@
 		<result property="re_date" column="RE_DATE"/>
 	</resultMap>
 
-	<sql id="select-all">
+	<sql id="item-select-all">
 		select * from ITEM
 	</sql>
 
 	<select id="selectItemAll" resultMap="itemRes" parameterClass="int">
-		<include refid="select-all" />
+		<include refid="item-select-all" />
 		ORDER BY ITEM_NO DESC
 	</select>
 

@@ -88,8 +88,8 @@ public class ListAction extends ActionSupport {
 	}
 
 	public List noticeList() throws Exception {
-		list = new ArrayList<NoticeVO>();
-		list = sqlMapper.queryForList("selectNoticeAll");
+		/*list = new ArrayList<NoticeVO>();
+		list = sqlMapper.queryForList("selectNoticeAll");*/
 		return list;
 	}
 
