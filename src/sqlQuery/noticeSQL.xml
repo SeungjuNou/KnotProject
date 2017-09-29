@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+
+	<typeAlias alias="notice" type="model.NoticeVO" />
+
+	<resultMap id="noticeRes" class="notice">
+		<result property="noti_no" column="NOTI_NO"/>
+		<result property="noti_date" column="NOTI_DATE"/>
+		<result property="noti_subject" column="NOTI_SUBJECT"/>
+		<result property="noti_content" column="NOTI_CONTENT"/>
+	</resultMap>
+
+	<sql id="notice-select-all">
+		select * from NOTICE
+	</sql>
+
+	<select id="selectNoticeAll" resultMap="noticeRes" parameterClass="int">
+		<include refid="notice-select-all" />
+		ORDER BY NOTICE_NO DESC
+	</select>
+
+
+</sqlMap>

@@ -3,7 +3,7 @@
 
 <sqlMap>
 
-	<typeAlias alias="member" type="model.memberVO" />
+	<typeAlias alias="member" type="model.MemberVO" />
 
 	<resultMap id="memberRes" class="member">
 		<result property="mem_no" column="MEM_NO"/>
@@ -18,12 +18,12 @@
 		<result property="mem_date" column="MEM_DATE"/>
 	</resultMap>
 
-	<sql id="select-all">
+	<sql id="member-select-all">
 		select * from MEMBER
 	</sql>
 
 	<select id="selectMemAll" resultMap="memberRes" parameterClass="int">
-		<include refid="select-all" />
+		<include refid="member-select-all" />
 		ORDER BY MEM_NO DESC
 	</select>
 
