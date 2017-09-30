@@ -5,6 +5,7 @@ public class FaqVO {
 	private int faq_no;
 	private String faq_subject;
 	private String faq_content;
+	
 	public int getFaq_no() {
 		return faq_no;
 	}
