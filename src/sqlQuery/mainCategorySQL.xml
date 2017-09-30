@@ -1,2 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+
+	<typeAlias alias="cat" type="model.MainCategoryVO" />
+
+	<resultMap id="catRes" class="cat">
+		<result property="cat_no" column="CAT_NO"/>
+		<result property="cat_name" column="CAT_NAME"/>
+		<result property="cat_img" column="CAT_IMG"/>
+	</resultMap>
+	
+	<sql id="where-cat-no">
+		WHERE CAT_NO = #cat_no#
+	</sql>
+
+	<sql id="cat-select-all">
+		SELECT * FROM MAIN_CATEGORY
+	</sql>
+
+	<select id="selectCatAll" resultMap="catRes" parameterClass="int">
+		<include refid="cat-select-all" />
+		ORDER BY CAT_NO DESC
+	</select>
+	
+	<select id="mainCatSelectOne" resultMap="catRes" parameterClass="int">
+		<include refid="cat-select-all" />
+		<include refid="where-cat-no" />
+	</select>
+	
+	<select id="mainCatSelectLastNo" resultClass="cat" parameterClass="int">
+		SELECT MAX(CAT_NO) AS CAT_NO FROM MAIN_CATEGORY
+	</select>
+	
+	<insert id="mainCatInsertBoard" parameterClass="cat">
+		INSERT INTO MAIN_CATEGORY (CAT_NO, CAT_NAME)
+		VALUES (CAT_NO_SEQ.NEXTVAL, #cat_name#)
+	</insert>
+	
+	<update id="mainCatUpdateFile" parameterClass="cat">
+		UPDATE MAIN_CATEGORY SET CAT_IMG = #cat_img#
+		<include refid="where-cat-no" />
+	</update>
+	
+	<update id="mainCatUpdateBoard" parameterClass="cat">
+		UPDATE MAIN_CATEGORY SET CAT_NAME = #cat_name#
+		<include refid="where-cat-no" />
+		</update>
+
+</sqlMap>
