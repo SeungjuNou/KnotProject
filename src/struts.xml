@@ -100,6 +100,14 @@
 			<result type="tiles">qnaView</result>
 		</action>  
 		
+		 <action name="QnaDeleteAction" class="delete.QnaDeleteAction">
+         	<result type="chain">admin_qnaList</result>
+      	</action> 
+      	
+      	<action name="QnaDeleteAction" class="delete.QnaDeleteAction">
+			<result>/delete/qnaDelete.jsp</result>
+		</action>
+		
     
 		<action name="admin_faqList" class="totalList.ListAction">
 			<param name="listName">faqList</param>
@@ -128,6 +136,8 @@
 			<interceptor-ref name="params"/>
 			<result type="tiles">faqView</result>
 		</action>
+		
+		
 		
 	</package>
 	
