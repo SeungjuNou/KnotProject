@@ -84,13 +84,16 @@ public class ListAction extends ActionSupport {
 	
 //Q&A 게시글을 불러오는 메서드
 	public List qnaList() throws Exception { 
-		/*blockCount = 10;
+		blockCount = 10;
 		list = new ArrayList<QnaVO>();
-		list = sqlMapper.queryForList("selectQnaAll");*/
+		list = sqlMapper.queryForList("selectQnaAll");
 		return list;
 	}
 	
 	public List faqList() throws Exception { 
+		blockCount = 10;
+		list = new ArrayList<FaqVO>();
+		list = sqlMapper.queryForList("selectFaqAll");
 		return list;
 	}
 	//상품리스트를 불러오는 메서드

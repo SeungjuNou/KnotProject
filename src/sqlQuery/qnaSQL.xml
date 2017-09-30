@@ -20,11 +20,42 @@
 	<sql id="qna-select-all">
 		select * from QNA
 	</sql>
+	
+	<sql id="where-qna-no">
+		where qna_no = #qna_no#
+	</sql>
+	
 
 	<select id="selectQnaAll" resultMap="qnaRes" parameterClass="int">
 		<include refid="qna-select-all" />
 		ORDER BY QNA_NO DESC
 	</select>
-
+	  
+	 <select id="selectQnaLastNo" resultClass="qna" parameterClass="int">
+		select max(qna_no) as qna_no from QNA
+	</select>
+	  
+	<insert id="qnaInsert" parameterClass="qna">
+		insert into QNA (qna_no, qna_mem_id, qna_name, qna_subject, qna_content, qna_answer, qna_date, qna_img, qna_check) 
+		values (QNA_NO_SEQ.NEXTVAL, #qna_mem_id#, #qna_name#, #qna_subject#, #qna_content#, #qna_answer#, #qna_date#, #qna_img#, #qna_check#)
+	</insert>
+	 
+ 	<update id="qnaupdateFile" parameterClass="qna">
+		update QNA set qna_img = #qna_img#
+		<include refid="where-qna-no" />
+	</update> 
+	 
+	<select id="selectQnaOne" resultMap="qnaRes" parameterClass="int">
+		<include refid="qna-select-all" />
+		<include refid="where-qna-no" />
+	</select>
+	
+	<delete id="qnadeleteBoard" parameterClass="qna">
+		DELETE FROM QNA 
+		<include refid="where-qna-no" />
+   	</delete> 
+	
+	
+	
 
 </sqlMap>

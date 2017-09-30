@@ -122,39 +122,6 @@
 	</definition>
 		
 	
-	<!-- 등록 폼 -->
-	<definition name="faqForm" extends="other">
-		<put-attribute name="body" value="/form/faqForm.jsp" />
-	</definition>
-	
-	<definition name="findForm" extends="other">
-		<put-attribute name="body" value="/form/findForm.jsp" />
-	</definition>
-	
-	<definition name="itemupForm" extends="other">
-		<put-attribute name="body" value="/form/itemupForm.jsp" />
-	</definition>
-	
-	<definition name="loginForm" extends="other">
-		<put-attribute name="body" value="/form/loginForm.jsp" />
-	</definition>
-	
-	<definition name="memberJoinForm" extends="other">
-		<put-attribute name="body" value="/form/memberJoinForm.jsp" />
-	</definition>
-	
-	<definition name="noticeForm" extends="other">
-		<put-attribute name="body" value="/form/noticeForm.jsp" />
-	</definition>
-	
-	<definition name="orderForm" extends="other">
-		<put-attribute name="body" value="/form/orderForm.jsp" />
-	</definition>
-	
-	<definition name="qnaForm" extends="other">
-		<put-attribute name="body" value="/form/qnaForm.jsp" />
-	</definition>
-	
 	<!-- 삭제 -->
 	<definition name="faqDelete" extends="other">
 		<put-attribute name="body" value="/delete/faqDelete.jsp" />
@@ -183,7 +150,7 @@
 	
 	<!-- 상세보기 -->
 	<definition name="faqView" extends="other">
-		<put-attribute name="body" value="/write/faqView.jsp" />
+		<put-attribute name="body" value="/view/faqView.jsp" />
 	</definition>
 	
 	<definition name="itemView" extends="other">
@@ -203,7 +170,7 @@
 	</definition>
 	
 	<definition name="qnaView" extends="other">
-		<put-attribute name="body" value="/write/qnaView.jsp" />
+		<put-attribute name="body" value="/view/qnaView.jsp" />
 	</definition>
 	
 	<definition name="mainCatView" extends="other">

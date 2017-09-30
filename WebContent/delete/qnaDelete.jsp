@@ -1,0 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+
+<meta http-equiv="refresh" content="3;url=http://localhost:8080/KnotProject/admin_qnaList.action"/>
+
+
+삭제가 완료되었습니다.
+
