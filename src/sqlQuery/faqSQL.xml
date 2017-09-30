@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+
+	<typeAlias alias="faq" type="model.FaqVO" />
+
+	<resultMap id="faqRes" class="faq">
+		
+		<result property="faq_no" column="FAQ_NO"/>
+		<result property="faq_subject" column="FAQ_SUBJECT"/>
+		<result property="faq_content" column="FAQ_CONTENT"/>
+		
+	</resultMap>
+
+	<sql id="faq-select-all">
+		select * from FAQ
+	</sql>
+	
+	<sql id="where-faq-no">
+		WHERE faq_no = #faq_no#
+	</sql> 
+
+	<select id="selectFaqAll" resultMap="faqRes" parameterClass="int">
+		<include refid="faq-select-all" />
+		ORDER BY FAQ_NO DESC
+	</select>
+	
+	<select id="selectFaqOne" resultClass="faq" parameterClass="int">
+		<include refid="faq-select-all" />
+		<include refid="where-faq-no" />
+	</select>
+		
+		
+
+	<!-- insert 쿼리문 정의 -->
+	<insert id="insertFaqBoard" parameterClass="faq">
+
+		INSERT INTO FAQ (FAQ_NO,
+						FAQ_SUBJECT,
+	 					FAQ_CONTENT
+						)
+		VALUES (FAQ_NO_SEQ.NEXTVAL,
+						#faq_subject#,
+						#faq_content#
+	   					)
+	</insert>
+
+</sqlMap>
