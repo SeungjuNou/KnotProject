@@ -46,6 +46,8 @@ public class ListAction extends ActionSupport {
 		System.out.println(getListName());
 		if (getListName().equals("memberList")) {
 			complete(memberList());
+		} else if(getListName().equals("mainCatList")) {
+			complete(mainCatList());
 		} else if (getListName().equals("qnaList")) {
 			complete(qnaList());
 		} else if (getListName().equals("faqList")) {
@@ -72,6 +74,13 @@ public class ListAction extends ActionSupport {
 		list = sqlMapper.queryForList("selectMemAll");
 		return list;
 	} //memberList 메서드 종료. 
+	//메인카테고리 게시글을 불러오는 메서드
+	public List mainCatList() throws Exception {
+		blockCount = 10;
+		list = new ArrayList<MainCategoryVO>();
+		list = sqlMapper.queryForList("selectCatAll");
+		return list;
+	}
 	
 //Q&A 게시글을 불러오는 메서드
 	public List qnaList() throws Exception { 
@@ -255,8 +264,4 @@ public class ListAction extends ActionSupport {
 	public void setCatLen(int catLen) {
 		this.catLen = catLen;
 	}
-
-
-
-	
 }

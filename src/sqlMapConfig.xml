@@ -26,6 +26,7 @@
 	<sqlMap resource="/sqlQuery/qnaSQL.xml"/>
 	<sqlMap resource="/sqlQuery/noticeSQL.xml"/>
 	<sqlMap resource="/sqlQuery/itemSQL.xml"/>
+	<sqlMap resource="/sqlQuery/mainCategorySQL.xml"/>
 	
 	
 </sqlMapConfig>

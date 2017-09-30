@@ -27,7 +27,7 @@
 	</definition>
 
 	<definition name="admin" template="/tiles/admin_layout.jsp">
-		<put-attribute name="header" value="/main/adminMain.jsp" />
+		<put-attribute name="header" value="/tiles/header/admin_header.jsp" />
 		<put-attribute name="body" value="/tiles/body/admin_body.jsp" />
 	</definition>
 
@@ -116,6 +116,10 @@
 	<definition name="qnaWrite" extends="other">
 		<put-attribute name="body" value="/write/qnaWrite.jsp" />
 	</definition>
+	
+	<definition name="mainCatWrite" extends="other">
+		<put-attribute name="body" value="/write/mainCatWrite.jsp" />
+	</definition>
 		
 	
 	<!-- 등록 폼 -->
@@ -200,6 +204,10 @@
 	
 	<definition name="qnaView" extends="other">
 		<put-attribute name="body" value="/write/qnaView.jsp" />
+	</definition>
+	
+	<definition name="mainCatView" extends="other">
+		<put-attribute name="body" value="/view/mainCatView.jsp" />
 	</definition>
 	
 </tiles-definitions>

@@ -45,6 +45,39 @@
 			<interceptor-ref name="params"/>
 			<result type="tiles">noticeView</result>
 		</action>
+		
+		<action name="mainCat_write" class="write.MainCatWriteAction" method="form">
+			<result type="tiles">mainCatWrite</result>
+		</action>
+		
+		<action name="mainCat_writeAction" class="write.MainCatWriteAction">
+			<result type="redirect-action">mainCat_list</result>
+		</action>
+		<!--  수정기능 -->
+		<action name="mainCat_modify" class="view.MainCatViewAction">
+			<result type="tiles">mainCatWrite</result>
+		</action> 
+
+		<action name="mainCat_modifyAction" class="modify.MainCatModifyAction">
+			<result type="redirect-action">mainCat_list</result>
+		</action>
+		<!--  수정기능끝 -->
+		<action name="mainCat_view" class="view.MainCatViewAction">
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">mainCatView</result>
+		</action>
+		
+		<action name="mainCatFileDownloadAction" class="view.MainCatViewAction"
+			method="download">
+			<result name="success" type="stream">
+				<param name="contentType">binary/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">${contentDisposition}</param>
+				<param name="contentLength">${contentLength}</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
  
 	</package>
 
@@ -75,9 +108,13 @@
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">others_noticeList</result>
+		</action>
+		
+		<action name="mainCat_list" class="totalList.ListAction">
+			<param name="listName">mainCatList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">categoryList</result>
 		</action> 
-
 	</package>
-	
-
 </struts>
