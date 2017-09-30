@@ -82,6 +82,9 @@ public class ListAction extends ActionSupport {
 	}
 	
 	public List faqList() throws Exception { 
+		blockCount = 10;
+		list = new ArrayList<FaqVO>();
+		list = sqlMapper.queryForList("selectFaqAll");
 		return list;
 	}
 	//상품리스트를 불러오는 메서드

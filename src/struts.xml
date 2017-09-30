@@ -69,7 +69,18 @@
 			<interceptor-ref name="params"/>
 			<result type="tiles">memberList</result>
 		</action>
+    
+		<action name="admin_faqList" class="totalList.ListAction">
+			<param name="listName">faqList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_faqList</result>
+		</action>
 		
+		<action name="faqWriteForm" class="write.FaqWriteAction" method="form">
+			<result type="tiles">faqWrite</result>
+		</action>
+
 		 <action name="notice_list" class="totalList.ListAction">
 			<param name="listName">noticeList</param>
 			<interceptor-ref name="staticParams"/>
@@ -77,7 +88,18 @@
 			<result type="tiles">others_noticeList</result>
 		</action> 
 
+
+		 <action name="faqWriteAction" class="write.FaqWriteAction">
+			<result type="redirect-action">admin_faqList</result>
+		</action>
+		
+		<action name="faqView" class="view.FaqViewAction">
+			<interceptor-ref name="params"/>
+			<result type="tiles">faqView</result>
+		</action>
+		
 	</package>
+	
 	
 
 </struts>
