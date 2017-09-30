@@ -10,24 +10,24 @@
 	
 	<definition name="main" template="/tiles/main_layout.jsp">
 		<put-attribute name="header" value="/tiles/header/main_header.jsp" />
-		<put-attribute name="body" value="/tiles/body/main_body.jsp" />
+		<put-attribute name="body" value="/main/mainPage.jsp" />
 		<put-attribute name="footer" value="/tiles/footer/footer.jsp" />
 	</definition>	
 	
 	<definition name="other" template="/tiles/other_layout.jsp">
 		<put-attribute name="header" value="/tiles/header/other_header.jsp" />
-		<put-attribute name="body" value="/tiles/body/other_body.jsp" />
+		<put-attribute name="body" value="/main/categoryMain.jsp" />
 		<put-attribute name="footer" value="/tiles/footer/footer.jsp" />
 	</definition>
 
 	<definition name="myPage" template="/tiles/myPage_layout.jsp">
 		<put-attribute name="header" value="/tiles/header/myPage_header.jsp" />
-		<put-attribute name="body" value="/tiles/body/myPage_body.jsp" />
+		<put-attribute name="body" value="/main/myPage.jsp" />
 		<put-attribute name="footer" value="/tiles/footer/footer.jsp" />
 	</definition>
 
 	<definition name="admin" template="/tiles/admin_layout.jsp">
-		<put-attribute name="header" value="/tiles/header/admin_header.jsp" />
+		<put-attribute name="header" value="/main/adminMain.jsp" />
 		<put-attribute name="body" value="/tiles/body/admin_body.jsp" />
 	</definition>
 
@@ -158,7 +158,7 @@
 	</definition>
 	
 	<definition name="noticeView" extends="other">
-		<put-attribute name="body" value="/write/noticeView.jsp" />
+		<put-attribute name="body" value="/view/noticeView.jsp" />
 	</definition>
 	
 	<definition name="orderView" extends="other">

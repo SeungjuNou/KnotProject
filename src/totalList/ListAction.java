@@ -19,6 +19,7 @@ public class ListAction extends ActionSupport {
 	public static SqlMapClient sqlMapper;	
 
 	private List list; //쿼리실행 결과를 담을 list객체 변수 선언.
+	private Map<Integer, Object> list2 = new HashMap<Integer, Object>();
 	
 	private int currentPage = 1;	//현재 페이지
 	private int totalCount; 		// 총 게시물의 수
@@ -28,6 +29,7 @@ public class ListAction extends ActionSupport {
 	private PagingAction page; 	// 페이징 클래스
 	private String find = ""; // 검색 내용 
 	private String listName = ""; // 사용자가 요청하는 리스트이름.
+	private int catLen = 1; //메인 카테고리 길이 
 	
 
 	public ListAction() throws IOException {
@@ -52,6 +54,8 @@ public class ListAction extends ActionSupport {
 			complete(itemList());
 		} else if (getListName().equals("noticeList")) {
 			complete(noticeList());
+		} else if (getListName().equals("mainList")) {
+			mainList();
 		} else {
 			complete(memberList());
 		}
@@ -91,13 +95,23 @@ public class ListAction extends ActionSupport {
 	}
 
 	public List noticeList() throws Exception {
-		/*list = new ArrayList<NoticeVO>();
-		list = sqlMapper.queryForList("selectNoticeAll");*/
+		list = new ArrayList<NoticeVO>();
+		list = sqlMapper.queryForList("selectNoticeAll");
 		return list;
 	}
 
-	public List mainList() throws Exception { 
-		return list;
+	public Map mainList() throws Exception {
+
+		catLen = (int) sqlMapper.queryForObject("countMainCategory");
+		list = new ArrayList<ItemVO>();
+		for (int catNo = 1; catNo <= catLen; catNo++) {
+			list = sqlMapper.queryForList("selectMainItem", catNo);
+			list2.put(catNo, list);
+			System.out.println(list + "list 테스트 ");
+		}
+		System.out.println(list2 + "list2 테스트 ");
+
+		return list2;
 	}
 
 
@@ -116,9 +130,23 @@ public class ListAction extends ActionSupport {
 	}
 
 
+	public static Reader getReader() {
+		return reader;
+	}
+
+
+	public static SqlMapClient getSqlMapper() {
+		return sqlMapper;
+	}
+
 
 	public List getList() {
 		return list;
+	}
+
+
+	public Map<Integer, Object> getList2() {
+		return list2;
 	}
 
 
@@ -162,8 +190,28 @@ public class ListAction extends ActionSupport {
 	}
 
 
+	public int getCatLen() {
+		return catLen;
+	}
+
+
+	public static void setReader(Reader reader) {
+		ListAction.reader = reader;
+	}
+
+
+	public static void setSqlMapper(SqlMapClient sqlMapper) {
+		ListAction.sqlMapper = sqlMapper;
+	}
+
+
 	public void setList(List list) {
 		this.list = list;
+	}
+
+
+	public void setList2(Map<Integer, Object> list2) {
+		this.list2 = list2;
 	}
 
 
@@ -207,22 +255,11 @@ public class ListAction extends ActionSupport {
 	}
 
 
-	public static Reader getReader() {
-		return reader;
+	public void setCatLen(int catLen) {
+		this.catLen = catLen;
 	}
 
 
-	public static SqlMapClient getSqlMapper() {
-		return sqlMapper;
-	}
 
-
-	public static void setReader(Reader reader) {
-		ListAction.reader = reader;
-	}
-
-
-	public static void setSqlMapper(SqlMapClient sqlMapper) {
-		ListAction.sqlMapper = sqlMapper;
-	}
+	
 }
