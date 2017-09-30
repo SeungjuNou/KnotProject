@@ -33,7 +33,7 @@
 
 	<package name="myPage" extends="struts-default, tiles-default">
 		
-		<action name="myPage_main" class="totalList.ListAction">
+		<action name="myPage" class="totalList.ListAction">
 			<param name="listName">memberList</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
@@ -45,12 +45,44 @@
 	
 	<package name="admin" extends="struts-default, tiles-default">
 		
-		<action name="member_list" class="totalList.ListAction">
+		<action name="memberList" class="totalList.ListAction">
 			<param name="listName">memberList</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">memberList</result>
 		</action>
+		
+		<action name="admin_qnaList" class="totalList.ListAction">
+			<param name="listName">qnaList</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_qnaList</result>
+		</action>
+		
+		 <action name="qnaWriteForm" class="write.QnaWriteAction" method="form">
+			<param name="writeName">qnaWrite</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">qnaWrite</result>
+		</action>
+		  
+		<action name="qnaWrite" class="write.QnaWriteAction">
+			<param name="writeName">qnaWrite</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="redirect-action">admin_qnaList</result>
+		</action>
+		
+		  
+	 	<action name="qnaView" class="view.QnaViewAction">
+			<param name="writeName">qnaView</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">qnaView</result>
+		</action>  
+		
+
+
 
 	</package>
 	

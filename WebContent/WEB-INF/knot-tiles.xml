@@ -199,7 +199,7 @@
 	</definition>
 	
 	<definition name="qnaView" extends="other">
-		<put-attribute name="body" value="/write/qnaView.jsp" />
+		<put-attribute name="body" value="/view/qnaView.jsp" />
 	</definition>
 	
 </tiles-definitions>
