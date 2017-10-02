@@ -27,6 +27,10 @@
 		ORDER BY MEM_NO DESC
 	</select>
 
+	<select id="selectMemberOne" resultMap="memberRes" parameterClass="String">
+		<include refid="member-select-all" />
+		where mem_id = #mem_id#
+	</select>
 
 </sqlMap>
 

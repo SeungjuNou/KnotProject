@@ -8,6 +8,8 @@
 	<constant name="struts.multipart.saveDir" value="/tmp"/> 
 	<constant name="struts.multipart.maxSize" value="102400000"/> 
 	
+
+
 	<package name="main" extends="struts-default, tiles-default">
 		
 		<action name="main" class="totalList.ListAction">
@@ -19,6 +21,12 @@
 
 	</package>
 	
+
+
+
+
+
+
 	<package name="other" extends="struts-default, tiles-default">
 
 		<action name="other" class="totalList.ListAction">
@@ -28,12 +36,8 @@
 			<result type="tiles">other</result>
 		</action>
 
-		<action name="notice_write" class="write.NoticeWriteAction" method="form">
-			<interceptor-ref name="staticParams"/>
-			<interceptor-ref name="params"/>
-			<result type="tiles">noticeWrite</result>
-		</action>
 		
+
 		<action name="notice_writeAction" class="write.NoticeWriteAction">
 		<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
@@ -82,6 +86,11 @@
 	</package>
 
 
+
+
+
+
+
 	<package name="myPage" extends="struts-default, tiles-default">
 		
 		<action name="myPage" class="totalList.ListAction">
@@ -92,8 +101,32 @@
 		</action>
 		
 	</package>
+
+
+
+
+	<package name="Login" extends="struts-default, tiles-default">
+
+		<action name="loginForm" class="other.LoginAction" method="loginForm">
+			<result type="tiles">LoginForm</result>
+		</action>
+
+		<action name="loginAction" class="other.LoginAction">
+			<result type="tiles">main</result>
+		</action>
+
+		<action name="logoutAction" class="other.LoginAction" method="logOut">
+			<result type="tiles">main</result>
+		</action>
+
+	</package>
 	
 	
+
+
+
+
+
 	<package name="admin" extends="struts-default, tiles-default">
 		
 		<action name="memberList" class="totalList.ListAction">
@@ -103,6 +136,8 @@
 			<result type="tiles">memberList</result>
 		</action>
 
+
+		<!-- admin - QnA -->
 		
 		<action name="admin_qnaList" class="totalList.ListAction">
 			<param name="listName">qnaList</param>
@@ -111,14 +146,14 @@
 			<result type="tiles">admin_qnaList</result>
 		</action>
 		
-		 <action name="qnaWriteForm" class="write.QnaWriteAction" method="form">
+		 <action name="admin_qnaForm" class="write.QnaWriteAction" method="form">
 			<param name="writeName">qnaWrite</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">qnaWrite</result>
 		</action>
 		  
-		<action name="qnaWrite" class="write.QnaWriteAction">
+		<action name="admin_qnaWrite" class="write.QnaWriteAction">
 			<param name="writeName">qnaWrite</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
@@ -126,12 +161,16 @@
 		</action>
 		
 		  
-	 	<action name="qnaView" class="view.QnaViewAction">
+	 	<action name="admin_qnaView" class="view.QnaViewAction">
 			<param name="writeName">qnaView</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">qnaView</result>
 		</action>  
+
+
+
+		<!-- admin - FAQ -->
 		
 		 <action name="QnaDeleteAction" class="delete.QnaDeleteAction">
          	<result type="chain">admin_qnaList</result>
@@ -149,11 +188,23 @@
 			<result type="tiles">admin_faqList</result>
 		</action>
 		
-		<action name="faqWriteForm" class="write.FaqWriteAction" method="form">
+		<action name="admin_faqWriteForm" class="write.FaqWriteAction" method="form">
 			<result type="tiles">faqWrite</result>
 		</action>
 
-		 <action name="notice_list" class="totalList.ListAction">
+		 <action name="admin_faqWriteAction" class="write.FaqWriteAction">
+			<result type="redirect-action">admin_faqList</result>
+		</action>
+		
+		<action name="admin_faqView" class="view.FaqViewAction">
+			<interceptor-ref name="params"/>
+			<result type="tiles">faqView</result>
+		</action>
+
+		
+		<!-- admin - Notice -->
+
+		<action name="admin_noticeList" class="totalList.ListAction">
 			<param name="listName">noticeList</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
@@ -169,18 +220,25 @@
 	</package>
 
 
-
-		 <action name="faqWriteAction" class="write.FaqWriteAction">
-			<result type="redirect-action">admin_faqList</result>
-		</action>
-		
-		<action name="faqView" class="view.FaqViewAction">
+		<action name="admin_noticeForm" class="write.NoticeWriteAction" method="form">
+			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
-			<result type="tiles">faqView</result>
+			<result type="tiles">noticeWrite</result>
 		</action>
 		
+		<action name="admin_noticeWrite" class="write.NoticeWriteAction">
+		<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="redirect-action">notice_list</result>
+		</action>
 		
-		
+
+		<action name="admin_noticeView" class="view.NoticeViewAction">
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">noticeView</result>
+		</action>
+
 	</package>
 
 </struts>
