@@ -32,7 +32,7 @@
 	<!-- ///////////////////////////// -->
 
 	<definition name="admin" template="/tiles/admin_layout.jsp">
-		<put-attribute name="header" value="/main/adminMain.jsp" />
+		<put-attribute name="header" value="/tiles/header/admin_header.jsp" />
 		<put-attribute name="body" value="/tiles/body/admin_body.jsp" />
 	</definition>
 
@@ -166,6 +166,40 @@
 		<put-attribute name="body" value="/write/orderWrite.jsp" />
 	</definition>
 	
+	<definition name="qnaWrite" extends="other">
+		<put-attribute name="body" value="/write/qnaWrite.jsp" />
+	</definition>
+	
+	<definition name="mainCatWrite" extends="other">
+		<put-attribute name="body" value="/write/mainCatWrite.jsp" />
+	</definition>
+		
+	
+	<!-- 삭제 -->
+	<definition name="faqDelete" extends="other">
+		<put-attribute name="body" value="/delete/faqDelete.jsp" />
+	</definition>
+	
+	<definition name="itemDelete" extends="other">
+		<put-attribute name="body" value="/delete/itemDelete.jsp" />
+	</definition>
+	
+	<definition name="memberDelete" extends="other">
+		<put-attribute name="body" value="/delete/memberDelete.jsp" />
+	</definition>
+	
+	<definition name="noticeDelete" extends="other">
+		<put-attribute name="body" value="/delete/noticeDelete.jsp" />
+	</definition>
+	
+	<definition name="orderDelete" extends="other">
+		<put-attribute name="body" value="/delete/orderDelete.jsp" />
+	</definition>
+	
+	<definition name="qnaDelete" extends="other">
+		<put-attribute name="body" value="/delete/qnaDelete.jsp" />
+	</definition>
+	
 	
 
 
@@ -224,6 +258,10 @@
 		<put-attribute name="body" value="/member/loginForm.jsp" />
 	</definition>
 
+
+	<definition name="mainCatView" extends="other">
+		<put-attribute name="body" value="/view/mainCatView.jsp" />
+	</definition>
 
 </tiles-definitions>
     

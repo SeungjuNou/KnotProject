@@ -27,6 +27,7 @@
 	<sqlMap resource="/sqlQuery/noticeSQL.xml"/>
 	<sqlMap resource="/sqlQuery/faqSQL.xml"/>
 	<sqlMap resource="/sqlQuery/itemSQL.xml"/>
+	<sqlMap resource="/sqlQuery/mainCategorySQL.xml"/>
 
 	
 	

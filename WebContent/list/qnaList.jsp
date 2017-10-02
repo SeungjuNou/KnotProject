@@ -12,6 +12,7 @@
 		<s:url id="viewURL" action="qnaView">
 			<s:param name="qna_no">
 				<s:property value="qna_no"/>
+				
 			</s:param>
 			<s:param name="currentPage">
 				<s:property value="currentPage" />
@@ -25,7 +26,7 @@
       	<s:a href="%{viewURL}"><s:property value="qna_name" /></s:a>
       	<s:property value="qna_date" />
       	</li>
-     </ul>
+
   
            
       </s:iterator>
