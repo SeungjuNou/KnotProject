@@ -10,7 +10,7 @@
 		<s:iterator value="list" status="stat">
 			<!-- iterator는 모든값을 받아와서 반복해서출력 -->
 			
-			<s:url id="faqViewURL" action="faqView">
+			<s:url id="faqViewURL" action="admin_faqView">
 				<li>번호 제목</li>
 				<s:param name="faq_no">
 					<s:property value="faq_no" />

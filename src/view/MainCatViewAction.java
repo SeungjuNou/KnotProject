@@ -42,7 +42,6 @@ public String execute() throws Exception {
 		
 		paramClass.setCat_no(getCat_no());
 		resultClass = (MainCategoryVO) sqlMapper.queryForObject("mainCatSelectOne", getCat_no());
-		System.out.println("testttttttttttttttttt");
 		return SUCCESS;
 	}
 

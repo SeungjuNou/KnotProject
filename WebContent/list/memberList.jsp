@@ -7,6 +7,8 @@
 
 
   <h2>회원리스트</h2>
+  <b>${sessionScope.mem_id}님 환영합니다.</b>
+
       <s:iterator value="list" status="stat">
 
       <ul>

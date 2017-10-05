@@ -7,6 +7,9 @@ import model.MainCategoryVO;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.ServletRequestAware;
 
 import java.util.*;
 
@@ -17,7 +20,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class MainCatWriteAction extends ActionSupport {
+public class MainCatWriteAction extends ActionSupport implements  ServletRequestAware {
 
 	public static Reader reader; 
 	public static SqlMapClient sqlMapper; 
@@ -26,6 +29,7 @@ public class MainCatWriteAction extends ActionSupport {
 	private MainCategoryVO resultClass;
 	
 	private int currentPage; 
+	private HttpServletRequest request;
 
 	private int cat_no;
 	private String cat_name;
@@ -34,7 +38,7 @@ public class MainCatWriteAction extends ActionSupport {
 	private File upload; 
 	private String uploadContentType; 
 	private String uploadFileName; 
-	private String fileUploadPath = "./image/categoryImg/";
+	private String fileUploadPath = request.getRealPath("/");
 	
 	public MainCatWriteAction() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -63,6 +67,7 @@ public class MainCatWriteAction extends ActionSupport {
 			String file_name = "categoryfile_" + resultClass.getCat_no();
 			String file_ext = getUploadFileName().substring(getUploadFileName().lastIndexOf('.') + 1, getUploadFileName().length());
 
+			System.out.println(fileUploadPath);
 			File destFile = new File(fileUploadPath + file_name + "." + file_ext);
 			FileUtils.copyFile(getUpload(), destFile);
 			paramClass.setCat_no(resultClass.getCat_no());
@@ -170,6 +175,12 @@ public class MainCatWriteAction extends ActionSupport {
 
 	public void setFileUploadPath(String fileUploadPath) {
 		this.fileUploadPath = fileUploadPath;
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+		
 	}
 
 }

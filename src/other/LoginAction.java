@@ -47,9 +47,12 @@ public class LoginAction implements Action, ServletRequestAware{
 		boolean result = loginChk(mem_id, mem_pwd);
 		
 		if (result) {
-			request.getSession().setAttribute( "mem_no", mem_no);
-			request.getSession().setAttribute( "mem_id" , mem_id);	
-			request.getSession().setAttribute( "mem_lev" , mem_lev);
+			request.getSession().setAttribute( "mem_no", reInfo.getMem_no());
+			request.getSession().setAttribute( "mem_id" , reInfo.getMem_id());	
+			request.getSession().setAttribute( "mem_lev" , reInfo.getMem_lev());
+			System.out.println(mem_no);
+			System.out.println(mem_id);
+			System.out.println(mem_lev);
 			System.out.println("login Success");
 			return SUCCESS; //로그인 성공 했을때
 		} else {
@@ -60,25 +63,26 @@ public class LoginAction implements Action, ServletRequestAware{
 	
 	
  
-	private boolean loginChk(String id, String pwd) throws Exception {
-			System.out.println(reInfo + " reInfo test");
-			reInfo = (MemberVO) sqlMapper.queryForObject("selectMemberOne", id);
-			//쿼리문을 실행해서 객체를 받아 초기화한다.
-			System.out.println(reInfo + "memberInfo null check");
-			System.out.println(reInfo.getMem_id() + " get testttttt");
-			System.out.println(reInfo.getMem_pwd() + " get mem_pwd");
+	private boolean loginChk(String mem_id, String mem_pwd) throws Exception {
 
-			if (mem_pwd.equals(reInfo.getMem_pwd())) {
-				System.out.println(reInfo.getMem_id()+" getId test");
-				return true; //비번 맞으면 true.
-			} else {
-				return false; //비번 틀리면 fasle.
-			}
+		reInfo = (MemberVO) sqlMapper.queryForObject("selectMemberOne", mem_id);
+			//쿼리문을 실행해서 객체를 받아 초기화한다.
+		
+		System.out.println(reInfo.getMem_no());
+		System.out.println(reInfo.getMem_id());
+		System.out.println(reInfo.getMem_lev());
+
+		if (mem_pwd.equals(reInfo.getMem_pwd())) {
+			return true; //비번 맞으면 true.
+		} else {
+			return false; //비번 틀리면 fasle.
+		}
+
 	}
 	
 	
 
-	public String logOut() throws Exception {
+	public String logout() throws Exception {
 
 		try {
 			request.getSession().invalidate();
@@ -86,6 +90,7 @@ public class LoginAction implements Action, ServletRequestAware{
 		} catch (Exception ex) {
 			return SUCCESS;
 		}
+		
 	}
 
 

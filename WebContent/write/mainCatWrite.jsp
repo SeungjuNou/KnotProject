@@ -6,12 +6,12 @@
 	<h2>카테고리</h2>
 
 	<s:if test="resultClass == NULL">
-		<form action="mainCat_writeAction.action" method="post"
+		<form action="admin_mainCatWrite.action" method="post"
 			enctype="multipart/form-data" onsubmit="return validation();">
 	</s:if>
 
 	<s:else>
-		<form action="mainCat_modifyAction.action" method="post"
+		<form action="admin_mainCatModify.action" method="post"
 			enctype="multipart/form-data">
 			<s:hidden name="cat_no" value="%{resultClass.cat_no}" />
 			<s:hidden name="currentPage" value="%{currentPage}" />

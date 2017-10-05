@@ -8,7 +8,7 @@
 		<h2>로그인</h2>
 	</li>
 	
-	<form action="loginAction.action">
+	<form action="login.action">
 		<li>
 			아이디 : <s:textfield name="mem_id" theme="simple" />
 		</li>

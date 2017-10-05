@@ -29,7 +29,7 @@
 
 	<select id="selectMemberOne" resultMap="memberRes" parameterClass="String">
 		<include refid="member-select-all" />
-		where mem_id = #mem_id#
+		WHERE MEM_ID = #mem_id#
 	</select>
 
 </sqlMap>

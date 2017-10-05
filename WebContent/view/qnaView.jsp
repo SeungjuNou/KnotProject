@@ -43,5 +43,5 @@
 	 <input type="button" name="list" value="목록" class="inputb"
 		onclick="javascript:location.href='admin_qnaList.action?currentPage=<s:property value="currentPage" />'">
 	 <input type="button" name="delete" value="삭제" class="inputb"
-		onclick="javascript:location.href='QnaDeleteAction.action?qna_no=<s:property value="resultClass.qna_no" />&currentPage=<s:property value="currentPage" />'">
+		onclick="javascript:location.href='admin_qnaDelete.action?qna_no=<s:property value="resultClass.qna_no" />&currentPage=<s:property value="currentPage" />'">
  

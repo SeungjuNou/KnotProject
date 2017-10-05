@@ -9,7 +9,7 @@
      <ul>
       <s:iterator value="list" status="stat">
 		
-		<s:url id="viewURL" action="qnaView">
+		<s:url id="viewURL" action="admin_qnaView">
 			<s:param name="qna_no">
 				<s:property value="qna_no"/>
 				
@@ -38,6 +38,6 @@
 <%-- <s:property value="pagingHtml" escape="false" /> --%>
 
 <input type="button" name="write" value="글쓰기" class="inputb"
-		onclick="javascript:location.href='qnaWriteForm.action?qna_no=<s:property value="resultClass.qna_no" />&currentPage=<s:property value="currentPage" />'">
+		onclick="javascript:location.href='admin_qnaForm.action?qna_no=<s:property value="resultClass.qna_no" />&currentPage=<s:property value="currentPage" />'">
 	
 

@@ -15,7 +15,7 @@
 		
 
 		<s:if test="resultClass == NULL">   
-		<form action="faqWriteAction.action" method="post" enctype="multipart/form-data"> </s:if>
+		<form action="admin_faqForm.action" method="post" enctype="multipart/form-data"> </s:if>
 
 	<ul>
 			<li>번호 : <s:property value="resultClass.faq_no" /></li>

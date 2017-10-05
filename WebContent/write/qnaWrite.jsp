@@ -7,7 +7,7 @@
 
   
 	 <s:if test="resultClass == NULL"> 
-		<form action="qnaWrite.action" method="post" enctype="multipart/form-data" onsubmit="return validation();">
+		<form action="admin_qnaWrite.action" method="post" enctype="multipart/form-data" onsubmit="return validation();">
 		<s:hidden name="qna_check" theme="simple" value="%{resultClass.qna_check}"  /> 	
  	</s:if> 
 		
@@ -22,7 +22,7 @@
 			<li>
             	아이디 <s:textfield name="qna_mem_id" theme="simple" value="%{resultClass.qna_mem_id}" maxlength="20"/> <br>
       
-				이름 <s:textfield name="qna_name" theme="simple" value="%{resultClass.qna_name}"  maxlength="50"/> <br>
+			이름 <s:textfield name="qna_name" theme="simple" value="%{resultClass.qna_name}"  maxlength="50"/> <br>
             	
             	제목 <s:textfield name="qna_subject" theme="simple" value="%{resultClass.qna_subject}"  maxlength="50"/><br>
           	
