@@ -47,12 +47,15 @@ public class LoginAction implements Action, ServletRequestAware{
 		boolean result = loginChk(mem_id, mem_pwd);
 		
 		if (result) {
+			
+			System.out.println(reInfo.getMem_no());
+			System.out.println(reInfo.getMem_id());
+			System.out.println(reInfo.getMem_lev());
+			
 			request.getSession().setAttribute( "mem_no", reInfo.getMem_no());
 			request.getSession().setAttribute( "mem_id" , reInfo.getMem_id());	
 			request.getSession().setAttribute( "mem_lev" , reInfo.getMem_lev());
-			System.out.println(mem_no);
-			System.out.println(mem_id);
-			System.out.println(mem_lev);
+			
 			System.out.println("login Success");
 			return SUCCESS; //로그인 성공 했을때
 		} else {
@@ -67,10 +70,6 @@ public class LoginAction implements Action, ServletRequestAware{
 
 		reInfo = (MemberVO) sqlMapper.queryForObject("selectMemberOne", mem_id);
 			//쿼리문을 실행해서 객체를 받아 초기화한다.
-		
-		System.out.println(reInfo.getMem_no());
-		System.out.println(reInfo.getMem_id());
-		System.out.println(reInfo.getMem_lev());
 
 		if (mem_pwd.equals(reInfo.getMem_pwd())) {
 			return true; //비번 맞으면 true.
