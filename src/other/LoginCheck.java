@@ -32,7 +32,7 @@ public class LoginCheck extends AbstractInterceptor
 		if (session.get("mem_lev") != null) {
 			mem_id = ((Integer)(session.get("mem_lev"))).intValue();
 
-			if ( mem_id = 0 ) {
+			if ( mem_id == 0 ) {
    				result = "nonUser"; //비 로그인 유저.
 	   		} else {
 	   			result = invocation.invoke(); //로그인 유저.

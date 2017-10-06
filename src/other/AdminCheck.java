@@ -5,6 +5,8 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
@@ -14,35 +16,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class AdminCheck extends AbstractInterceptor 
-		implements SessionAware, ServletResponseAware, ServletRequestAware, RequestAware  {
+public class AdminCheck extends AbstractInterceptor implements ServletRequestAware {
 
-	HttpServletResponse response;
-	Map sessionMap;
-	Map requestMap;
+	String result = "login";
+	
 	HttpServletRequest request;
-	String result;
-	ActionContext context = ActionContext.getContext();
-	Map<String, Object> session = (Map<String, Object>)context.getSession();
+	HttpSession session;
+
+
+
 	int mem_id = 0;
 
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
+		session = ServletActionContext.getRequest().getSession(false);
+		System.out.println(session + "tesssst1");
 		
-		if (session.get("mem_lev") != null) {
-			mem_id = ((Integer)(session.get("mem_lev"))).intValue();
-
-			if ( mem_id < 2 ) {
-   				result = "user"; //일반사용자
-	   		} else if ( mem_id == 2) {
+		try{
+			mem_id = ((Integer)(session.getAttribute("mem_lev"))).intValue();
+			System.out.println(mem_id + "tesssst2");
+			
+			if ( mem_id == 3) {
 	   			result = invocation.invoke();
 	   		} 
-
-		} else {
 			
-			result = "user";
+		} catch (Exception ex) {
 		}
-
+		
 		return result;  
 	}
 
@@ -54,24 +54,32 @@ public class AdminCheck extends AbstractInterceptor
 	public void destroy() {
 	}
 
-	public void setSession(Map session) {
-		this.sessionMap = session;
-	}	
-	//RequestAware의 setRequest 구현
-	public void setRequest(Map requestMap) {
-		this.requestMap = requestMap;
-	}	
-	//ServletRequestAware의 serServletRequest 구현
+	
+	public HttpServletRequest getRequest() {
+		return request;
+	}
+
+
+	public HttpSession getSession() {
+		return session;
+	}
+
+
+	public void setRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+
+
+	public void setSession(HttpSession session) {
+		this.session = session;
+	}
+
+	
+	@Override
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
 	}
 
-	@Override
-	public void setServletResponse(HttpServletResponse response) {
-		this.response = response;
-	}	
 
-	
-	
 
 }
