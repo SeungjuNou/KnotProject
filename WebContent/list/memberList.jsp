@@ -12,7 +12,7 @@
       <s:iterator value="list" status="stat">
 
       <ul>
-      	<li><s:property value="mem_num" /> <s:property value="mem_id" /> <s:property value="mem_name" /> <s:property value="mem_date" /></li>
+      	<li><s:property value="no" /> <s:property value="mem_id" /> <s:property value="mem_name" /> <s:property value="mem_date" /></li>
       </ul>
            
       </s:iterator>
