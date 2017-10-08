@@ -36,8 +36,9 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	private String fileUploadPath;
 	
 	private String userReq;
+	private String modifyReq="";
 
-	private int no;
+	private int no = 0;
 	private String name;
 	private String content;
 	private Date todate;
@@ -51,6 +52,7 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	private String mem_phone;
 	private String memo;
 	private int mem_lev;
+
 
 	private String img = "";
 
@@ -88,20 +90,32 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 		
 		//file upload start
-		no = (int) sqlMapper.queryForObject("mainCatSeqNo");
-		
 		if (getUpload() != null) {
+			if(no == 0 ) {
+				no = (int) sqlMapper.queryForObject("mainCatSeqNo");
+			} else {
+				no = getNo();
+			}
 			img = uploadImg();
 		}
 		paramClass.setImg(img);
 		//file upload end
 		
-
+		paramClass.setNo(getNo());
 		paramClass.setName(getName());
+
+		System.out.println("진입점 테스트 입니다.");
+		System.out.println(paramClass.getNo());
+		System.out.println(paramClass.getName());
 		
+		if (getModifyReq().equals("") || getModifyReq() == null ) {
+			sqlMapper.insert("mainCatInsertBoard", paramClass);
+
+		} else {
+			sqlMapper.update("mainCatModifyBoard", paramClass);
+		}
 
 
-		sqlMapper.insert("mainCatInsertBoard", paramClass);
 	}
 
 
@@ -109,10 +123,15 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 		FaqVO paramClass = new FaqVO();
 		
+		paramClass.setNo(getNo());
 		paramClass.setName(getName());
 		paramClass.setContent(getContent());
 		
-		sqlMapper.insert("insertFaqBoard", paramClass);
+		if (getModifyReq().equals("") || getModifyReq() == null ) {
+			sqlMapper.insert("insertFaqBoard", paramClass);
+		} else {
+			sqlMapper.update("mainfaqModifyBoard", paramClass);
+		}
 	}
 
 
@@ -364,6 +383,16 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+
+
+	public String getModifyReq() {
+		return modifyReq;
+	}
+
+
+	public void setModifyReq(String modifyReq) {
+		this.modifyReq = modifyReq;
 	}
 
 

@@ -17,7 +17,7 @@
 	      	
 	      	<li>
 	      		<s:iterator value="list2[#stat.index]" status="stat2">
-	      			<s:property value="item_name" />
+	      			<s:property value="name" />
 	      		</s:iterator>
 				
 	      	</li>

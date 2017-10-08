@@ -39,6 +39,13 @@
 		VALUES (CAT_NO_SEQ.NEXTVAL, #name#, #img#)
 	</insert>
 
+
+	<update id="mainCatModifyBoard" parameterClass="cat">
+		UPDATE MAIN_CATEGORY SET NAME = #name#, IMG = #img#
+		<include refid="where-cat-no" />
+	</update>
+
+
 	
 
 </sqlMap>

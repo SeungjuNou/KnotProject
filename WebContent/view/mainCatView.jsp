@@ -6,35 +6,20 @@
 
 	<h2>카테고리</h2>
 	<ul>
-		<li>번호<s:property value="resultClass.cat_no" /></li>
-		<li>이름<s:property value="resultClass.cat_name" /></li>
-		<li>이미지<s:url id="download" action="mainCatFileDownloadAction">
+		<li>번호<s:property value="resultClass.no" /></li>
+		<li>이름<s:property value="resultClass.name" /></li>
+		<li>이미지 <s:property value="resultClass.img" /> </li>
+			
+	</ul>
+	
+	<s:url id="modifyURL" action="admin_mainCatModifyForm">			
 				<s:param name="cat_no">
 					<s:property value="cat_no" />
 				</s:param>
-			</s:url>
-			
-			<s:a href="%{download}">
-				<s:property value="resultClass.cat_img" />
-			</s:a>
-			
-			<s:url id="modifyURL" action="mainCat_modify">			
-				<s:param name="cat_no">
-					<s:property value="cat_no" />
-				</s:param>
-			</s:url>
-			
-			<s:url id="deleteURL" action="mainCatDeleteAction">
-				<s:param name="cat_no">
-					<s:property value="cat_no" />
-				</s:param>
-			</s:url>
-		</ul>
-		
+	</s:url>
+				
 	<input type="button" name="modify" value="수정" class="inputb"
-		onclick="javascript:location.href='mainCat_modify.action?cat_no=<s:property value="resultClass.cat_no" />&currentPage=<s:property value="currentPage" />'">
+		onclick="javascript:location.href='admin_mainCatModifyForm.action?no=<s:property value="resultClass.no" />&currentPage=<s:property value="currentPage" />&userReq=adminMainCatView'">
 	<input type="button" name="list" value="목록" class="inputb"
-		onclick="javascript:location.href='mainCat_list.action?currentPage=<s:property value="currentPage" />'">
-	<input type="button" name="delete" value="삭제" class="inputb"
-		onclick="javascript:location.href='catDeleteAction.action?cat_no=<s:property value="resultClass.cat_no" />&currentPage=<s:property value="currentPage" />'">
+		onclick="javascript:location.href='admin_mainCat.action?currentPage=<s:property value="currentPage" />'">
 
