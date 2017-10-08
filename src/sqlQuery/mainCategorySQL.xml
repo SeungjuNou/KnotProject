@@ -28,7 +28,10 @@
 		<include refid="cat-select-all" />
 		<include refid="where-cat-no" />
 	</select>
-
+	
+	<select id="countMainCategory" resultClass="int">
+		select count(*) from MAIN_CATEGORY
+	</select>
 
 	<select id="mainCatSeqNo" resultClass="int">
 		SELECT LAST_NUMBER  FROM USER_SEQUENCES WHERE SEQUENCE_NAME = UPPER('CAT_NO_SEQ')

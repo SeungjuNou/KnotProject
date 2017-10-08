@@ -112,6 +112,7 @@ public class ListAction extends ActionSupport {
 	public Map mainList() throws Exception {
 
 		catLen = (int) sqlMapper.queryForObject("countMainCategory");
+		System.out.println(catLen);
 		list = new ArrayList<ItemVO>();
 		for (int catNo = 1; catNo <= catLen; catNo++) {
 			list = sqlMapper.queryForList("selectMainItem", catNo);

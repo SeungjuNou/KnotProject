@@ -29,12 +29,8 @@
 		ORDER BY NO DESC
 	</select>
 
-	<select id="countMainCategory" resultClass="int">
-		select count(*) from TEST_MAIN_CATEGORY
-	</select>
-
 	<select id="selectMainItem" resultMap="itemRes" parameterClass="int">
-		select * from ( select * from TEST_ITEM where CAT_NO  = #catNo# order by ITEM_READHIT desc) where rownum <![CDATA[ <= 4]]>
+		select * from ( select * from ITEM where NO  = #catNo# order by ITEM_READHIT desc) where rownum <![CDATA[ <= 4]]>
 	</select>
 
 
