@@ -6,10 +6,10 @@
 	<typeAlias alias="notice" type="model.NoticeVO" />
 
 	<resultMap id="noticeRes" class="notice">
-		<result property="noti_no" column="NOTI_NO"/>
-		<result property="noti_date" column="NOTI_DATE"/>
-		<result property="noti_subject" column="NOTI_SUBJECT"/>
-		<result property="noti_content" column="NOTI_CONTENT"/>
+		<result property="no" column="NO"/>
+		<result property="todate" column="TODATE"/>
+		<result property="name" column="NAME"/>
+		<result property="content" column="CONTENT"/>
 	</resultMap>
 
 	<sql id="notice-select-all">
@@ -17,17 +17,17 @@
 	</sql>
 	
 	<sql id="where-notice-no">
-		WHERE NOTI_NO = #noti_no#
+		WHERE NO = #no#
 	</sql>
 
 	<select id="selectNoticeAll" resultMap="noticeRes" parameterClass="int">
 		<include refid="notice-select-all" />
-		ORDER BY NOTI_NO DESC
+		ORDER BY NO DESC
 	</select>
 	
 	<insert id="noticeInsertBoard" parameterClass="notice">
-		INSERT INTO NOTICE (NOTI_NO, NOTI_DATE, NOTI_SUBJECT, NOTI_CONTENT)
-		VALUES (NOTI_NO_SEQ.NEXTVAL, #noti_date#, #noti_subject#, #noti_content#)
+		INSERT INTO NOTICE (NO, TODATE, NAME, CONTENT)
+		VALUES (NOTI_NO_SEQ.NEXTVAL, #todate#, #name#, #content#)
 	</insert>
 	
 	<select id="noticeSelectOne" resultMap="noticeRes" parameterClass="int">

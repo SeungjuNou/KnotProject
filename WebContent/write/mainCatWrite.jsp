@@ -8,6 +8,7 @@
 	<s:if test="resultClass == NULL">
 		<form action="admin_mainCatWrite.action" method="post"
 			enctype="multipart/form-data" onsubmit="return validation();">
+			<s:hidden name="userReq" value="mainCatWrite" />
 	</s:if>
 
 	<s:else>
@@ -18,7 +19,7 @@
 			<s:hidden name="old_file" value="%{resultClass.cat_img}" />
 	</s:else>
 
-	<s:textfield name="cat_name" theme="simple" value="%{resultClass.cat_name}"/>
+	<s:textfield name="name" theme="simple" value="%{resultClass.cat_name}"/>
 	<s:file name="upload" theme="simple" />
 
 	<s:if test="resultClass.cat_img != NULL">&nbsp; * <s:property value="resultClass.cat_img" /> 파일이 등록되어 있습니다. 다시 업로드하면 기존의 파일은 삭제됩니다.</s:if>

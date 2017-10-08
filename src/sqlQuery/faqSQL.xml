@@ -7,9 +7,9 @@
 
 	<resultMap id="faqRes" class="faq">
 		
-		<result property="faq_no" column="FAQ_NO"/>
-		<result property="faq_subject" column="FAQ_SUBJECT"/>
-		<result property="faq_content" column="FAQ_CONTENT"/>
+		<result property="no" column="NO"/>
+		<result property="name" column="NAME"/>
+		<result property="content" column="CONTENT"/>
 		
 	</resultMap>
 
@@ -18,12 +18,13 @@
 	</sql>
 	
 	<sql id="where-faq-no">
-		WHERE faq_no = #faq_no#
+		WHERE NO = #no#
 	</sql> 
+
 
 	<select id="selectFaqAll" resultMap="faqRes" parameterClass="int">
 		<include refid="faq-select-all" />
-		ORDER BY FAQ_NO DESC
+		ORDER BY NO DESC
 	</select>
 	
 	<select id="selectFaqOne" resultClass="faq" parameterClass="int">
@@ -31,19 +32,9 @@
 		<include refid="where-faq-no" />
 	</select>
 		
-		
-
-	<!-- insert 쿼리문 정의 -->
 	<insert id="insertFaqBoard" parameterClass="faq">
-
-		INSERT INTO FAQ (FAQ_NO,
-						FAQ_SUBJECT,
-	 					FAQ_CONTENT
-						)
-		VALUES (FAQ_NO_SEQ.NEXTVAL,
-						#faq_subject#,
-						#faq_content#
-	   					)
+		INSERT INTO FAQ (NO, NAME, CONTENT) VALUES (FAQ_NO_SEQ.NEXTVAL, #name#, #content#)
 	</insert>
+	
 
 </sqlMap>

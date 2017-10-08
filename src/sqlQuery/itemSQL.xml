@@ -6,21 +6,18 @@
 	<typeAlias alias="item" type="model.ItemVO" />
 
 	<resultMap id="itemRes" class="item">
-		<result property="item_no" column="ITEM_NO"/>
-		<result property="item_name" column="ITEM_NAME"/>
-		<result property="item_price" column="ITEM_PRICE"/>
+		<result property="no" column="NO"/>
+		<result property="name" column="NAME"/>
+		<result property="price" column="PRICE"/>
 		<result property="cat_no" column="CAT_NO"/>
 		<result property="area_cat_no" column="AREA_CAT_NO"/>
 		<result property="item_sum" column="ITEM_SUM"/>
 		<result property="item_detail" column="ITEM_DETAIL"/>
-		<!-- <result property="item_img" column="ITEM_IMG"/>  -->
+		<result property="img" column="IMG"/> 
 		<result property="item_readhit" column="ITEM_READHIT"/>
 		<result property="sal_id" column="SAL_ID"/>
 		<result property="sal_name" column="SAL_NAME"/>
-		<!-- <result property="re_date" column="RE_DATE"/>  -->
-		<result property="book_disab" column="BOOK_DISAB"/>
-		<result property="item_sal_check" column="ITEM_SAL_CHECK"/>
-		<result property="item_img" column="ITEM_IMG"/>
+		<result property="re_date" column="RE_DATE"/>  
 	</resultMap>
 
 	<sql id="item-select-all">
@@ -29,7 +26,7 @@
 
 	<select id="selectItemAll" resultMap="itemRes" parameterClass="int">
 		<include refid="item-select-all" />
-		ORDER BY ITEM_NO DESC
+		ORDER BY NO DESC
 	</select>
 
 	<select id="countMainCategory" resultClass="int">

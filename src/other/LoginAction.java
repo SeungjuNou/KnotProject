@@ -48,11 +48,11 @@ public class LoginAction implements Action, ServletRequestAware{
 		
 		if (result) {
 			
-			System.out.println(reInfo.getMem_no());
+			System.out.println(reInfo.getNo());
 			System.out.println(reInfo.getMem_id());
 			System.out.println(reInfo.getMem_lev());
 			
-			request.getSession().setAttribute( "mem_no", reInfo.getMem_no());
+			request.getSession().setAttribute( "mem_no", reInfo.getNo());
 			request.getSession().setAttribute( "mem_id" , reInfo.getMem_id());	
 			request.getSession().setAttribute( "mem_lev" , reInfo.getMem_lev());
 			
@@ -84,6 +84,7 @@ public class LoginAction implements Action, ServletRequestAware{
 	public String logout() throws Exception {
 
 		try {
+			System.out.println("logout test");
 			request.getSession().invalidate();
 			return SUCCESS;
 		} catch (Exception ex) {

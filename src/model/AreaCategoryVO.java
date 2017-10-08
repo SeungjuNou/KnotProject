@@ -2,27 +2,28 @@ package model;
 
 public class AreaCategoryVO {
 	
-	private int area_cat_no;
-	private String area_cat_name;
-	private String area_cat_code;
+	private int no;
+	private String name;
+	private String cat_code;
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCat_code() {
+		return cat_code;
+	}
+	public void setCat_code(String cat_code) {
+		this.cat_code = cat_code;
+	}
 		
-	public int getArea_cat_no() {
-		return area_cat_no;
-	}
-	public void setArea_cat_no(int area_cat_no) {
-		this.area_cat_no = area_cat_no;
-	}
-	public String getArea_cat_name() {
-		return area_cat_name;
-	}
-	public void setArea_cat_name(String area_cat_name) {
-		this.area_cat_name = area_cat_name;
-	}
-	public String getArea_cat_code() {
-		return area_cat_code;
-	}
-	public void setArea_cat_code(String area_cat_code) {
-		this.area_cat_code = area_cat_code;
-	}
+	
 
 }

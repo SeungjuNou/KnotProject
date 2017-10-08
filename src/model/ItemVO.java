@@ -4,39 +4,36 @@ import java.util.Date;
 
 public class ItemVO {
 	
-	private int item_no;
-	private String item_name;
-	private int item_price;
+	private int no;
+	private String name;
+	private int price;
 	private int cat_no;
 	private int area_cat_no;
 	private String item_sum;
 	private String item_detail;
-	private String item_img;
+	private String img;
 	private int item_readhit;
 	private String sal_id;
 	private String sal_name;
-	private String book_disab;
-	private String item_sal_check;
 	private String re_date;
 	
-	
-	public int getItem_no() {
-		return item_no;
+	public int getNo() {
+		return no;
 	}
-	public void setItem_no(int item_no) {
-		this.item_no = item_no;
+	public void setNo(int no) {
+		this.no = no;
 	}
-	public String getItem_name() {
-		return item_name;
+	public String getName() {
+		return name;
 	}
-	public void setItem_name(String item_name) {
-		this.item_name = item_name;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public int getItem_price() {
-		return item_price;
+	public int getPrice() {
+		return price;
 	}
-	public void setItem_price(int item_price) {
-		this.item_price = item_price;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	public int getCat_no() {
 		return cat_no;
@@ -62,11 +59,11 @@ public class ItemVO {
 	public void setItem_detail(String item_detail) {
 		this.item_detail = item_detail;
 	}
-	public String getItem_img() {
-		return item_img;
+	public String getImg() {
+		return img;
 	}
-	public void setItem_img(String item_img) {
-		this.item_img = item_img;
+	public void setImg(String img) {
+		this.img = img;
 	}
 	public int getItem_readhit() {
 		return item_readhit;
@@ -92,19 +89,6 @@ public class ItemVO {
 	public void setRe_date(String re_date) {
 		this.re_date = re_date;
 	}
-	public String getBook_disab() {
-		return book_disab;
-	}
-	public String getItem_sal_check() {
-		return item_sal_check;
-	}
-	public void setBook_disab(String book_disab) {
-		this.book_disab = book_disab;
-	}
-	public void setItem_sal_check(String item_sal_check) {
-		this.item_sal_check = item_sal_check;
-	}
-	
 	
 
 }
