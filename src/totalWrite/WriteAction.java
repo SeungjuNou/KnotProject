@@ -36,8 +36,9 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	private String fileUploadPath;
 	
 	private String userReq;
+	private String modifyReq="";
 
-	private int no;
+	private int no = 0;
 	private String name;
 	private String content;
 	private Date todate;
@@ -51,6 +52,7 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	private String mem_phone;
 	private String memo;
 	private int mem_lev;
+
 
 	private String img = "";
 
@@ -78,6 +80,10 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 			faqWrite();
 		} else if (getUserReq().equals("qnaWrite")) {
 			qnaWrite();
+		} else if (getUserReq().equals("memberWrite")) {
+			memberWrite();
+		} else if (getUserReq().equals("noticeWrite")) {
+			noticeWrite();
 		}
 		
 		return SUCCESS;
@@ -90,20 +96,32 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 		
 		//file upload start
-		no = (int) sqlMapper.queryForObject("mainCatSeqNo");
-		
 		if (getUpload() != null) {
+			if(no == 0 ) {
+				no = (int) sqlMapper.queryForObject("mainCatSeqNo");
+			} else {
+				no = getNo();
+			}
 			img = uploadImg();
 		}
 		paramClass.setImg(img);
 		//file upload end
 		
-
+		paramClass.setNo(getNo());
 		paramClass.setName(getName());
+
+		System.out.println("진입점 테스트 입니다.");
+		System.out.println(paramClass.getNo());
+		System.out.println(paramClass.getName());
 		
+		if (getModifyReq().equals("") || getModifyReq() == null ) {
+			sqlMapper.insert("mainCatInsertBoard", paramClass);
+
+		} else {
+			sqlMapper.update("mainCatModifyBoard", paramClass);
+		}
 
 
-		sqlMapper.insert("mainCatInsertBoard", paramClass);
 	}
 
 
@@ -111,10 +129,42 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 		FaqVO paramClass = new FaqVO();
 		
+		paramClass.setNo(getNo());
 		paramClass.setName(getName());
 		paramClass.setContent(getContent());
 		
-		sqlMapper.insert("insertFaqBoard", paramClass);
+		if (getModifyReq().equals("") || getModifyReq() == null ) {
+			sqlMapper.insert("insertFaqBoard", paramClass);
+		} else {
+			sqlMapper.update("mainfaqModifyBoard", paramClass);
+		}
+	}
+	
+	public void memberWrite() throws SQLException, IOException {
+
+		MemberVO paramClass = new MemberVO();
+
+		
+		//file upload start
+		no = (int) sqlMapper.queryForObject("memberSeqNo");
+		
+		if (getUpload() != null) {
+			img = uploadImg();
+		}
+	
+		//file upload end
+		
+
+		paramClass.setMem_id(getMem_id());
+		paramClass.setMem_pwd(getMem_pwd());
+		paramClass.setMem_name(getMem_name());
+		paramClass.setMem_phone(getMem_phone());
+		paramClass.setImg(img);
+		paramClass.setMemo(getMemo());
+		paramClass.setMem_lev(getMem_lev());
+		paramClass.setTodate(todate);
+		
+		sqlMapper.insert("insertMember", paramClass);
 	}
 	
 	public void qnaWrite() throws SQLException, IOException {
@@ -140,6 +190,19 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		sqlMapper.insert("insertQnaBoard", paramClass);
 	}
 
+
+	public void noticeWrite() throws SQLException, IOException {
+
+		NoticeVO paramClass = new NoticeVO();
+		
+		paramClass.setTodate(todate);
+		paramClass.setName(getName());
+		paramClass.setContent(getContent());
+		
+		sqlMapper.insert("noticeInsertBoard", paramClass);
+	}
+	
+	
 
 	public String uploadImg() throws IOException {
 	
@@ -389,6 +452,16 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+
+
+	public String getModifyReq() {
+		return modifyReq;
+	}
+
+
+	public void setModifyReq(String modifyReq) {
+		this.modifyReq = modifyReq;
 	}
 
 

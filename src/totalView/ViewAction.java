@@ -36,6 +36,8 @@ public class ViewAction extends ActionSupport {
 
 		if (getUserReq().equals("faqView")) {
 			faqView();
+		} else if (getUserReq().equals("adminMainCatView")) {
+			adminMainCatView();
 		}
 
 		return SUCCESS;
@@ -49,6 +51,12 @@ public class ViewAction extends ActionSupport {
 
 		resultClass = new FaqVO();
 		resultClass = (FaqVO) sqlMapper.queryForObject("selectFaqOne", getNo());
+	}
+
+	public void adminMainCatView() throws SQLException {
+
+		resultClass = new MainCategoryVO();
+		resultClass = (MainCategoryVO) sqlMapper.queryForObject("mainCatSelectOne", getNo());
 	}
 
 

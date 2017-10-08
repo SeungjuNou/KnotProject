@@ -166,9 +166,10 @@
 		<action name="admin_faqView" class="totalView.ViewAction">
 			<result type="tiles">admin_faqView</result>
 		</action> 
-		
 
-
+		<action name="admin_faqModifyForm" class="totalView.ViewAction">
+			<result type="chain">admin_faqForm</result>
+		</action>
 		
 		<!-- admin - Notice -->
 
@@ -204,6 +205,14 @@
 		
 		<action name="admin_mainCatWrite" class="totalWrite.WriteAction">
 			<result type="redirect-action">admin_mainCat</result>
+		</action>
+
+		<action name="admin_mainCatView" class="totalView.ViewAction">
+			<result type="tiles">admin_mainCatView</result>
+		</action> 
+
+		<action name="admin_mainCatModifyForm" class="totalView.ViewAction">
+			<result type="chain">admin_mainCatForm</result>
 		</action>
 
 	</package>

@@ -31,6 +31,10 @@
 		WHERE MEM_ID = #mem_id#
 	</select>
 
+	<select id="memberSeqNo" resultClass="int">
+		SELECT LAST_NUMBER  FROM USER_SEQUENCES WHERE SEQUENCE_NAME = UPPER('MEM_NO_SEQ')
+	</select>
+	
 	<insert id="insertMember" parameterClass="member">
             INSERT INTO MEMBER (NO, MEM_ID, MEM_PWD, MEM_NAME, MEM_PHONE, IMG, MEM_LEV, TODATE) 
             VALUES (MEM_NO_SEQ.NEXTVAL, #mem_id#, #mem_pwd#, #mem_name#, #mem_phone#, #img#, 1, #todate#)

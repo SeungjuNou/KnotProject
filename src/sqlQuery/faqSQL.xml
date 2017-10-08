@@ -26,6 +26,7 @@
 		<include refid="faq-select-all" />
 		ORDER BY NO DESC
 	</select>
+
 	
 	<select id="selectFaqOne" resultClass="faq" parameterClass="int">
 		<include refid="faq-select-all" />
@@ -35,6 +36,11 @@
 	<insert id="insertFaqBoard" parameterClass="faq">
 		INSERT INTO FAQ (NO, NAME, CONTENT) VALUES (FAQ_NO_SEQ.NEXTVAL, #name#, #content#)
 	</insert>
+
+	<update id="mainfaqModifyBoard" parameterClass="faq">
+		UPDATE FAQ SET NAME = #name#, CONTENT = #content#
+		<include refid="where-faq-no" />
+	</update>
 	
 
 </sqlMap>

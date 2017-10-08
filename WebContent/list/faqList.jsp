@@ -18,9 +18,7 @@
 				<s:param name="currentPage">
 					<s:property value="currentPage" />
 				</s:param>
-				<s:param name="userReq">
-					faqView
-				</s:param>
+				<s:param name="userReq"> faqView </s:param>
 			</s:url>
 	
 			
