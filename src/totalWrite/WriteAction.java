@@ -74,10 +74,11 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 		if (getUserReq().equals("mainCatWrite")) {
 			mainCatWrite();
+		} else if (getUserReq().equals("faqWrite")) {
+			faqWrite();
 		}
 		
 		return SUCCESS;
-		
 	
 	}
 	
@@ -85,18 +86,34 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 		MainCategoryVO paramClass = new MainCategoryVO();
 
+		
+		//file upload start
 		no = (int) sqlMapper.queryForObject("mainCatSeqNo");
 		
 		if (getUpload() != null) {
 			img = uploadImg();
 		}
-		
-		paramClass.setName(getName());
 		paramClass.setImg(img);
+		//file upload end
 		
+
+		paramClass.setName(getName());
+		
+
+
 		sqlMapper.insert("mainCatInsertBoard", paramClass);
 	}
 
+
+	public void faqWrite() throws SQLException, IOException {
+
+		FaqVO paramClass = new FaqVO();
+		
+		paramClass.setName(getName());
+		paramClass.setContent(getContent());
+		
+		sqlMapper.insert("insertFaqBoard", paramClass);
+	}
 
 
 	public String uploadImg() throws IOException {
