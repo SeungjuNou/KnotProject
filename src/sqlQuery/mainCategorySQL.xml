@@ -10,13 +10,13 @@
 		<result property="name" column="NAME"/>
 		<result property="img" column="IMG"/>
 	</resultMap>
-	
-	<sql id="where-cat-no">
-		WHERE NO = #no#
-	</sql>
 
 	<sql id="cat-select-all">
 		SELECT * FROM MAIN_CATEGORY
+	</sql>
+
+	<sql id="where-cat-no">
+		WHERE NO = #no#
 	</sql>
 
 	<select id="selectCatAll" resultMap="catRes" parameterClass="int">

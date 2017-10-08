@@ -21,6 +21,10 @@
 		select * from MEMBER
 	</sql>
 
+	<sql id="where-mem-no">
+		WHERE NO = #no#
+	</sql>
+
 	<select id="selectMemAll" resultMap="memberRes" parameterClass="int">
 		<include refid="member-select-all" />
 		ORDER BY NO DESC
@@ -36,9 +40,14 @@
 	</select>
 	
 	<insert id="insertMember" parameterClass="member">
-            INSERT INTO MEMBER (NO, MEM_ID, MEM_PWD, MEM_NAME, MEM_PHONE, IMG, MEM_LEV, TODATE) 
-            VALUES (MEM_NO_SEQ.NEXTVAL, #mem_id#, #mem_pwd#, #mem_name#, #mem_phone#, #img#, 1, #todate#)
+		INSERT INTO MEMBER (NO, MEM_ID, MEM_PWD, MEM_NAME, MEM_PHONE, IMG, MEM_LEV, TODATE) 
+       	VALUES (MEM_NO_SEQ.NEXTVAL, #mem_id#, #mem_pwd#, #mem_name#, #mem_phone#, #img#, 1, #todate#)
    	</insert>
+
+   	<update id="memberModify" parameterClass="member">
+		UPDATE MEMBER SET MEM_PWD = #mem_pwd#, MEM_PHONE = #mem_phone#, IMG = #img#
+		<include refid="where-mem-no" />
+   	</update>
 
 </sqlMap>
 

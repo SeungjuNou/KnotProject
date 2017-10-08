@@ -18,6 +18,7 @@ public class ViewAction extends ActionSupport {
 	  
 	private int currentPage;
 	private int no;
+	private String mem_id;
 	private String userReq;
 	
 	Object resultClass;
@@ -36,8 +37,10 @@ public class ViewAction extends ActionSupport {
 
 		if (getUserReq().equals("faqView")) {
 			faqView();
-		} else if (getUserReq().equals("adminMainCatView")) {
-			adminMainCatView();
+		} else if (getUserReq().equals("mainCatView")) {
+			mainCatView();
+		} else if (getUserReq().equals("memberView")) {
+			memberView();
 		}
 
 		return SUCCESS;
@@ -53,13 +56,18 @@ public class ViewAction extends ActionSupport {
 		resultClass = (FaqVO) sqlMapper.queryForObject("selectFaqOne", getNo());
 	}
 
-	public void adminMainCatView() throws SQLException {
+	public void mainCatView() throws SQLException {
 
 		resultClass = new MainCategoryVO();
 		resultClass = (MainCategoryVO) sqlMapper.queryForObject("mainCatSelectOne", getNo());
 	}
 
+	public void memberView() throws SQLException {
+		System.out.println("test");
+		resultClass = new MemberVO();
+		resultClass = (MemberVO) sqlMapper.queryForObject("selectMemberOne", getMem_id());
 
+	}
 
 
 
@@ -107,6 +115,17 @@ public class ViewAction extends ActionSupport {
 
 	public void setNo(int no) {
 		this.no = no;
+	}
+
+
+	public String getMem_id() {
+		return mem_id;
+	}
+
+
+
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
 	}
 
 

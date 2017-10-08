@@ -245,6 +245,9 @@
 
 		<action name="login" class="other.LoginAction">
 			<result type="redirect-action">main</result>
+			<result name="login" type="redirect-action">
+				loginForm
+			</result>
 		</action>
 
 		<action name="logout" class="other.LoginAction" method="logout">
@@ -256,7 +259,11 @@
 		</action>
 
 		<action name="memberJoin" class="totalWrite.WriteAction">
-			<result type="redirect-action">main</result>
+			<result type="redirect-action">admin_member</result>
+		</action>
+
+		<action name="memberModify" class="totalView.ViewAction">
+			<result type="chain">memberForm</result>
 		</action>
 
 	</package>

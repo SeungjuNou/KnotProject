@@ -5,22 +5,50 @@
 
 
 	
-	<s:if test="resultClass == NULL">
-		<form action="memberJoin.action" method="post" enctype="multipart/form-data">
-	</s:if>
+	
+	<form action="memberJoin.action" method="post" enctype="multipart/form-data">
+	
+
 	<s:hidden name="userReq" value="memberWrite" />
-	
-	
-		아이디 :	<input type="text" name="mem_id"><br> 
-		비밀번호 :	<input type="text" name="mem_pwd"><br> 
-		이름	:	<input type="text" name="mem_name"><br> 
-		연락처 :	<input type="text" name="mem_phone"><br>
-		이미지 : 	<s:file name="upload" theme="simple" />
-		<s:if test="resultClass.img != NULL">
-		&nbsp; * <s:property value="resultClass.img" /> 
-		파일이 등록되어 있습니다. 다시 업로드하면 기존의 파일은 삭제됩니다.
-		</s:if> <br>
-		메모 :	<input type="text" name="memo"><br>
+	<s:hidden name="no" value="%{resultClass.no}"/>
+
+	<s:if test="resultClass != NULL">   
+		<s:hidden name="modifyReq" value="modifyReq"/> 
+		<s:hidden name="img" value="%{resultClass.img}" />
+	</s:if>
+
+	<ul>
+		<li>
+			아이디 	:	
+			<s:textfield name="mem_id" theme="simple" value="%{resultClass.mem_id}" />
+		</li>
+		<li>
+			패스워드 	:	
+			<s:textfield name="mem_pwd" theme="simple" value="%{resultClass.mem_pwd}" />
+		</li>
+		<li>
+			패스워드	:	
+			<s:textfield theme="simple" value="%{resultClass.mem_id}" />
+		</li>
+		<li>
+			이름  	:	
+			<s:textfield name="mem_name" theme="simple" value="%{resultClass.mem_name}" />
+		</li>
+		<li>
+			연락처 	:	
+			<s:textfield name="mem_phone" theme="simple" value="%{resultClass.mem_phone}" />
+		</li>
+		<li>
+			프로필	: 	
+		</li>
+		<li>
+			<s:file name="upload" theme="simple" />
+			<s:if test="resultClass.img != NULL">
+				<s:property value="resultClass.img" /> 
+			</s:if> 
+		</li>
+	</ul>
+		
 		<input type="submit" name="submit">
 		
 	

@@ -9,27 +9,28 @@
 
     <s:url id="viewURL" action="admin_mainCatView">
 
-                <s:param name="no">
-                    <s:property value="no" />
-                </s:param>
+        <s:param name="no">
+            <s:property value="no" />
+        </s:param>
 
-                <s:param name="currentPage">
-                    <s:property value="currentPage" />
-                </s:param>
+        <s:param name="currentPage">
+            <s:property value="currentPage" />
+        </s:param>
 
-                <s:param name="userReq"> adminMainCatView </s:param>
+        <s:param name="userReq"> mainCatView </s:param>
+
     </s:url>
 
        
-        <ul>
-            <li>
-                <s:property value="no" />
-                <s:property value="name" />
-                <s:a href="%{viewURL}">
-                    <s:property value="img" />
-                </s:a>
-            </li>
-        </ul>
+    <ul>
+        <li>
+            <s:property value="no" />
+            <s:property value="name" />
+            <s:a href="%{viewURL}">
+                <s:property value="img" />
+            </s:a>
+        </li>
+    </ul>
            
     
     </s:iterator>

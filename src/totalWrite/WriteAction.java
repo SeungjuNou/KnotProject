@@ -73,7 +73,8 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	public String execute() throws Exception {
 		todate = today.getTime();
 		fileUploadPath = request.getRealPath("/image/"+ getUserReq() + "/");
-		System.out.println(getUserReq());
+		
+
 		if (getUserReq().equals("mainCatWrite")) {
 			mainCatWrite();
 		} else if (getUserReq().equals("faqWrite")) {
@@ -109,10 +110,6 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		
 		paramClass.setNo(getNo());
 		paramClass.setName(getName());
-
-		System.out.println("진입점 테스트 입니다.");
-		System.out.println(paramClass.getNo());
-		System.out.println(paramClass.getName());
 		
 		if (getModifyReq().equals("") || getModifyReq() == null ) {
 			sqlMapper.insert("mainCatInsertBoard", paramClass);
@@ -140,21 +137,25 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		}
 	}
 	
+
 	public void memberWrite() throws SQLException, IOException {
 
 		MemberVO paramClass = new MemberVO();
-
+		
 		
 		//file upload start
-		no = (int) sqlMapper.queryForObject("memberSeqNo");
-		
 		if (getUpload() != null) {
+			if(no == 0 ) {
+				no = (int) sqlMapper.queryForObject("memberSeqNo");
+			} else {
+				no = getNo();
+			}
 			img = uploadImg();
 		}
-	
+		paramClass.setImg(img);
 		//file upload end
 		
-
+		paramClass.setNo(getNo());
 		paramClass.setMem_id(getMem_id());
 		paramClass.setMem_pwd(getMem_pwd());
 		paramClass.setMem_name(getMem_name());
@@ -164,7 +165,11 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setMem_lev(getMem_lev());
 		paramClass.setTodate(todate);
 		
-		sqlMapper.insert("insertMember", paramClass);
+		if (getModifyReq().equals("") || getModifyReq() == null ) {
+			sqlMapper.insert("insertMember", paramClass);
+		} else {
+			sqlMapper.update("memberModify", paramClass);
+		}
 	}
 	
 	public void qnaWrite() throws SQLException, IOException {
@@ -176,8 +181,9 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		if (getUpload() != null) {
 			img = uploadImg();
 		}
-		paramClass.setImg(img);
 		
+		paramClass.setImg(img);
+		System.out.println(request.getSession().getAttribute(mem_id) + "세션 가져오기 체크해욤.");
 		paramClass.setMem_id(getMem_id());
 		paramClass.setMem_name(getMem_name());
 		paramClass.setName(getName());
@@ -463,12 +469,5 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	public void setModifyReq(String modifyReq) {
 		this.modifyReq = modifyReq;
 	}
-
-
-	
-	
-	
-	
-	
 
 }
