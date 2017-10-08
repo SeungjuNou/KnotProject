@@ -12,19 +12,22 @@
 			
 			<s:url id="faqViewURL" action="admin_faqView">
 				<li>번호 제목</li>
-				<s:param name="faq_no">
-					<s:property value="faq_no" />
+				<s:param name="no">
+					<s:property value="no" />
 				</s:param>
 				<s:param name="currentPage">
 					<s:property value="currentPage" />
+				</s:param>
+				<s:param name="userReq">
+					faqView
 				</s:param>
 			</s:url>
 	
 			
 				<li>
-					<s:property value="faq_no" />
+					<s:property value="no" />
 					<s:a href="%{faqViewURL}"> 
-						<s:property value="faq_subject" />
+						<s:property value="name" />
 					</s:a>
 				</li>
 	

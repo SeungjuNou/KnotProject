@@ -162,6 +162,10 @@
 		 <action name="admin_faqWrite" class="totalWrite.WriteAction">
 			<result type="redirect-action">admin_faq</result>
 		</action>
+
+		<action name="admin_faqView" class="totalView.ViewAction">
+			<result type="tiles">admin_faqView</result>
+		</action> 
 		
 
 
