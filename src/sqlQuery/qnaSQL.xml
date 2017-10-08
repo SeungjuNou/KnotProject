@@ -6,15 +6,15 @@
 	<typeAlias alias="qna" type="model.QnaVO" />
 
 	<resultMap id="qnaRes" class="qna">
-		<result property="qna_no" column="QNA_NO"/>
-		<result property="qna_mem_id" column="QNA_MEM_ID"/>
-		<result property="qna_name" column="QNA_NAME"/>
-		<result property="qna_subject" column="QNA_SUBJECT"/>
-		<result property="qna_content" column="QNA_CONTENT"/>
-		<result property="qna_answer" column="QNA_ANSWER"/>
-		<result property="qna_date" column="QNA_DATE"/>
-		<result property="qna_img" column="QNA_IMG"/>
-		<result property="qna_check" column="QNA_CHECK"/>
+		<result property="no" column="NO"/>
+		<result property="mem_id" column="MEM_ID"/>
+		<result property="mem_name" column="MEM_NAME"/>
+		<result property="name" column="NAME"/>
+		<result property="content" column="CONTENT"/>
+		<result property="answer" column="ANSWER"/>
+		<result property="todate" column="TODATE"/>
+		<result property="img" column="IMG"/>
+		<result property="answer_check" column="answer_CHECK"/>
 	</resultMap>
 
 	<sql id="qna-select-all">
@@ -22,40 +22,25 @@
 	</sql>
 	
 	<sql id="where-qna-no">
-		where qna_no = #qna_no#
+		where no = #no#
 	</sql>
 	
 
 	<select id="selectQnaAll" resultMap="qnaRes" parameterClass="int">
 		<include refid="qna-select-all" />
-		ORDER BY QNA_NO DESC
-	</select>
-	  
-	 <select id="selectQnaLastNo" resultClass="qna" parameterClass="int">
-		select max(qna_no) as qna_no from QNA
+		ORDER BY NO DESC
 	</select>
 	  
 	<insert id="qnaInsert" parameterClass="qna">
-		insert into QNA (qna_no, qna_mem_id, qna_name, qna_subject, qna_content, qna_answer, qna_date, qna_img, qna_check) 
-		values (QNA_NO_SEQ.NEXTVAL, #qna_mem_id#, #qna_name#, #qna_subject#, #qna_content#, #qna_answer#, #qna_date#, #qna_img#, #qna_check#)
+		insert into QNA (NO, MEM_ID, MEM_NAME, NAME, CONTENT, ANSWER, TODATE, IMG, ANSWER_CHECK) 
+		values (QNA_NO_SEQ.NEXTVAL, #mem_id#, #mem_name#, #name#, #content#, #answer#, #todate#, #img#, #answer_check#)
 	</insert>
-	 
- 	<update id="qnaupdateFile" parameterClass="qna">
-		update QNA set qna_img = #qna_img#
-		<include refid="where-qna-no" />
-	</update> 
+	
 	 
 	<select id="selectQnaOne" resultMap="qnaRes" parameterClass="int">
 		<include refid="qna-select-all" />
 		<include refid="where-qna-no" />
 	</select>
-	
-	<delete id="qnadeleteBoard" parameterClass="qna">
-		DELETE FROM QNA 
-		<include refid="where-qna-no" />
-   	</delete> 
-	
-	
 	
 
 </sqlMap>

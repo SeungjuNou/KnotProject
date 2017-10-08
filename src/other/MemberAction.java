@@ -29,7 +29,6 @@ public class MemberAction extends ActionSupport {
 	private String mem_phone;
 	private String mem_img;
 	private String memo;
-	private String mem_area_code;
 	private int mem_lev;
 	private Date mem_date;
 
@@ -55,8 +54,9 @@ public class MemberAction extends ActionSupport {
 	public String execute() throws Exception { 
 		
 		//파라미터와 리절트 객체 생성.
-		paramClass = memberVoSet(); //파라미터를 이용해서 VO 세팅.
+		//파라미터를 이용해서 VO 세팅.
 		resultClass = new MemberVO();
+		System.out.println(getMem_id() + " execute");
 
 		if (userRequest.equals("memberJoin")) {
 			memberJoin();
@@ -71,7 +71,10 @@ public class MemberAction extends ActionSupport {
 
 
 	public void memberJoin() throws SQLException {
-
+		memberVoSet();
+		System.out.println(paramClass + "객체테스");
+		System.out.println(paramClass.getMem_id());
+		
 		sqlMapper.insert("insertMember", paramClass); 
 
 	}
@@ -89,150 +92,125 @@ public class MemberAction extends ActionSupport {
 
 	}
 
-	public MemberVO memberVoSet() {
-
+	public void memberVoSet() {
+		
 		paramClass = new MemberVO();
 
-		paramClass.setMem_no(getMem_no());
+		paramClass.setNo(getMem_no());
 		paramClass.setMem_id(getMem_id());
 		paramClass.setMem_pwd(getMem_pwd());
 		paramClass.setMem_name(getMem_name());
 		paramClass.setMem_phone(getMem_phone());
-		paramClass.setMem_area_code(getMem_area_code());
-		paramClass.setMem_lev(getMem_lev()); //초기는 일반회원 등급 0
-		paramClass.setMem_date(today.getTime());
+		paramClass.setMem_lev(getMem_lev());
+		paramClass.setTodate(today.getTime());
 		
-		return paramClass;
-	}
-
-	public static Reader getReader() {
-		return reader;
-	}
-
-	public static SqlMapClient getSqlMapper() {
-		return sqlMapper;
 	}
 
 	public MemberVO getParamClass() {
 		return paramClass;
 	}
 
-	public MemberVO getResultClass() {
-		return resultClass;
-	}
-
-	public int getMem_no() {
-		return mem_no;
-	}
-
-	public String getMem_id() {
-		return mem_id;
-	}
-
-	public String getMem_pwd() {
-		return mem_pwd;
-	}
-
-	public String getMem_name() {
-		return mem_name;
-	}
-
-	public String getMem_phone() {
-		return mem_phone;
-	}
-
-	public String getMem_img() {
-		return mem_img;
-	}
-
-	public String getMemo() {
-		return memo;
-	}
-
-	public String getMem_area_code() {
-		return mem_area_code;
-	}
-
-	public int getMem_lev() {
-		return mem_lev;
-	}
-
-	public Date getMem_date() {
-		return mem_date;
-	}
-
-	public String getUserRequest() {
-		return userRequest;
-	}
-
-	public Calendar getToday() {
-		return today;
-	}
-
-	public static void setReader(Reader reader) {
-		MemberAction.reader = reader;
-	}
-
-	public static void setSqlMapper(SqlMapClient sqlMapper) {
-		MemberAction.sqlMapper = sqlMapper;
-	}
-
 	public void setParamClass(MemberVO paramClass) {
 		this.paramClass = paramClass;
+	}
+
+	public MemberVO getResultClass() {
+		return resultClass;
 	}
 
 	public void setResultClass(MemberVO resultClass) {
 		this.resultClass = resultClass;
 	}
 
+	public int getMem_no() {
+		return mem_no;
+	}
+
 	public void setMem_no(int mem_no) {
 		this.mem_no = mem_no;
+	}
+
+	public String getMem_id() {
+		return mem_id;
 	}
 
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}
 
+	public String getMem_pwd() {
+		return mem_pwd;
+	}
+
 	public void setMem_pwd(String mem_pwd) {
 		this.mem_pwd = mem_pwd;
+	}
+
+	public String getMem_name() {
+		return mem_name;
 	}
 
 	public void setMem_name(String mem_name) {
 		this.mem_name = mem_name;
 	}
 
+	public String getMem_phone() {
+		return mem_phone;
+	}
+
 	public void setMem_phone(String mem_phone) {
 		this.mem_phone = mem_phone;
+	}
+
+	public String getMem_img() {
+		return mem_img;
 	}
 
 	public void setMem_img(String mem_img) {
 		this.mem_img = mem_img;
 	}
 
+	public String getMemo() {
+		return memo;
+	}
+
 	public void setMemo(String memo) {
 		this.memo = memo;
 	}
 
-	public void setMem_area_code(String mem_area_code) {
-		this.mem_area_code = mem_area_code;
+	public int getMem_lev() {
+		return mem_lev;
 	}
 
 	public void setMem_lev(int mem_lev) {
 		this.mem_lev = mem_lev;
 	}
 
+	public Date getMem_date() {
+		return mem_date;
+	}
+
 	public void setMem_date(Date mem_date) {
 		this.mem_date = mem_date;
+	}
+
+	public String getUserRequest() {
+		return userRequest;
 	}
 
 	public void setUserRequest(String userRequest) {
 		this.userRequest = userRequest;
 	}
 
+	public Calendar getToday() {
+		return today;
+	}
+
 	public void setToday(Calendar today) {
 		this.today = today;
 	}
 
+	
 	
 	
 	

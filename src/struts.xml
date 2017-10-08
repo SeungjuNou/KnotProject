@@ -25,8 +25,6 @@
 
 
 
-
-
 	<package name="other" extends="struts-default, tiles-default">
 
 		<action name="other" class="totalList.ListAction">
@@ -58,6 +56,7 @@
 			<result type="tiles">myPage</result>
 		</action>
 
+
 		<!-- myPage - QnA -->
 		
 		<action name="myPage_qna" class="totalList.ListAction">
@@ -67,17 +66,14 @@
 			<result type="tiles">myPage_qna</result>
 		</action>
 		
-		 <action name="myPage_qnaForm" class="write.QnaWriteAction" method="form">
+		 <action name="myPage_qnaForm" class="totalWrite.WriteAction" method="form">
 			<result type="tiles">myPage_qnaForm</result>
 		</action>
 		  
-		<action name="myPage_qnaWrite" class="write.QnaWriteAction">
+		<action name="myPage_qnaWrite" class="totalWrite.WriteAction">
 			<result type="redirect-action">myPage_qna</result>
 		</action>
 		
-	 	<action name="myPage_qnaView" class="view.QnaViewAction">
-			<result type="tiles">myPage_qnaView</result>
-		</action>  
 
 
 		<!-- myPage - FAQ -->
@@ -98,10 +94,7 @@
 			<interceptor-ref name="params"/>
 			<result type="tiles">myPage_notice</result>
 		</action>
-		
-		<action name="admin_noticeView" class="view.NoticeViewAction">
-			<result type="tiles">admin_noticeView</result>
-		</action>
+
 
 		
 
@@ -143,22 +136,13 @@
 			<result type="tiles">admin_qna</result>
 		</action>
 		
-		 <action name="admin_qnaForm" class="write.QnaWriteAction" method="form">
+		 <action name="admin_qnaForm" class="totalWrite.WriteAction" method="form">
 			<result type="tiles">admin_qnaForm</result>
 		</action>
 		  
-		<action name="admin_qnaWrite" class="write.QnaWriteAction">
+		<action name="admin_qnaWrite" class="totalWrite.WriteAction">
 			<result type="redirect-action">admin_qna</result>
 		</action>
-		
-	 	<action name="admin_qnaView" class="view.QnaViewAction">
-			<result type="tiles">admin_qnaView</result>
-		</action>  
-
-		
-		<action name="admin_qnaDelete" class="delete.QnaDeleteAction">
-         	<result type="redirect-action">admin_qna</result>
-      	</action> 
 
 
 
@@ -171,17 +155,15 @@
 			<result type="tiles">admin_faq</result>
 		</action>
 		
-		<action name="admin_faqForm" class="write.FaqWriteAction" method="form">
+		<action name="admin_faqForm" class="totalWrite.WriteAction" method="form">
 			<result type="tiles">admin_faqForm</result>
 		</action>
 
-		 <action name="admin_faqWrite" class="write.FaqWriteAction">
+		 <action name="admin_faqWrite" class="totalWrite.WriteAction">
 			<result type="redirect-action">admin_faq</result>
 		</action>
 		
-		<action name="admin_faqView" class="view.FaqViewAction">
-			<result type="tiles">admin_faqView</result>
-		</action>
+
 
 		
 		<!-- admin - Notice -->
@@ -194,19 +176,14 @@
 		</action>
 
 
-		<action name="admin_noticeForm" class="write.NoticeWriteAction" method="form">
+		<action name="admin_noticeForm" class="totalWrite.WriteAction" method="form">
 			<result type="tiles">admin_noticeForm</result>
 		</action>
 		
-		<action name="admin_noticeWrite" class="write.NoticeWriteAction">
+		<action name="admin_noticeWrite" class="totalWrite.WriteAction">
 			<result type="redirect-action">admin_notice</result>
 		</action>
-		
-
-		<action name="admin_noticeView" class="view.NoticeViewAction">
-			<result type="tiles">admin_noticeView</result>
-		</action>
-
+	
 
 		<!-- admin - MainCategory -->
 
@@ -217,23 +194,11 @@
 			<result type="tiles">admin_mainCat</result>
 		</action> 
 
-		<action name="admin_mainCatForm" class="write.MainCatWriteAction" method="form">
+		<action name="admin_mainCatForm" class="totalWrite.WriteAction" method="form">
 			<result type="tiles">admin_mainCatForm</result>
 		</action>
 		
-		<action name="admin_mainCatWrite" class="write.MainCatWriteAction">
-			<result type="redirect-action">admin_mainCat</result>
-		</action>
-
-		<action name="admin_mainCatView" class="view.MainCatViewAction">
-			<result type="tiles">admin_mainCatView</result>
-		</action>
-
-		<action name="admin_mainCatModifyForm" class="view.MainCatViewAction">
-			<result type="chain">admin_mainCatForm</result>
-		</action> 
-
-		<action name="admin_mainCatModify" class="modify.MainCatModifyAction">
+		<action name="admin_mainCatWrite" class="totalWrite.WriteAction">
 			<result type="redirect-action">admin_mainCat</result>
 		</action>
 
@@ -273,24 +238,12 @@
 			<result type="tiles">main</result>
 		</action>
 
-		<action name="memberForm" class="other.MemberAction" method="form">
+		<action name="memberForm" class="totalWrite.WriteAction" method="form">
 			<result type="tiles">memberForm</result>
 		</action>
 
-		<action name="memberJoin" class="other.MemberAction">
-			<param name="userRequest">memberJoin</param>
-			<interceptor-ref name="staticParams"/>
+		<action name="memberJoin" class="totalWrite.WriteAction">
 			<result type="redirect-action">main</result>
-		</action>
-
-		<action name="memberModifyForm" class="other.MemberAction" method="memberView">
-			<result type="chain">memberForm</result>
-		</action>
-
-		<action name="memberModify" class="other.MemberAction">
-			<param name="userRequest">memberModify</param>
-			<interceptor-ref name="staticParams"/>
-			<result type="redirect-action">memberForm</result>
 		</action>
 
 	</package>

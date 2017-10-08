@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 
 public class AdminCheck extends AbstractInterceptor implements ServletRequestAware {
 
-	String result = "login";
+	String result;
 	
 	HttpServletRequest request;
 	HttpSession session;
@@ -41,6 +41,7 @@ public class AdminCheck extends AbstractInterceptor implements ServletRequestAwa
 	   		} 
 			
 		} catch (Exception ex) {
+			result = "login";
 		}
 		
 		return result;  
