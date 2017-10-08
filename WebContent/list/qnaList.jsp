@@ -10,8 +10,8 @@
       <s:iterator value="list" status="stat">
 		
 		<s:url id="viewURL" action="admin_qnaView">
-			<s:param name="qna_no">
-				<s:property value="qna_no"/>
+			<s:param name="no">
+				<s:property value="no"/>
 				
 			</s:param>
 			<s:param name="currentPage">
@@ -21,10 +21,15 @@
 		
      
       	<li>
-      	<s:property value="qna_no" />
-      	<s:property value="qna_id" />
-      	<s:a href="%{viewURL}"><s:property value="qna_name" /></s:a>
-      	<s:property value="qna_date" />
+      	<s:property value="no" />
+      	<s:property value="mem_id" />
+      	<s:a href="%{viewURL}"><s:property value="mem_name" /></s:a>
+      	<s:property value="name" />
+      	<s:property value="content" />
+      	<s:property value="answer" />
+      	<s:property value="todate" />
+      	<s:property value="img" />
+      	<s:property value="answer_check" />
       	</li>
 
   

@@ -71,11 +71,13 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	public String execute() throws Exception {
 		todate = today.getTime();
 		fileUploadPath = request.getRealPath("/image/"+ getUserReq() + "/");
-
+		System.out.println(getUserReq());
 		if (getUserReq().equals("mainCatWrite")) {
 			mainCatWrite();
 		} else if (getUserReq().equals("faqWrite")) {
 			faqWrite();
+		} else if (getUserReq().equals("qnaWrite")) {
+			qnaWrite();
 		}
 		
 		return SUCCESS;
@@ -113,6 +115,29 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setContent(getContent());
 		
 		sqlMapper.insert("insertFaqBoard", paramClass);
+	}
+	
+	public void qnaWrite() throws SQLException, IOException {
+
+		QnaVO paramClass = new QnaVO();
+		
+		no = (int) sqlMapper.queryForObject("qnaSeqNo");
+		
+		if (getUpload() != null) {
+			img = uploadImg();
+		}
+		paramClass.setImg(img);
+		
+		paramClass.setMem_id(getMem_id());
+		paramClass.setMem_name(getMem_name());
+		paramClass.setName(getName());
+		paramClass.setContent(getContent());
+		paramClass.setAnswer(getAnswer());
+		paramClass.setAnswer_check(getAnswer_check());
+		paramClass.setTodate(todate);
+		
+		
+		sqlMapper.insert("insertQnaBoard", paramClass);
 	}
 
 
