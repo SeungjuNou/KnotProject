@@ -14,7 +14,7 @@
 		</li>
 
 		<li>
-			비밀번호 : <s:textfield name="mem_pwd" theme="simple" />
+			비밀번호 : <s:password name="mem_pwd"  />
 		</li>
 
 		<li>

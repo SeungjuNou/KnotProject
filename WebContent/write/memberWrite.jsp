@@ -14,7 +14,7 @@
 
 	<s:if test="resultClass != NULL">   
 		<s:hidden name="modifyReq" value="modifyReq"/> 
-		<s:hidden name="img" value="%{resultClass.img}" />
+		<s:hidden name="img" value="%{resultClass.img}" /> 
 	</s:if>
 
 	<ul>
@@ -24,7 +24,7 @@
 		</li>
 		<li>
 			패스워드 	:	
-			<s:textfield name="mem_pwd" theme="simple" value="%{resultClass.mem_pwd}" />
+			<s:password name="mem_pwd"  value="%{resultClass.mem_pwd}" />
 		</li>
 		<li>
 			패스워드	:	
