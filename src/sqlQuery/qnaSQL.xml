@@ -14,7 +14,7 @@
 		<result property="answer" column="ANSWER"/>
 		<result property="todate" column="TODATE"/>
 		<result property="img" column="IMG"/>
-		<result property="answer_check" column="answer_CHECK"/>
+		<result property="answer_check" column="ANSWER_CHECK"/>
 	</resultMap>
 
 	<sql id="qna-select-all">
@@ -30,8 +30,12 @@
 		<include refid="qna-select-all" />
 		ORDER BY NO DESC
 	</select>
+	
+	<select id="qnaSeqNo" resultClass="int">
+		SELECT LAST_NUMBER  FROM USER_SEQUENCES WHERE SEQUENCE_NAME = UPPER('QNA_NO_SEQ')
+	</select>
 	  
-	<insert id="qnaInsert" parameterClass="qna">
+	<insert id="insertQnaBoard" parameterClass="qna">
 		insert into QNA (NO, MEM_ID, MEM_NAME, NAME, CONTENT, ANSWER, TODATE, IMG, ANSWER_CHECK) 
 		values (QNA_NO_SEQ.NEXTVAL, #mem_id#, #mem_name#, #name#, #content#, #answer#, #todate#, #img#, #answer_check#)
 	</insert>
