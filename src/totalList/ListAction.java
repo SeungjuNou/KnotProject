@@ -30,6 +30,7 @@ public class ListAction extends ActionSupport {
 	private String find = ""; // 검색 내용 
 	private String userReq = ""; // 사용자가 요청하는 리스트이름.
 	private int catLen = 1; //메인 카테고리 길이 
+	private String userType="";
 	
 
 	public ListAction() throws IOException {
@@ -43,22 +44,22 @@ public class ListAction extends ActionSupport {
 	//사용자의 요청을 파악해서 원하는 메서드를 호출하는 메서드
 	public String execute() throws Exception {
 
-		if (getUserReq().equals("memberList")) {
-			complete(memberList());
-		} else if(getUserReq().equals("mainCatList")) {
-			complete(mainCatList());
-		} else if (getUserReq().equals("qnaList")) {
-			complete(qnaList());
-		} else if (getUserReq().equals("faqList")) {
-			complete(faqList());
-		} else if (getUserReq().equals("itemList")) {
-			complete(itemList());
-		} else if (getUserReq().equals("noticeList")) {
-			complete(noticeList());
-		} else if (getUserReq().equals("mainList")) {
+		if (getUserReq().equals("member")) {
+			list = complete(memberList());
+		} else if(getUserReq().equals("mainCat")) {
+			list = complete(mainCatList());
+		} else if (getUserReq().equals("qna")) {
+			list = complete(qnaList());
+		} else if (getUserReq().equals("faq")) {
+			list = complete(faqList());
+		} else if (getUserReq().equals("item")) {
+			list = complete(itemList());
+		} else if (getUserReq().equals("notice")) {
+			list = complete(noticeList());
+		} else if (getUserReq().equals("main")) {
 			mainList();
 		} else {
-			complete(memberList());
+			list = complete(memberList());
 		}
 
 		return SUCCESS;
@@ -66,14 +67,14 @@ public class ListAction extends ActionSupport {
 	} //execute 메서드 종료. 
 
 
-	//회원목록 리스트를 불러오는 메서드. 
+	
 	public List memberList() throws Exception { 
 		blockCount = 10; //회원목록은 10개씩 띄운다. 
 		list = new ArrayList<MemberVO>();
 		list = sqlMapper.queryForList("selectMemAll");
 		return list;
-	} //memberList 메서드 종료. 
-	//메인카테고리 게시글을 불러오는 메서드
+	} 
+
 	public List mainCatList() throws Exception {
 		blockCount = 10;
 		list = new ArrayList<MainCategoryVO>();
@@ -81,7 +82,6 @@ public class ListAction extends ActionSupport {
 		return list;
 	}
 	
-//Q&A 게시글을 불러오는 메서드
 	public List qnaList() throws Exception { 
 		blockCount = 5;
 		list = new ArrayList<QnaVO>();
@@ -95,7 +95,7 @@ public class ListAction extends ActionSupport {
 		list = sqlMapper.queryForList("selectFaqAll");
 		return list;
 	}
-	//상품리스트를 불러오는 메서드
+	
 	public List itemList() throws Exception { 
 		/*list = new ArrayList<ItemVO>();
 		list = sqlMapper.queryForList("selectItemAll");*/
@@ -103,6 +103,7 @@ public class ListAction extends ActionSupport {
 	}
 
 	public List noticeList() throws Exception {
+		blockCount = 5;
 		list = new ArrayList<NoticeVO>();
 		list = sqlMapper.queryForList("selectNoticeAll");
 		return list;
@@ -121,18 +122,21 @@ public class ListAction extends ActionSupport {
 	}
 
 
-	public void complete(List list) throws Exception {
+	public List complete(List list) throws Exception {
+		
 		totalCount = list.size(); 
-		System.out.println(blockCount);
-		page = new PagingAction(currentPage, totalCount, blockCount, blockPage);
+		page = new PagingAction(currentPage, totalCount, blockCount, blockPage, userType, userReq);
 		pagingHtml = page.getPagingHtml().toString(); 
 
 		int lastCount = totalCount;
 
-		if (page.getEndCount() < totalCount)
+		if (page.getEndCount() < totalCount) {
 			lastCount = page.getEndCount();
-
+		}
+		
 		list = list.subList(page.getStartCount(), lastCount); 
+		
+		return list;
 	}
 
 
@@ -264,6 +268,18 @@ public class ListAction extends ActionSupport {
 	public void setUserReq(String userReq) {
 		this.userReq = userReq;
 	}
+
+
+	public String getUserType() {
+		return userType;
+	}
+
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+	
+	
 	
 	
 }

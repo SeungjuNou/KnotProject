@@ -34,5 +34,7 @@
            
     
     </s:iterator>
+
+    <s:property value="pagingHtml" escape="false" />
     
 <input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='memberForm.action?&currentPage=<s:property value="currentPage" />';">

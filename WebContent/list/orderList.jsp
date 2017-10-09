@@ -35,6 +35,8 @@
             	<s:property value="order_dtl" />
         </li>
     </ul>
+
+    <s:property value="pagingHtml" escape="false" />
            
     
     </s:iterator>

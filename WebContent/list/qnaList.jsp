@@ -35,6 +35,10 @@
            
     
     </s:iterator>
+
+    <s:property value="pagingHtml" escape="false" />
+
+    
     <c:if test="${sessionScope.mem_lev eq 3}">
     		<input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_qnaForm.action?&currentPage=<s:property value="currentPage" />';">
     </c:if>

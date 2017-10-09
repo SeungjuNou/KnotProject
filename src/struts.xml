@@ -119,7 +119,8 @@
 
 		<!-- admin - Member -->
 		<action name="admin_member" class="totalList.ListAction">
-			<param name="userReq">memberList</param>
+			<param name="userReq">member</param>
+			<param name="userType">admin</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="AdminCheck"/>
 			<result name="login">/auth/loginForm.jsp</result>
@@ -130,7 +131,8 @@
 		<!-- admin - QnA --> 
 		
 		<action name="admin_qna" class="totalList.ListAction">
-			<param name="userReq">qnaList</param>
+			<param name="userReq">qna</param>
+			<param name="userType">admin</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">admin_qna</result>
@@ -161,7 +163,8 @@
 		<!-- admin - FAQ -->
 		
 		<action name="admin_faq" class="totalList.ListAction">
-			<param name="userReq">faqList</param>
+			<param name="userReq">faq</param>
+			<param name="userType">admin</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">admin_faq</result>
@@ -190,7 +193,8 @@
 		<!-- admin - Notice -->
 
 		<action name="admin_notice" class="totalList.ListAction">
-			<param name="userReq">noticeList</param>
+			<param name="userReq">notice</param>
+			<param name="userType">admin</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">admin_notice</result>
@@ -221,7 +225,8 @@
 		<!-- admin - MainCategory -->
 
 		<action name="admin_mainCat" class="totalList.ListAction">
-			<param name="userReq">mainCatList</param>
+			<param name="userReq">mainCat</param>
+			<param name="userType">admin</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">admin_mainCat</result>
