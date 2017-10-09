@@ -16,7 +16,7 @@
             <s:property value="currentPage" />
         </s:param>
 
-        <s:param name="userReq"> memberView </s:param>
+        <s:param name="userReq"> member </s:param>
 
     </s:url>
 
