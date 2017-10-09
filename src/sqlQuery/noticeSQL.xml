@@ -25,7 +25,7 @@
 		ORDER BY NO DESC
 	</select>
 	
-	<insert id="noticeInsertBoard" parameterClass="notice">
+	<insert id="noticeInsert" parameterClass="notice">
 		INSERT INTO NOTICE (NO, TODATE, NAME, CONTENT)
 		VALUES (NOTI_NO_SEQ.NEXTVAL, #todate#, #name#, #content#)
 	</insert>
@@ -34,6 +34,11 @@
 		<include refid="notice-select-all" />
 		<include refid="where-notice-no" />
 	</select>
+	
+	<update id="noticeModify" parameterClass="int">
+		UPDATE NOTICE SET NAME = #name#, CONTENT = #content#
+		<include refid="where-notice-no" />
+	</update>
 
 
 </sqlMap>

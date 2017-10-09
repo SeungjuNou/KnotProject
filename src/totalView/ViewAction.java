@@ -43,6 +43,8 @@ public class ViewAction extends ActionSupport {
 			memberView();
 		} else if (getUserReq().equals("qna")) {
 			qnaView();
+		} else if (getUserReq().equals("notice")) {
+			noticeView();
 		}
 
 		return SUCCESS;
@@ -65,7 +67,7 @@ public class ViewAction extends ActionSupport {
 	}
 
 	public void memberView() throws SQLException {
-		System.out.println("test");
+
 		resultClass = new MemberVO();
 		resultClass = (MemberVO) sqlMapper.queryForObject("selectMemberOne", getMem_id());
 
@@ -77,7 +79,11 @@ public class ViewAction extends ActionSupport {
 		resultClass = (QnaVO) sqlMapper.queryForObject("selectQnaOne", getNo());
 	}
 
+	public void noticeView() throws SQLException {
 
+		resultClass = new NoticeVO();
+		resultClass = (NoticeVO) sqlMapper.queryForObject("noticeSelectOne", getNo());
+	}
 
 	public static Reader getReader() {
 		return reader;

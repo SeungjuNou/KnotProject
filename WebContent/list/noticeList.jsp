@@ -6,7 +6,7 @@
 
     <s:iterator value="list" status="stat">
 
-    <s:url id="viewURL" action="admin_noticeModifyForm">
+    <s:url id="viewURL" action="admin_noticeView">
 
         <s:param name="no">
             <s:property value="no" />
@@ -23,11 +23,11 @@
        
     <ul>
         <li>
-        	 <s:a href="%{viewURL}">
 				<s:property value="no" />
-            </s:a>
 				<s:property value="todate" />
-				<s:property value="name" />
+				<s:a href="%{viewURL}">	
+					<s:property value="name" />
+				</s:a>
         
            
         </li>

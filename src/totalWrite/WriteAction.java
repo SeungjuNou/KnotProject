@@ -113,7 +113,6 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		
 		if (getModifyReq().equals("") || getModifyReq() == null ) {
 			sqlMapper.insert("mainCatInsertBoard", paramClass);
-
 		} else {
 			sqlMapper.update("mainCatModifyBoard", paramClass);
 		}
@@ -214,7 +213,12 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setName(getName());
 		paramClass.setContent(getContent());
 		
-		sqlMapper.insert("noticeInsertBoard", paramClass);
+		if (getModifyReq().equals("") || getModifyReq() == null ) {
+			sqlMapper.insert("noticeInsert", paramClass);
+		} else {
+			System.out.println("notice test");
+			sqlMapper.update("noticeModify", paramClass);
+		}
 	}
 	
 	

@@ -9,7 +9,7 @@
 		
 		<form action="admin_mainCatWrite.action" method="post" enctype="multipart/form-data"> 
 
-			<s:hidden name="userReq" value="mainCatWrite" />
+			<s:hidden name="userReq" value="mainCat" />
 			<s:hidden name="no" value="%{resultClass.no}"/>
 		
 			<s:if test="resultClass != NULL">   

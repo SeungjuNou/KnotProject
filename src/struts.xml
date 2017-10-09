@@ -196,6 +196,14 @@
 		<action name="admin_noticeWrite" class="totalWrite.WriteAction">
 			<result type="redirect-action">admin_notice</result>
 		</action>
+		
+		<action name="admin_noticeView" class="totalView.ViewAction">
+			<result type="tiles">admin_noticeView</result>
+		</action> 
+
+		<action name="admin_noticeModifyForm" class="totalView.ViewAction">
+			<result type="chain">admin_noticeForm</result>
+		</action>
 	
 
 		<!-- admin - MainCategory -->
