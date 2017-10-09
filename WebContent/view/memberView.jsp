@@ -18,3 +18,5 @@
      	<li>	MEM_LEV		: <s:property value="resultClass.mem_lev" /> 	</li>
      	<li>	TODATE		: <s:property value="resultClass.todate" /> 	</li>
 </ul>
+
+		
