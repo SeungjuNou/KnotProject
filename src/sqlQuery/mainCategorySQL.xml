@@ -47,6 +47,10 @@
 		UPDATE MAIN_CATEGORY SET NAME = #name#, IMG = #img#
 		<include refid="where-cat-no" />
 	</update>
+	
+	<delete id="deleteMainCat" parameterClass="int">
+		DELETE FROM MAIN_CATEGORY WHERE NO = #no#
+	</delete>
 
 
 	

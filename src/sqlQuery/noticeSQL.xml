@@ -34,6 +34,11 @@
 		<include refid="notice-select-all" />
 		<include refid="where-notice-no" />
 	</select>
+	
+	<delete id="deleteNotice" parameterClass="int">
+		DELETE FROM NOTICE
+		<include refid="where-notice-no" />
+	</delete>
 
 
 </sqlMap>
