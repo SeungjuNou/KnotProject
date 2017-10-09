@@ -144,6 +144,14 @@
 			<result type="redirect-action">admin_qna</result>
 		</action>
 
+		<action name="admin_qnaView" class="totalView.ViewAction">
+			<result type="tiles">admin_qnaView</result>
+		</action>
+
+		<action name="admin_qnaModifyForm" class="totalView.ViewAction">
+			<result type="chain">admin_qnaForm</result>
+		</action>
+
 
 
 		<!-- admin - FAQ -->

@@ -176,13 +176,19 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 		QnaVO paramClass = new QnaVO();
 		
-		no = (int) sqlMapper.queryForObject("qnaSeqNo");
-		
+		//file upload start
 		if (getUpload() != null) {
+			if(no == 0 ) {
+				no = (int) sqlMapper.queryForObject("memberSeqNo");
+			} else {
+				no = getNo();
+			}
 			img = uploadImg();
 		}
-		
 		paramClass.setImg(img);
+		//file upload end
+		
+		paramClass.setNo(getNo());
 		System.out.println(request.getSession().getAttribute(mem_id) + "세션 가져오기 체크해욤.");
 		paramClass.setMem_id(getMem_id());
 		paramClass.setMem_name(getMem_name());
@@ -193,7 +199,11 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setTodate(todate);
 		
 		
-		sqlMapper.insert("insertQnaBoard", paramClass);
+		if (getModifyReq().equals("") || getModifyReq() == null ) {
+			sqlMapper.insert("insertQnaBoard", paramClass);
+		} else {
+			sqlMapper.update("qnaModify", paramClass);
+		}
 	}
 
 

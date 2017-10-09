@@ -18,11 +18,11 @@
 	</resultMap>
 
 	<sql id="qna-select-all">
-		select * from QNA
+		SELECT * FROM QNA
 	</sql>
 	
 	<sql id="where-qna-no">
-		where no = #no#
+		WHERE NO = #no#
 	</sql>
 	
 
@@ -39,6 +39,11 @@
 		insert into QNA (NO, MEM_ID, MEM_NAME, NAME, CONTENT, ANSWER, TODATE, IMG, ANSWER_CHECK) 
 		values (QNA_NO_SEQ.NEXTVAL, #mem_id#, #mem_name#, #name#, #content#, #answer#, #todate#, #img#, #answer_check#)
 	</insert>
+
+	<update id="qnaModify" parameterClass="qna">
+		UPDATE QNA SET NAME = #name#, CONTENT = #content#, IMG = img
+		<include refid="where-qna-no" />
+	</update>
 	
 	 
 	<select id="selectQnaOne" resultMap="qnaRes" parameterClass="int">

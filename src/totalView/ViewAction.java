@@ -41,6 +41,8 @@ public class ViewAction extends ActionSupport {
 			mainCatView();
 		} else if (getUserReq().equals("memberView")) {
 			memberView();
+		} else if (getUserReq().equals("qnaView")) {
+			qnaView();
 		}
 
 		return SUCCESS;
@@ -67,6 +69,12 @@ public class ViewAction extends ActionSupport {
 		resultClass = new MemberVO();
 		resultClass = (MemberVO) sqlMapper.queryForObject("selectMemberOne", getMem_id());
 
+	}
+
+	public void qnaView() throws SQLException {
+
+		resultClass = new QnaVO();
+		resultClass = (QnaVO) sqlMapper.queryForObject("selectQnaOne", getNo());
 	}
 
 
