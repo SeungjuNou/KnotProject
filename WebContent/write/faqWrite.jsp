@@ -9,7 +9,7 @@
 	</ul>
 		
 		<form action="admin_faqWrite.action" method="post"> 
-			<s:hidden name="userReq" value="faqWrite" />
+			<s:hidden name="userReq" value="faq" />
 			<s:hidden name="no" value="%{resultClass.no}"/>
 		
 			<s:if test="resultClass != NULL">   

@@ -9,7 +9,7 @@
 	<form action="memberJoin.action" method="post" enctype="multipart/form-data">
 	
 
-	<s:hidden name="userReq" value="memberWrite" />
+	<s:hidden name="userReq" value="member" />
 	<s:hidden name="no" value="%{resultClass.no}"/>
 
 	<s:if test="resultClass != NULL">   

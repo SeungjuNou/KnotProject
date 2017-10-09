@@ -18,3 +18,10 @@
 		<li>	IMG				: <s:property value="resultClass.img" /> 			</li>
 		<li>	ANSWER_CHECK 	: <s:property value="resultClass.answer_check" /> 	</li>
   </ul>
+  
+  		<input type="button" name="modify" value="수정" class="inputb"
+				onclick="javascript:location.href='admin_qnaModifyForm.action?no=<s:property value="resultClass.no" />&currentPage=<s:property value="currentPage" />&userReq=qna';">
+		<input type="button" name="list" value="목록" class="inputb"
+				onclick="javascript:location.href='admin_qna.action?currentPage=<s:property value="currentPage" />&userReq=qna';">
+		<input type="button" name="list" value="삭제" class="inputb"
+				onclick="javascript:location.href='admin_qnaDelete.action?no=<s:property value="resultClass.no" />&currentPage=<s:property value="currentPage" />&userReq=qna';">

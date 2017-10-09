@@ -8,7 +8,7 @@
 <form action="admin_noticeWrite.action" method="post" enctype="multipart/form-data" >
 
 	
-	<s:hidden name="userReq" value="noticeWrite" />
+	<s:hidden name="userReq" value="notice" />
 	<s:hidden name="no" value="%{resultClass.no}"/>
 
 	<s:if test="resultClass != NULL">    

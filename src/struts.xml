@@ -207,6 +207,14 @@
 		
 		<action name="noticeDelete" class="totalDelete.DeleteAction">
 			<result type="chain">admin_notice</result>
+    </action>
+
+		<action name="admin_noticeView" class="totalView.ViewAction">
+			<result type="tiles">admin_noticeView</result>
+		</action> 
+
+		<action name="admin_noticeModifyForm" class="totalView.ViewAction">
+			<result type="chain">admin_noticeForm</result>
 		</action>
 	
 

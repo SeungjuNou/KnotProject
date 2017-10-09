@@ -9,7 +9,7 @@
 <form action="admin_qnaWrite.action" method="post" enctype="multipart/form-data" >
 
 	
-	<s:hidden name="userReq" value="qnaWrite" />
+	<s:hidden name="userReq" value="qna" />
 	<s:hidden name="no" value="%{resultClass.no}"/>
 
 	<s:if test="resultClass != NULL">    
