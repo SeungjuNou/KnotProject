@@ -3,13 +3,12 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-  <ul>
+<ul>
 		<li>
-			<h2>FAQ 게시판</h2>
+			<h2>FAQ</h2>
 		</li>
       
-      <li>번호: <s:property value="resultClass.no" /> </li>
-      <li>제목: <s:property value="resultClass.name" /> </li>
-      <li>내용: <s:property value="resultClass.content" /> </li>
-
-  </ul>
+      	<li>	NO			: <s:property value="resultClass.no" /> 	 </li>
+      	<li>	NAME		: <s:property value="resultClass.name" /> 	 </li>
+      	<li>	CONTENT		: <s:property value="resultClass.content" /> </li>
+</ul>
