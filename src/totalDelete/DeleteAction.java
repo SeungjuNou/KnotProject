@@ -43,13 +43,19 @@ public class DeleteAction extends ActionSupport implements  ServletRequestAware 
 			faqDelete();
 		} else if(getUserReq().equals("member")) {
 			memberDelete();
-		}
+		} else if(getUserReq().equals("qna")) {
+			qnaDelete();
+		} else if(getUserReq().equals("mainCat")) {
+			mainCatDelete();
+		} else if(getUserReq().equals("notice")) {
+			noticeDelete();
+		}	
 
 		return SUCCESS;
 	}
 
 	public void faqDelete() throws SQLException, IOException {
-		sqlMapper.update("deleteQna", getNo());
+		sqlMapper.update("deleteFaq", getNo());
 	}
 	
 	public void memberDelete() throws SQLException, IOException {
@@ -59,6 +65,28 @@ public class DeleteAction extends ActionSupport implements  ServletRequestAware 
 		sqlMapper.update("deleteMember", getMem_id());
 		deleteImg(resultClass.getImg());
 		
+	}
+	
+	public void qnaDelete() throws SQLException, IOException {
+
+		QnaVO resultClass = new QnaVO();
+		resultClass = (QnaVO) sqlMapper.queryForObject("selectQnaOne", getNo());
+		sqlMapper.update("deleteQna", getNo());
+		deleteImg(resultClass.getImg());
+		
+	}
+	
+	public void mainCatDelete() throws SQLException, IOException {
+
+		MainCategoryVO resultClass = new MainCategoryVO();
+		resultClass = (MainCategoryVO) sqlMapper.queryForObject("mainCatSelectOne", getNo());
+		sqlMapper.update("deleteMainCat", getNo());
+		deleteImg(resultClass.getImg());
+		
+	}
+	
+	public void noticeDelete() throws SQLException, IOException {
+		sqlMapper.update("deleteNotice", getNo());
 	}
 
 	public void deleteImg(String img) throws IOException {
