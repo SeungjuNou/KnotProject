@@ -8,12 +8,7 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.ServletRequestAware;
-
-import java.util.*;
-
-import org.apache.commons.io.FileUtils;
 
 import java.io.Reader;
 import java.sql.SQLException;
@@ -54,7 +49,6 @@ public class DeleteAction extends ActionSupport implements  ServletRequestAware 
 	}
 
 	public void faqDelete() throws SQLException, IOException {
-
 		sqlMapper.update("deleteQna", getNo());
 	}
 	

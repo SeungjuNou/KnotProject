@@ -32,6 +32,9 @@
             </s:a>
         </li>
     </ul>
-           
-    
+   
     </s:iterator>
+    
+    <c:if test="${3 eq sessionScope.mem_lev}">
+    <input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_faqForm.action?&currentPage=<s:property value="currentPage" />&userReq=faq';">
+    </c:if>
