@@ -42,5 +42,10 @@
 		<include refid="where-faq-no" />
 	</update>
 	
+	<delete id="deleteFaq" parameterClass="int">
+		DELETE FROM FAQ
+		<include refid="where-faq-no" />
+	</delete>
+	
 
 </sqlMap>

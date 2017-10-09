@@ -51,5 +51,9 @@
 		<include refid="where-qna-no" />
 	</select>
 	
+	<delete id="deleteQna" parameterClass="int">
+		DELETE FROM QNA
+		<include refid="where-qna-no" />
+	</delete>
 
 </sqlMap>

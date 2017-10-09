@@ -273,6 +273,10 @@
 		<action name="memberModify" class="totalView.ViewAction">
 			<result type="chain">memberForm</result>
 		</action>
+		
+		<action name="memberDelete" class="totalDelete.DeleteAction">
+			<result type="chain">admin_member</result>
+		</action>
 
 	</package>
 

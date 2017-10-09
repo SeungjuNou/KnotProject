@@ -189,7 +189,6 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		//file upload end
 		
 		paramClass.setNo(getNo());
-		System.out.println(request.getSession().getAttribute(mem_id) + "세션 가져오기 체크해욤.");
 		paramClass.setMem_id(getMem_id());
 		paramClass.setMem_name(getMem_name());
 		paramClass.setName(getName());

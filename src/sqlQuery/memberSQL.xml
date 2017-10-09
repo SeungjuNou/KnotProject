@@ -34,7 +34,7 @@
 		<include refid="member-select-all" />
 		WHERE MEM_ID = #mem_id#
 	</select>
-
+	
 	<select id="memberSeqNo" resultClass="int">
 		SELECT LAST_NUMBER  FROM USER_SEQUENCES WHERE SEQUENCE_NAME = UPPER('MEM_NO_SEQ')
 	</select>
@@ -49,6 +49,10 @@
 		<include refid="where-mem-no" />
    	</update>
 
+	<delete id="deleteMember" parameterClass="String">
+		DELETE FROM MEMBER WHERE MEM_ID = #mem_id#
+	</delete>
+	
 </sqlMap>
 
 
