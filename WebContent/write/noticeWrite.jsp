@@ -16,9 +16,6 @@
 	</s:if>
 
 	<ul>
-		<li>
-			작성날짜<s:textfield name="mem_name" theme="simple" value="%{resultClass.todate}" />
-		</li>
 		
 		<li>
 			제목<s:textarea name="name" theme="simple" value="%{resultClass.name}" />

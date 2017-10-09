@@ -35,3 +35,5 @@
            
     
     </s:iterator>
+    
+    <input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_noticeForm.action?&currentPage=<s:property value="currentPage" />';">

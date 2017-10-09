@@ -25,5 +25,3 @@
 			<input name="submit" type="submit" value="작성완료" class="inputb">
 
 		</form>
-
-			
