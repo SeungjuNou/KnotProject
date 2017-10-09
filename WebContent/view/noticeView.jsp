@@ -13,3 +13,10 @@
 		<li>	NAME		: <s:property value="resultClass.name" />	 </li>
 		<li>	CONTENT		: <s:property value="resultClass.content" /> </li>
 </ul>
+
+		<input type="button" name="modify" value="수정" class="inputb"
+				onclick="javascript:location.href='admin_noticeModifyForm.action?no=<s:property value="resultClass.no" />&currentPage=<s:property value="currentPage" />&userReq=notice';">
+		<input type="button" name="list" value="목록" class="inputb"
+				onclick="javascript:location.href='admin_notice.action?currentPage=<s:property value="currentPage" />&userReq=notice';">
+		<input type="button" name="list" value="삭제" class="inputb"
+				onclick="javascript:location.href='admin_noticeDelete.action?no=<s:property value="resultClass.no" />&currentPage=<s:property value="currentPage" />&userReq=notice';">
