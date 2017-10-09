@@ -28,7 +28,7 @@ public class ListAction extends ActionSupport {
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private PagingAction page; 	// 페이징 클래스
 	private String find = ""; // 검색 내용 
-	private String listName = ""; // 사용자가 요청하는 리스트이름.
+	private String userReq = ""; // 사용자가 요청하는 리스트이름.
 	private int catLen = 1; //메인 카테고리 길이 
 	
 
@@ -43,20 +43,19 @@ public class ListAction extends ActionSupport {
 	//사용자의 요청을 파악해서 원하는 메서드를 호출하는 메서드
 	public String execute() throws Exception {
 
-		System.out.println(getListName());
-		if (getListName().equals("memberList")) {
+		if (getUserReq().equals("memberList")) {
 			complete(memberList());
-		} else if(getListName().equals("mainCatList")) {
+		} else if(getUserReq().equals("mainCatList")) {
 			complete(mainCatList());
-		} else if (getListName().equals("qnaList")) {
+		} else if (getUserReq().equals("qnaList")) {
 			complete(qnaList());
-		} else if (getListName().equals("faqList")) {
+		} else if (getUserReq().equals("faqList")) {
 			complete(faqList());
-		} else if (getListName().equals("itemList")) {
+		} else if (getUserReq().equals("itemList")) {
 			complete(itemList());
-		} else if (getListName().equals("noticeList")) {
+		} else if (getUserReq().equals("noticeList")) {
 			complete(noticeList());
-		} else if (getListName().equals("mainList")) {
+		} else if (getUserReq().equals("mainList")) {
 			mainList();
 		} else {
 			complete(memberList());
@@ -195,11 +194,6 @@ public class ListAction extends ActionSupport {
 	}
 
 
-	public String getListName() {
-		return listName;
-	}
-
-
 	public int getCatLen() {
 		return catLen;
 	}
@@ -260,12 +254,19 @@ public class ListAction extends ActionSupport {
 	}
 
 
-	public void setListName(String listName) {
-		this.listName = listName;
-	}
-
-
 	public void setCatLen(int catLen) {
 		this.catLen = catLen;
 	}
+
+
+	public String getUserReq() {
+		return userReq;
+	}
+
+
+	public void setUserReq(String userReq) {
+		this.userReq = userReq;
+	}
+	
+	
 }

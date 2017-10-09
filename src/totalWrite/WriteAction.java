@@ -75,15 +75,15 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		fileUploadPath = request.getRealPath("/image/"+ getUserReq() + "/");
 		
 
-		if (getUserReq().equals("mainCatWrite")) {
+		if (getUserReq().equals("mainCat")) {
 			mainCatWrite();
-		} else if (getUserReq().equals("faqWrite")) {
+		} else if (getUserReq().equals("faq")) {
 			faqWrite();
-		} else if (getUserReq().equals("qnaWrite")) {
+		} else if (getUserReq().equals("qna")) {
 			qnaWrite();
-		} else if (getUserReq().equals("memberWrite")) {
+		} else if (getUserReq().equals("member")) {
 			memberWrite();
-		} else if (getUserReq().equals("noticeWrite")) {
+		} else if (getUserReq().equals("notice")) {
 			noticeWrite();
 		}
 		

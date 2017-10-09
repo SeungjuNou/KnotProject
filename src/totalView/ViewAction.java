@@ -35,13 +35,13 @@ public class ViewAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
-		if (getUserReq().equals("faqView")) {
+		if (getUserReq().equals("faq")) {
 			faqView();
-		} else if (getUserReq().equals("mainCatView")) {
+		} else if (getUserReq().equals("mainCat")) {
 			mainCatView();
-		} else if (getUserReq().equals("memberView")) {
+		} else if (getUserReq().equals("member")) {
 			memberView();
-		} else if (getUserReq().equals("qnaView")) {
+		} else if (getUserReq().equals("qna")) {
 			qnaView();
 		}
 

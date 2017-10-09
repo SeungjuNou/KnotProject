@@ -44,9 +44,9 @@ public class DeleteAction extends ActionSupport implements  ServletRequestAware 
 
 		fileUploadPath = request.getRealPath("/image/"+ getUserReq() + "/");
 
-		if (getUserReq().equals("faqWrite")) {
+		if (getUserReq().equals("faq")) {
 			faqDelete();
-		} else if(getUserReq().equals("memberWrite")) {
+		} else if(getUserReq().equals("member")) {
 			memberDelete();
 		}
 
