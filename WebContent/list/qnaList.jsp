@@ -16,7 +16,7 @@
             <s:property value="currentPage" />
         </s:param>
 
-        <s:param name="userReq"> qnaView </s:param>
+        <s:param name="userReq"> qna </s:param>
 
     </s:url>
 

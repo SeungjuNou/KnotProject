@@ -17,7 +17,7 @@
             <s:property value="currentPage" />
         </s:param>
 
-        <s:param name="userReq"> mainCatView </s:param>
+        <s:param name="userReq"> mainCat </s:param>
 
     </s:url>
 

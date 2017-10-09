@@ -1,43 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<h2>FAQ 리스트</h2>
 
 	<ul>
-		<li>
-			<h2>FAQ 게시판</h2>
-		</li>
-		
-		<s:iterator value="list" status="stat">
-			<!-- iterator는 모든값을 받아와서 반복해서출력 -->
-			
-			<s:url id="faqViewURL" action="admin_faqView">
-				<li>번호 제목</li>
-				<s:param name="no">
-					<s:property value="no" />
-				</s:param>
-				<s:param name="currentPage">
-					<s:property value="currentPage" />
-				</s:param>
-				<s:param name="userReq"> faqView </s:param>
-			</s:url>
-	
-			
-				<li>
-					<s:property value="no" />
-					<s:a href="%{faqViewURL}"> 
-						<s:property value="name" />
-					</s:a>
-				</li>
-	
-		</s:iterator>
+		<li>번호 이름</li>
 	</ul>
-	
+    <s:iterator value="list" status="stat">
 
-	<s:if test="list.size() <= 0">
-			등록된 게시물이 없습니다.
-	</s:if>
+    <s:url id="viewURL" action="admin_faqModifyForm">
 
-	<s:property value="pagingHtml" escape="false" />
-	
-		
-		
+        <s:param name="no">
+            <s:property value="no" />
+        </s:param>
+
+        <s:param name="currentPage">
+            <s:property value="currentPage" />
+        </s:param>
+
+        <s:param name="userReq"> faq </s:param>
+
+    </s:url>
+
+       
+    <ul>
+        <li>
+            <s:property value="no" />
+          	<s:a href="%{viewURL}">
+                <s:property value="name" />
+            </s:a>
+        </li>
+    </ul>
+           
+    
+    </s:iterator>
