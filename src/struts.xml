@@ -152,7 +152,7 @@
 			<result type="chain">admin_qnaForm</result>
 		</action>
 		
-		<action name="qnaDelete" class="totalDelete.DeleteAction">
+		<action name="admin_qnaDelete" class="totalDelete.DeleteAction">
 			<result type="chain">admin_qna</result>
 		</action>
 
@@ -183,7 +183,7 @@
 			<result type="chain">admin_faqForm</result>
 		</action>
 		
-		<action name="faqDelete" class="totalDelete.DeleteAction">
+		<action name="admin_faqDelete" class="totalDelete.DeleteAction">
 			<result type="chain">admin_faq</result>
 		</action>
 		
@@ -205,9 +205,9 @@
 			<result type="redirect-action">admin_notice</result>
 		</action>
 		
-		<action name="noticeDelete" class="totalDelete.DeleteAction">
+		<action name="admin_noticeDelete" class="totalDelete.DeleteAction">
 			<result type="chain">admin_notice</result>
-    </action>
+    		</action>
 
 		<action name="admin_noticeView" class="totalView.ViewAction">
 			<result type="tiles">admin_noticeView</result>
@@ -243,7 +243,7 @@
 			<result type="chain">admin_mainCatForm</result>
 		</action>
 		
-		<action name="mainCatDelete" class="totalDelete.DeleteAction">
+		<action name="admin_mainCatDelete" class="totalDelete.DeleteAction">
 			<result type="chain">admin_mainCat</result>
 		</action>
 		

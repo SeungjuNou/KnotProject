@@ -8,8 +8,8 @@
 			<h2>MAIN_CATEGORY</h2>
 		</li>
 	
-		<li>	NO			: <s:property value="resultClass.no" />		</li>
-		<li>	NAME		: <s:property value="resultClass.name" />	</li>
+		<li>	NO			: <s:property value="resultClass.no" />	</li>
+		<li>	NAME			: <s:property value="resultClass.name" />	</li>
 		<li>	IMG			: <s:property value="resultClass.img" /> 	</li>
 </ul>	
 
