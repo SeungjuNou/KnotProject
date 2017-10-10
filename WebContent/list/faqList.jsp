@@ -37,6 +37,6 @@
 
     <s:property value="pagingHtml" escape="false" />
     
-    <c:if test="${3 eq sessionScope.mem_lev}">
+    <c:if test="${sessionScope.mem_lev eq 3}">
     <input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_faqForm.action?&currentPage=<s:property value="currentPage" />&userReq=faq';">
     </c:if>
