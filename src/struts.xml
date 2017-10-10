@@ -47,12 +47,18 @@
 
 
 	<package name="myPage" extends="struts-default, tiles-default">
+
+		<interceptors>
+	    		<interceptor name="LoginCheck" class="intercept.LoginCheck"/>
+	  	</interceptors>  
 		
 
 		<action name="myPage" class="totalList.ListAction">
-			<param name="userReq">memberList</param>
+			<param name="userReq">member</param>
+			<param name="userType">myPage</param>
 			<interceptor-ref name="staticParams"/>
-			<interceptor-ref name="params"/>
+			<interceptor-ref name="LoginCheck"/>
+			<result name="login">/auth/loginForm.jsp</result>
 			<result type="tiles">myPage</result>
 		</action>
 
@@ -60,7 +66,8 @@
 		<!-- myPage - QnA -->
 		
 		<action name="myPage_qna" class="totalList.ListAction">
-			<param name="userReq">qnaList</param>
+			<param name="userReq">qna</param>
+			<param name="userType">myPage</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">myPage_qna</result>
@@ -79,7 +86,8 @@
 		<!-- myPage - FAQ -->
 		
 		<action name="myPage_faq" class="totalList.ListAction">
-			<param name="userReq">faqList</param>
+			<param name="userReq">faq</param>
+			<param name="userType">myPage</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">myPage_faq</result>
@@ -89,7 +97,8 @@
 		<!-- myPage - Notice -->
 
 		<action name="myPage_notice" class="totalList.ListAction">
-			<param name="userReq">noticeList</param>
+			<param name="userReq">notice</param>
+			<param name="userType">myPage</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">myPage_notice</result>
@@ -114,7 +123,7 @@
 		
 
 	 	<interceptors>
-	    		<interceptor name="AdminCheck" class="other.AdminCheck"/>
+	    		<interceptor name="AdminCheck" class="intercept.AdminCheck"/>
 	  	</interceptors>  
 
 		<!-- admin - Member -->
@@ -278,18 +287,18 @@
 
 	<package name="Member" extends="struts-default, tiles-default">
 
-		<action name="loginForm" class="other.LoginAction" method="loginForm">
+		<action name="loginForm" class="auth.LoginAction" method="loginForm">
 			<result type="tiles">loginForm</result>
 		</action>
 
-		<action name="login" class="other.LoginAction">
+		<action name="login" class="auth.LoginAction">
 			<result type="redirect-action">main</result>
 			<result name="login" type="redirect-action">
 				loginForm
 			</result>
 		</action>
 
-		<action name="logout" class="other.LoginAction" method="logout">
+		<action name="logout" class="auth.LoginAction" method="logout">
 			<result type="tiles">main</result>
 		</action>
 

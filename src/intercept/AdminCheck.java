@@ -1,0 +1,89 @@
+package intercept;
+
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionInvocation;
+import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.ServletResponseAware;
+import org.apache.struts2.interceptor.SessionAware;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+public class AdminCheck extends AbstractInterceptor implements ServletRequestAware {
+
+	String result;
+	
+	HttpServletRequest request;
+	HttpSession session;
+
+
+
+	int mem_lev = 0;
+
+	@Override
+	public String intercept(ActionInvocation invocation) throws Exception {
+		session = ServletActionContext.getRequest().getSession(false);
+		
+		try{
+			System.out.println("test1");
+			mem_lev = ((Integer)(session.getAttribute("mem_lev"))).intValue();
+			System.out.println("test2");
+			if ( mem_lev == 3) {
+	   			result = invocation.invoke();
+	   		} else {
+	   			result = "login";
+	   		}
+			System.out.println(mem_lev);
+			
+		} catch (Exception ex) {
+			System.out.println("test5");
+			result = "login";
+		}
+		
+		return result;  
+	}
+
+	@Override
+	public void init() {
+	}
+
+	@Override
+	public void destroy() {
+	}
+
+	
+	public HttpServletRequest getRequest() {
+		return request;
+	}
+
+
+	public HttpSession getSession() {
+		return session;
+	}
+
+
+	public void setRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+
+
+	public void setSession(HttpSession session) {
+		this.session = session;
+	}
+
+	
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+
+
+
+}

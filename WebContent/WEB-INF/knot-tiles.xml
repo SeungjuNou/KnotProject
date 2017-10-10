@@ -51,7 +51,7 @@
 	</definition>
 	
 	<definition name="admin_mainCat" extends="admin">
-		<put-attribute name="body" value="/list/categoryList.jsp" />
+		<put-attribute name="body" value="/list/mainCatList.jsp" />
 	</definition>
 
 	
