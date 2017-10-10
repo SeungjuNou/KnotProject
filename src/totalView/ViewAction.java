@@ -1,18 +1,29 @@
 package totalView;
 
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 import model.*;
+import auth.*;
 
 import java.io.Reader;
-import java.io.IOException;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
-public class ViewAction extends ActionSupport {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
+
+public class ViewAction extends ActionSupport implements ServletRequestAware {
+	
+	HttpServletRequest request;
+	HttpSession session;
+	
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	  
@@ -20,8 +31,10 @@ public class ViewAction extends ActionSupport {
 	private int no;
 	private String mem_id;
 	private String userReq;
+	private String result;
 	
 	Object resultClass;
+	LoginAction loginAction = new LoginAction();
 
 
 	 
@@ -34,7 +47,11 @@ public class ViewAction extends ActionSupport {
 
 
 	public String execute() throws Exception {
-
+		try {
+			mem_id = (String) request.getSession().getAttribute("mem_id").toString();
+		} catch (Exception ex) {
+			result = ERROR;
+		}
 		if (getUserReq().equals("faq")) {
 			faqView();
 		} else if (getUserReq().equals("mainCat")) {
@@ -42,16 +59,13 @@ public class ViewAction extends ActionSupport {
 		} else if (getUserReq().equals("member")) {
 			memberView();
 		} else if (getUserReq().equals("qna")) {
-			qnaView();
+			result = qnaView();
 		} else if (getUserReq().equals("notice")) {
 			noticeView();
 		}
 
-		return SUCCESS;
+		return result;
 	}
-
-
-
 
 
 	public void faqView() throws SQLException {
@@ -73,10 +87,20 @@ public class ViewAction extends ActionSupport {
 
 	}
 
-	public void qnaView() throws SQLException {
+	public String qnaView() throws SQLException {
 
 		resultClass = new QnaVO();
 		resultClass = (QnaVO) sqlMapper.queryForObject("selectQnaOne", getNo());
+		
+		String dbMem_id = (String) ((QnaVO) resultClass).getMem_id();
+		
+		if (loginAction.userAuth(dbMem_id, mem_id)) {
+			result = SUCCESS;
+		} else {
+			result = ERROR;
+		}
+		
+		return result;
 	}
 
 	public void noticeView() throws SQLException {
@@ -167,7 +191,11 @@ public class ViewAction extends ActionSupport {
 	}
 
 
-	
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+
 
 	
 }

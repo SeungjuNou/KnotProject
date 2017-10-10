@@ -5,9 +5,11 @@ import model.*;
 
 import java.io.IOException;
 import java.io.Reader;
+
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import javax.servlet.http.HttpSession;
+
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
@@ -28,6 +30,7 @@ public class LoginAction implements Action, ServletRequestAware{
 
 	HttpServletRequest request;
 	HttpSession session;
+	
 	MemberVO reInfo = new MemberVO();
 
 	public LoginAction() throws IOException { 
@@ -91,6 +94,21 @@ public class LoginAction implements Action, ServletRequestAware{
 			return SUCCESS;
 		}
 		
+	}
+
+	public boolean userAuth(String dbMem_id, String mem_id) {
+		
+		System.out.println(mem_id + " mem_id");
+		System.out.println(dbMem_id + " dbMem_id");
+		
+		
+		if (dbMem_id.equals(mem_id)) {
+			System.out.println("check1");
+			return true;
+		} else {
+			System.out.println("check2");
+			return false;
+		}
 	}
 
 
@@ -188,6 +206,8 @@ public class LoginAction implements Action, ServletRequestAware{
 	public void setMem_no(int mem_no) {
 		this.mem_no = mem_no;
 	}
+
+	
 	
 	
 	
