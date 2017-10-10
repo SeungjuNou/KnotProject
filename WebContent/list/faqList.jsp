@@ -9,7 +9,7 @@
 	</ul>
     <s:iterator value="list" status="stat">
 
-    <s:url id="viewURL" action="admin_faqModifyForm">
+    <s:url id="viewURL" action="admin_faqView">
 
         <s:param name="no">
             <s:property value="no" />
