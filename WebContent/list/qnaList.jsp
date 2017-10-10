@@ -42,3 +42,6 @@
     <c:if test="${sessionScope.mem_lev le 2}">
     		<input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_qnaForm.action?&currentPage=<s:property value="currentPage" />';">
     </c:if>
+    
+			<s:textfield name="find" theme="simple" value="" maxlength="20"/> 
+				<input type="submit" name="find" value="검색" class="inputb"/>
