@@ -19,9 +19,19 @@
 	<sql id="where-notice-no">
 		WHERE NO = #no#
 	</sql>
+	
+	<sql id="where-notice-name">
+		WHERE NAME LIKE #%find%#
+	</sql>
 
 	<select id="selectNoticeAll" resultMap="noticeRes" parameterClass="int">
 		<include refid="notice-select-all" />
+		ORDER BY NO DESC
+	</select>
+	
+	<select id="NoticeFindSelectAll" resultMap="noticeRes" parameterClass="String">
+		<include refid="notice-select-all" />
+		<include refid="where-notice-name" />
 		ORDER BY NO DESC
 	</select>
 	
