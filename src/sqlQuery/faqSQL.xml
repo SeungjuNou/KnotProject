@@ -19,8 +19,11 @@
 	
 	<sql id="where-faq-no">
 		WHERE NO = #no#
-	</sql> 
-
+	</sql>
+	
+	<sql id="where-faq-name">
+		WHERE NAME LIKE #%find%#
+	</sql>
 
 	<select id="selectFaqAll" resultMap="faqRes" parameterClass="int">
 		<include refid="faq-select-all" />
@@ -31,6 +34,12 @@
 	<select id="selectFaqOne" resultClass="faq" parameterClass="int">
 		<include refid="faq-select-all" />
 		<include refid="where-faq-no" />
+	</select>
+	
+	<select id="FaqFindSelectAll" resultMap="faqRes" parameterClass="String">
+		<include refid="faq-select-all" />
+		<include refid="where-faq-name" />
+		ORDER BY NO DESC
 	</select>
 		
 	<insert id="insertFaqBoard" parameterClass="faq">

@@ -78,7 +78,11 @@ public class ListAction extends ActionSupport {
 	public List mainCatList() throws Exception {
 		blockCount = 10;
 		list = new ArrayList<MainCategoryVO>();
+		if (find==null || find.equals("")) {
 		list = sqlMapper.queryForList("selectCatAll");
+		} else {
+			list = sqlMapper.queryForList("CatFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
+		}
 		return list;
 	}
 	
@@ -92,7 +96,11 @@ public class ListAction extends ActionSupport {
 	public List faqList() throws Exception { 
 		blockCount = 10;
 		list = new ArrayList<FaqVO>();
+		if (find==null || find.equals("")) {
 		list = sqlMapper.queryForList("selectFaqAll");
+		} else {
+			list = sqlMapper.queryForList("FaqFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
+		}
 		return list;
 	}
 	
@@ -105,7 +113,11 @@ public class ListAction extends ActionSupport {
 	public List noticeList() throws Exception {
 		blockCount = 5;
 		list = new ArrayList<NoticeVO>();
+		if (find==null || find.equals("")) {
 		list = sqlMapper.queryForList("selectNoticeAll");
+		} else {
+			list = sqlMapper.queryForList("NoticeFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
+		}
 		return list;
 	}
 
