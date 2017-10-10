@@ -47,11 +47,7 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 
 
 	public String execute() throws Exception {
-		try {
-			mem_id = (String) request.getSession().getAttribute("mem_id").toString();
-		} catch (Exception ex) {
-			result = ERROR;
-		}
+		
 		if (getUserReq().equals("faq")) {
 			faqView();
 		} else if (getUserReq().equals("mainCat")) {
@@ -91,7 +87,7 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 
 		resultClass = new QnaVO();
 		resultClass = (QnaVO) sqlMapper.queryForObject("selectQnaOne", getNo());
-		
+		String mem_id = (String) request.getSession().getAttribute("mem_id").toString();
 		String dbMem_id = (String) ((QnaVO) resultClass).getMem_id();
 		
 		if (loginAction.userAuth(dbMem_id, mem_id)) {
