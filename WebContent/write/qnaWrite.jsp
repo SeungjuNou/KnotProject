@@ -30,9 +30,11 @@
 		<li>
 			내용<s:textarea name="content" theme="simple" value="%{resultClass.content}" />
 		</li>
+		<c:if test="${sessionScope.mem_lev eq 3}">
 		<li>
 			답변<s:textarea name="answer" theme="simple" value="%{resultClass.answer}" />
 		</li>
+		</c:if>
 		<li>
 			첨부파일<s:file name="upload" theme="simple" />
 		</li>

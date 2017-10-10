@@ -25,16 +25,24 @@
     <ul>
         <li>
             <s:property value="no" />
-            <s:property value="name" />
-            <s:a href="%{viewURL}">
+            <s:a href="%{viewURL}"> <s:property value="name" /> </s:a>
+           
                 <s:property value="img" />
-            </s:a>
+           
         </li>
     </ul>
            
     
+    
     </s:iterator>
 
-    <s:property value="pagingHtml" escape="false" />
-    
-<input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_mainCatForm.action?&currentPage=<s:property value="currentPage" />';">
+    	<s:property value="pagingHtml" escape="false" />
+   		 
+   			<c:if test="${sessionScope.mem_lev eq 2}">
+				<input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_mainCatForm.action?&currentPage=<s:property value="currentPage" />';">
+			</c:if>
+
+			
+    	    <s:textfield name="find" theme="simple" value="" maxlength="20"/> 
+    	      	<input type="submit" name="find" value="검색" class="inputb"/>
+   
