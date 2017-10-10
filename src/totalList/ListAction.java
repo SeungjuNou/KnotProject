@@ -85,7 +85,11 @@ public class ListAction extends ActionSupport {
 	public List qnaList() throws Exception { 
 		blockCount = 5;
 		list = new ArrayList<QnaVO>();
-		list = sqlMapper.queryForList("selectQnaAll");
+		if (find==null || find.equals("")) {
+		      list = sqlMapper.queryForList("selectQnaAll");
+		      } else {
+		         list = sqlMapper.queryForList("QnaFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
+		      }
 		return list;
 	}
 	

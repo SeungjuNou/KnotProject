@@ -25,11 +25,20 @@
 		WHERE NO = #no#
 	</sql>
 	
+	<sql id="where-qna-name">
+      WHERE MEM_NAME LIKE #%find%#
+   </sql>
 
 	<select id="selectQnaAll" resultMap="qnaRes" parameterClass="int">
 		<include refid="qna-select-all" />
 		ORDER BY NO DESC
 	</select>
+	
+	<select id="QnaFindSelectAll" resultMap="qnaRes" parameterClass="String">
+      <include refid="qna-select-all" />
+      <include refid="where-qna-name" />
+      ORDER BY NO DESC
+   </select>
 	
 	<select id="qnaSeqNo" resultClass="int">
 		SELECT LAST_NUMBER  FROM USER_SEQUENCES WHERE SEQUENCE_NAME = UPPER('QNA_NO_SEQ')
