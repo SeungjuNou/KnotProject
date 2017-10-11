@@ -31,7 +31,7 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 	private int no;
 	private String mem_id;
 	private String userReq;
-	private String result;
+	private String result = SUCCESS;
 	
 	Object resultClass;
 	LoginAction loginAction = new LoginAction();
@@ -53,11 +53,13 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 		} else if (getUserReq().equals("mainCat")) {
 			mainCatView();
 		} else if (getUserReq().equals("member")) {
-			memberView();
+			result = memberView();
 		} else if (getUserReq().equals("qna")) {
 			result = qnaView();
 		} else if (getUserReq().equals("notice")) {
 			noticeView();
+		} else {
+			result = ERROR;
 		}
 
 		return result;
@@ -76,10 +78,21 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 		resultClass = (MainCategoryVO) sqlMapper.queryForObject("mainCatSelectOne", getNo());
 	}
 
-	public void memberView() throws SQLException {
+	public String memberView() throws SQLException {
 
 		resultClass = new MemberVO();
 		resultClass = (MemberVO) sqlMapper.queryForObject("selectMemberOne", getMem_id());
+
+		String mem_id = (String) request.getSession().getAttribute("mem_id").toString();
+		String dbMem_id = (String) ((MemberVO) resultClass).getMem_id();
+		
+		if (loginAction.userAuth(dbMem_id, mem_id)) {
+			result = SUCCESS;
+		} else {
+			result = ERROR;
+		}
+		
+		return result;
 
 	}
 
@@ -87,6 +100,7 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 
 		resultClass = new QnaVO();
 		resultClass = (QnaVO) sqlMapper.queryForObject("selectQnaOne", getNo());
+
 		String mem_id = (String) request.getSession().getAttribute("mem_id").toString();
 		String dbMem_id = (String) ((QnaVO) resultClass).getMem_id();
 		

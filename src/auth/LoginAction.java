@@ -98,17 +98,19 @@ public class LoginAction implements Action, ServletRequestAware{
 
 	public boolean userAuth(String dbMem_id, String mem_id) {
 		
-		System.out.println(mem_id + " mem_id");
-		System.out.println(dbMem_id + " dbMem_id");
+		boolean result = false;
 		
-		
-		if (dbMem_id.equals(mem_id)) {
-			System.out.println("check1");
-			return true;
+		if (mem_id.equals("admin")) {
+			result = true;
 		} else {
-			System.out.println("check2");
-			return false;
+			if (dbMem_id.equals(mem_id)) {
+				result = true;
+			} else {
+				result = false;
+			}
 		}
+		
+		return result;
 	}
 
 

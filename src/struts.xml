@@ -132,6 +132,7 @@
 			<param name="userType">admin</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="AdminCheck"/>
+			<interceptor-ref name="params"/>
 			<result name="login">/auth/loginForm.jsp</result>
 			<result type="tiles">admin_member</result>
 		</action>

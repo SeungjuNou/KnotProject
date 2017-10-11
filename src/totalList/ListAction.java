@@ -71,40 +71,48 @@ public class ListAction extends ActionSupport {
 	public List memberList() throws Exception { 
 		blockCount = 10; //회원목록은 10개씩 띄운다. 
 		list = new ArrayList<MemberVO>();
+		
 		list = sqlMapper.queryForList("selectMemAll");
+		
 		return list;
 	} 
 
 	public List mainCatList() throws Exception {
 		blockCount = 10;
 		list = new ArrayList<MainCategoryVO>();
+
 		if (find==null || find.equals("")) {
-		list = sqlMapper.queryForList("selectCatAll");
+			list = sqlMapper.queryForList("selectCatAll");
 		} else {
 			list = sqlMapper.queryForList("CatFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
 		}
+
 		return list;
 	}
 	
 	public List qnaList() throws Exception { 
 		blockCount = 5;
 		list = new ArrayList<QnaVO>();
+
 		if (find==null || find.equals("")) {
-		      list = sqlMapper.queryForList("selectQnaAll");
-		      } else {
-		         list = sqlMapper.queryForList("QnaFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
-		      }
+			list = sqlMapper.queryForList("selectQnaAll");
+		} else {
+			list = sqlMapper.queryForList("QnaFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
+		}
+
 		return list;
 	}
 	
 	public List faqList() throws Exception { 
 		blockCount = 10;
 		list = new ArrayList<FaqVO>();
+
 		if (find==null || find.equals("")) {
-		list = sqlMapper.queryForList("selectFaqAll");
+			list = sqlMapper.queryForList("selectFaqAll");
 		} else {
 			list = sqlMapper.queryForList("FaqFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
 		}
+
 		return list;
 	}
 	
@@ -115,13 +123,15 @@ public class ListAction extends ActionSupport {
 	}
 
 	public List noticeList() throws Exception {
-		blockCount = 5;
+		blockCount = 10;
 		list = new ArrayList<NoticeVO>();
+		
 		if (find==null || find.equals("")) {
-		list = sqlMapper.queryForList("selectNoticeAll");
+			list = sqlMapper.queryForList("selectNoticeAll");
 		} else {
 			list = sqlMapper.queryForList("NoticeFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
 		}
+
 		return list;
 	}
 
@@ -142,8 +152,9 @@ public class ListAction extends ActionSupport {
 		
 		totalCount = list.size(); 
 		page = new PagingAction(currentPage, totalCount, blockCount, blockPage, userType, userReq);
+		
 		pagingHtml = page.getPagingHtml().toString(); 
-
+		System.out.println(currentPage + "현재페이지 계");
 		int lastCount = totalCount;
 
 		if (page.getEndCount() < totalCount) {
