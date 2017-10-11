@@ -212,7 +212,13 @@
 
 
 	<!-- 일반 삭제 -->
-
+	
+	
+	<!-- 에러페이지 -->
+	<definition name="errorPage" extends="other">
+		<put-attribute name="body" value="/auth/errorPage.jsp" />
+	</definition>
+	
 
 
 	<!-- ///////////////////////////// -->

@@ -9,6 +9,7 @@
 	<constant name="struts.multipart.maxSize" value="102400000"/> 
 	
 
+	
 
 	<package name="main" extends="struts-default, tiles-default">
 		
@@ -124,7 +125,14 @@
 
 	 	<interceptors>
 	    		<interceptor name="AdminCheck" class="intercept.AdminCheck"/>
-	  	</interceptors>  
+	  	</interceptors> 
+	  	
+	  	<global-results>
+    		<result name="error" type="tiles">errorPage</result>
+    	</global-results>
+    	<global-exception-mappings>
+    		<exception-mapping result="error" exception="java.lang.Exception"/>
+    	</global-exception-mappings> 
 
 		<!-- admin - Member -->
 		<action name="admin_member" class="totalList.ListAction">
@@ -322,7 +330,12 @@
 	</package>
 
 	<!-- ///////////////////////////// -->
+				<!-- other -->
 	<!-- ///////////////////////////// -->
+
+
+
+
 	<!-- ///////////////////////////// -->
 	<!-- ///////////////////////////// -->
 
