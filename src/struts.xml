@@ -14,8 +14,8 @@
 	<package name="main" extends="struts-default, tiles-default">
 		
 		<action name="main" class="totalList.ListAction">
-			<param name="userReq">mainList</param>
-			<interceptor-ref name="staticParams"/>
+			<param name="userReq">main</param>
+			<interceptor-ref name="staticParams"/> 
 			<interceptor-ref name="params"/>
 			<result type="tiles">main</result>
 		</action>
@@ -31,13 +31,6 @@
 
 
 	<package name="other" extends="struts-default, tiles-default">
-
-		<action name="other" class="totalList.ListAction">
-			<param name="userReq">memberList</param>
-			<interceptor-ref name="staticParams"/>
-			<interceptor-ref name="params"/>
-			<result type="tiles">other</result>
-		</action>
 
 		<!-- other - Item -->
 
@@ -152,7 +145,11 @@
 			<result type="tiles">myPage_item</result>
 		</action> 
 
-		<action name="myPage_itemForm" class="totalWrite.WriteAction" method="form">
+		<action name="myPage_itemForm" class="totalList.ListAction">
+			<param name="userReq">itemCat</param>
+			<param name="userType">myPage</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
 			<result type="tiles">myPage_itemForm</result>
 		</action>
 		
@@ -173,6 +170,14 @@
 		
 	</package>
 
+	<!-- ///////////////////////////// -->
+	<!-- ///////////////////////////// -->
+	<!-- ///////////////////////////// -->
+	<!-- ///////////////////////////// -->
+
+
+
+
 
 
 	
@@ -187,15 +192,19 @@
 
 	 	<interceptors>
 	    		<interceptor name="AdminCheck" class="intercept.AdminCheck"/>
-	    		<interceptor name="SessionValue" class="intercept.SessionValue"/>
 	  	</interceptors>  
 	  	
-	  	<!-- <global-results>
+
+
+	  	<global-results>
     		<result name="error" type="tiles">errorPage</result>
     	</global-results>
+
     	<global-exception-mappings>
     		<exception-mapping result="error" exception="java.lang.Exception"/>
-    	</global-exception-mappings>  -->
+    	</global-exception-mappings>  
+
+
 
 		<!-- admin - Member -->
 		<action name="admin_member" class="totalList.ListAction">
@@ -207,6 +216,8 @@
 			<result name="login">/auth/loginForm.jsp</result>
 			<result type="tiles">admin_member</result>
 		</action>
+
+
 
 
 		<!-- admin - QnA --> 
@@ -241,6 +252,8 @@
 
 
 
+
+
 		<!-- admin - FAQ -->
 		
 		<action name="admin_faq" class="totalList.ListAction">
@@ -270,6 +283,10 @@
 		<action name="admin_faqDelete" class="totalDelete.DeleteAction">
 			<result type="chain">admin_faq</result>
 		</action>
+
+
+
+
 		
 		<!-- admin - Notice -->
 
@@ -303,6 +320,10 @@
 		</action>
 	
 
+
+
+
+
 		<!-- admin - MainCategory -->
 
 		<action name="admin_mainCat" class="totalList.ListAction">
@@ -333,6 +354,10 @@
 			<result type="chain">admin_mainCat</result>
 		</action>
 
+
+
+
+
 		<!-- admin - AreaCategory -->
 
 		<action name="admin_areaCat" class="totalList.ListAction">
@@ -358,6 +383,10 @@
 		<action name="admin_areaCatDelete" class="totalDelete.DeleteAction">
 			<result type="chain">admin_areaCat</result>
 		</action>
+
+
+
+
 		
 		<!-- admin - Order -->
 
@@ -384,6 +413,10 @@
 		<action name="admin_orderDelete" class="totalDelete.DeleteAction">
 			<result type="redirect-action">admin_order</result>
 		</action>
+
+
+
+
 
 
 		<!-- admin - item -->
@@ -478,7 +511,7 @@
 		</action>
 
 		<action name="logout" class="auth.LoginAction" method="logout">
-			<result type="tiles">main</result>
+			<result type="redirect-action">main</result>
 		</action>
 
 		<action name="memberForm" class="totalWrite.WriteAction" method="form">
@@ -486,7 +519,7 @@
 		</action>
 
 		<action name="memberJoin" class="totalWrite.WriteAction">
-			<result type="redirect-action">admin_member</result>
+			<result type="redirect-action">main</result>
 		</action>
 
 		<action name="memberModify" class="totalView.ViewAction">
@@ -502,6 +535,8 @@
 
 	
 
+	<!-- ///////////////////////////// -->
+	<!-- ///////////////////////////// -->
 	<!-- ///////////////////////////// -->
 	<!-- ///////////////////////////// -->
 

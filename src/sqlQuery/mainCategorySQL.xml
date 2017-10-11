@@ -22,7 +22,7 @@
 	<sql id="where-cat-name">
 		WHERE NAME LIKE #%find%#
 	</sql>
-	
+	 
 	<select id="selectCatAll" resultMap="catRes" parameterClass="int">
 		<include refid="cat-select-all" />
 		ORDER BY NO DESC

@@ -22,6 +22,8 @@ public class ListAction extends ActionSupport {
 
 	private List list; //쿼리실행 결과를 담을 list객체 변수 선언.
 	private List list3;
+	private List menulist;
+	private List menulist2;
 	private Map<Integer, Object> list2 = new HashMap<Integer, Object>();
 	
 	private int currentPage = 1;	//현재 페이지
@@ -157,14 +159,21 @@ public class ListAction extends ActionSupport {
 	}
 
 	public Map mainList() throws Exception {
-
+		blockCount = 5;
 		catLen = (int) sqlMapper.queryForObject("countMainCategory");
 		list = new ArrayList<ItemVO>();
+
 		for (int catNo = 1; catNo <= catLen; catNo++) {
 			list = sqlMapper.queryForList("selectMainItem", catNo);
 			list2.put(catNo, list);
 		}
-
+		menulist = new ArrayList<MainCategoryVO>();
+		menulist2 = new ArrayList<MainCategoryVO>();
+		list3 = new ArrayList<MainCategoryVO>();
+		list3 = sqlMapper.queryForList("selectCatAll");
+		System.out.println(list3.size());
+		menulist = list3.subList(0, 5);
+		menulist2 = list3.subList(5, 10);
 		return list2;
 	}
 
@@ -420,6 +429,26 @@ public class ListAction extends ActionSupport {
 	}
 
 
+	public List getMenulist() {
+		return menulist;
+	}
+
+
+	public void setMenulist(List menulist) {
+		this.menulist = menulist;
+	}
+
+
+	public List getMenulist2() {
+		return menulist2;
+	}
+
+
+	public void setMenulist2(List menulist2) {
+		this.menulist2 = menulist2;
+	}
+
+	
 	
 	
 }

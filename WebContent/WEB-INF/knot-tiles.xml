@@ -190,6 +190,10 @@
 		<put-attribute name="body" value="/write/memberWrite.jsp" />
 	</definition>
 
+	<definition name="myPage_itemForm" extends="myPage">
+		<put-attribute name="body" value="/write/itemWrite.jsp" />
+	</definition>
+
 
 	<!-- 사용자 상세보기 -->
 

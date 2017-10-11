@@ -72,6 +72,7 @@
 	</select>
 
 	<select id="itemFindSelectAll" resultMap="itemRes" parameterClass="String">
+		<include refid="item-select-all" />
 		<include refid="where-item-name" />
 		ORDER BY NO DESC
 	</select>
