@@ -4,18 +4,19 @@ import java.util.Date;
 
 public class ItemVO {
 	
-	private int no;
-	private String name;
-	private int price;
+	private int no; //
+	private String name; //
+	private String price;
 	private int cat_no;
 	private int area_cat_no;
 	private String item_sum;
 	private String item_detail;
 	private String img;
-	private int item_readhit;
+	private int item_readhit; //
 	private String sal_id;
-	private String sal_name;
-	private String re_date;
+	private String sal_name; //
+	private String re_date; // 예약할때 입력해줘야 함.
+	private int item_check; //작성이나 수정할때 0으로 초기화.
 	
 	public int getNo() {
 		return no;
@@ -29,10 +30,10 @@ public class ItemVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	public int getCat_no() {
@@ -88,6 +89,12 @@ public class ItemVO {
 	}
 	public void setRe_date(String re_date) {
 		this.re_date = re_date;
+	}
+	public int getItem_check() {
+		return item_check;
+	}
+	public void setItem_check(int item_check) {
+		this.item_check = item_check;
 	}
 	
 

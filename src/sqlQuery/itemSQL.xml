@@ -48,7 +48,6 @@
 	</select>
 
 	<select id="itemFindSelectAll" resultMap="itemRes" parameterClass="String">
-		
 		<include refid="where-item-name" />
 		ORDER BY NO DESC
 	</select>
@@ -68,6 +67,11 @@
 		UPDATE ITEM SET NAME = #name#, PRICE = #price#, ITEM_SUM = #item_sum#, ITEM_DETAIL = #item_detail#
 		<include refid="where-item-no" />
 	</update> 
+	
+	<update id="itemReadHitUp" parameterClass="int">
+		UPDATE ITEM SET ITEM_READHIT = ITEM_READHIT + 1
+		<include refid="where-item-no" />
+	</update>
 
 	<select id="selectMainItem" resultMap="itemRes" parameterClass="int">
 		select * from ( select * from ITEM where NO  = #catNo# order by ITEM_READHIT desc) where rownum <![CDATA[ <= 4]]>

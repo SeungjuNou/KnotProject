@@ -10,15 +10,15 @@
 	
 
 	<s:hidden name="userReq" value="order" />
-	<s:hidden name="re_item" value="상품명"/>
-	<s:hidden name="re_cat_no" value="1"/>
-	<s:hidden name="re_price" value="2000"/>
-	<s:hidden name="re_sal_id" value="판매자 id"/>
+	<s:hidden name="re_item" value="%{resultClass.name}"/>
+	<s:hidden name="re_price" value="%{resultClass.price}"/>
+	<s:hidden name="re_cat_no" value="%{resultClass.cat_no}"/>
+	<s:hidden name="re_sal_id" value="%{resultClass.sal_id}"/>
 
 	<ul>
 		<li>
 			예약 상품 		:	
-			<s:property value="테스트임니답...." />
+			<s:property value="resultClass.name" />
 		</li>
 		<li>
 			예약자 성함 	:	

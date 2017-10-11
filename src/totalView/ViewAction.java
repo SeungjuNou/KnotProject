@@ -32,6 +32,9 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 	private String mem_id;
 	private String userReq;
 	private String result = SUCCESS;
+
+	private int area_no;
+	private String area_name;
 	
 	Object resultClass;
 	LoginAction loginAction = new LoginAction();
@@ -52,6 +55,8 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 			faqView();
 		} else if (getUserReq().equals("mainCat")) {
 			mainCatView();
+		} else if (getUserReq().equals("areaCat")) {
+			areaCatView();
 		} else if (getUserReq().equals("member")) {
 			result = memberView();
 		} else if (getUserReq().equals("qna")) {
@@ -80,6 +85,12 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 
 		resultClass = new MainCategoryVO();
 		resultClass = (MainCategoryVO) sqlMapper.queryForObject("mainCatSelectOne", getNo());
+	}
+
+	public void areaCatView() throws SQLException {
+
+		resultClass = new AreaCategoryVO();
+		resultClass = (AreaCategoryVO) sqlMapper.queryForObject("selectAreaCatOne", getArea_no());
 	}
 
 	public String memberView() throws SQLException {
@@ -139,16 +150,7 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 
 		resultClass = new ItemVO();
 		resultClass = (ItemVO) sqlMapper.queryForObject("selectItemOne", getNo());
-
-		String mem_id = (String) request.getSession().getAttribute("mem_id").toString();
-		String dbMem_id = (String) ((ItemVO) resultClass).getSal_id();
-		
-		if (loginAction.userAuth(dbMem_id, mem_id)) {
-			result = SUCCESS;
-		} else {
-			result = ERROR;
-		}
-		
+		sqlMapper.update("itemReadHitUp", getNo());
 	}
 
 	public void noticeView() throws SQLException {
@@ -245,5 +247,29 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 	}
 
 
+
+	public int getArea_no() {
+		return area_no;
+	}
+
+
+
+	public void setArea_no(int area_no) {
+		this.area_no = area_no;
+	}
+
+
+
+	public String getArea_name() {
+		return area_name;
+	}
+
+
+
+	public void setArea_name(String area_name) {
+		this.area_name = area_name;
+	}
+
+	
 	
 }

@@ -8,6 +8,8 @@
 
 	<s:hidden name="userReq" value="item" />
 	<s:hidden name="no" value="%{resultClass.no}"/>
+	<s:hidden name="sal_id" value="%{sessionScope.mem_id}"/>
+	<s:hidden name="sal_name" value="%{sessionScope.mem_name}"/>
 
 	<s:if test="resultClass != NULL">   
 		<s:hidden name="modifyReq" value="modifyReq"/> 
@@ -24,12 +26,15 @@
 			<s:textfield name="price" theme="simple" value="%{resultClass.price}" />
 		</li>
 		<li>
+
 			CAT_NO 			:	
-			<s:textfield name="cat_no" theme="simple" value="%{resultClass.cat_no}" />
+    			<s:select name="cat_no" list="list" listKey="no" listValue="name"  value="%{resultClass.cat_no}"  >
+    			</s:select>
 		</li>
 		<li>
 			AREA_CAT_NO 	:	
-			<s:textfield name="area_cat_no" theme="simple" value="%{resultClass.area_cat_no}" />
+			<s:select name="area_cat_no" list="list3" listKey="no" listValue="name"  value="%{resultClass.area_cat_no}"  >
+    			</s:select>
 		</li>
 		<li>
 			ITEM_SUM 		:	

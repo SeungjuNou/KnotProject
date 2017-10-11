@@ -48,6 +48,8 @@ public class DeleteAction extends ActionSupport implements  ServletRequestAware 
 				qnaDelete();
 			} else if (getUserReq().equals("mainCat")) {
 				mainCatDelete();
+			} else if (getUserReq().equals("areaCat")) {
+				areaCatDelete();
 			} else if (getUserReq().equals("notice")) {
 				noticeDelete();
 			} else if (getUserReq().equals("order")) {
@@ -91,6 +93,10 @@ public class DeleteAction extends ActionSupport implements  ServletRequestAware 
 		sqlMapper.update("deleteMainCat", getNo());
 		deleteImg(resultClass.getImg());
 		
+	}
+
+	public void areaCatDelete() throws SQLException, IOException {
+		sqlMapper.update("deleteMainCat", getNo());
 	}
 	
 	public void noticeDelete() throws SQLException, IOException {

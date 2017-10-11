@@ -20,7 +20,7 @@
 			<result type="tiles">main</result>
 		</action>
 
-	</package>
+	</package> 
 	
 
 
@@ -35,6 +35,31 @@
 			<result type="tiles">other</result>
 		</action>
 
+		<!-- other - Item -->
+
+		<action name="other_area_item" class="totalList.ListAction">
+			<param name="userReq">item</param>
+			<param name="userType">other_area_</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_item</result>
+		</action> 
+
+		<action name="myPage_itemForm" class="totalWrite.WriteAction" method="form">
+			<result type="tiles">myPage_itemForm</result>
+		</action>
+		
+		<action name="myPage_itemWrite" class="totalWrite.WriteAction">
+			<result type="redirect-action">myPage_item</result>
+		</action>
+
+		<action name="myPage_itemView" class="totalView.ViewAction">
+			<result type="tiles">myPage_itemView</result>
+		</action>
+
+		<action name="myPage_itemDelete" class="totalDelete.DeleteAction">
+			<result type="redirect-action">myPage_item</result>
+		</action>
 
  
 	</package>
@@ -298,6 +323,32 @@
 		<action name="admin_mainCatDelete" class="totalDelete.DeleteAction">
 			<result type="chain">admin_mainCat</result>
 		</action>
+
+		<!-- admin - AreaCategory -->
+
+		<action name="admin_areaCat" class="totalList.ListAction">
+			<param name="userReq">areaCat</param>
+			<param name="userType">admin</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_areaCat</result>
+		</action> 
+
+		<action name="admin_areaCatForm" class="totalWrite.WriteAction" method="form">
+			<result type="tiles">admin_areaCatForm</result>
+		</action>
+		
+		<action name="admin_areaCatWrite" class="totalWrite.WriteAction">
+			<result type="redirect-action">admin_areaCat</result>
+		</action>
+
+		<action name="admin_areaCatModifyForm" class="totalView.ViewAction">
+			<result type="chain">admin_areaCatForm</result>
+		</action>
+		
+		<action name="admin_areaCatDelete" class="totalDelete.DeleteAction">
+			<result type="chain">admin_areaCat</result>
+		</action>
 		
 		<!-- admin - Order -->
 
@@ -309,7 +360,7 @@
 			<result type="tiles">admin_order</result>
 		</action> 
 
-		<action name="admin_orderForm" class="totalWrite.WriteAction" method="form">
+		<action name="admin_orderForm" class="totalView.ViewAction">
 			<result type="tiles">admin_orderForm</result>
 		</action>
 		
@@ -336,7 +387,11 @@
 			<result type="tiles">admin_item</result>
 		</action> 
 
-		<action name="admin_itemForm" class="totalWrite.WriteAction" method="form">
+		<action name="admin_itemForm" class="totalList.ListAction">
+			<param name="userReq">itemCat</param>
+			<param name="userType">admin</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
 			<result type="tiles">admin_itemForm</result>
 		</action>
 		
@@ -350,6 +405,10 @@
 
 		<action name="admin_itemDelete" class="totalDelete.DeleteAction">
 			<result type="redirect-action">admin_item</result>
+		</action>
+
+		<action name="admin_itemModifyForm" class="totalView.ViewAction">
+			<result type="chain">admin_areaCatForm</result>
 		</action>
 		
 		
@@ -415,6 +474,7 @@
 				<!-- other -->
 	<!-- ///////////////////////////// -->
 
+	
 
 
 

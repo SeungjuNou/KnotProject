@@ -27,6 +27,7 @@ public class LoginAction implements Action, ServletRequestAware{
 	String mem_pwd;	
 	int mem_lev;
 	int mem_no;
+	String mem_name;
 
 	HttpServletRequest request;
 	HttpSession session;
@@ -58,6 +59,7 @@ public class LoginAction implements Action, ServletRequestAware{
 			request.getSession().setAttribute( "mem_no", reInfo.getNo());
 			request.getSession().setAttribute( "mem_id" , reInfo.getMem_id());	
 			request.getSession().setAttribute( "mem_lev" , reInfo.getMem_lev());
+			request.getSession().setAttribute( "mem_name" , reInfo.getMem_name());
 			
 			System.out.println("login Success");
 			return SUCCESS; //로그인 성공 했을때

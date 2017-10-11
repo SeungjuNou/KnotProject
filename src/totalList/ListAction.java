@@ -21,6 +21,7 @@ public class ListAction extends ActionSupport {
 
 
 	private List list; //쿼리실행 결과를 담을 list객체 변수 선언.
+	private List list3;
 	private Map<Integer, Object> list2 = new HashMap<Integer, Object>();
 	
 	private int currentPage = 1;	//현재 페이지
@@ -53,6 +54,11 @@ public class ListAction extends ActionSupport {
 				list = complete(memberList());
 			} else if(getUserReq().equals("mainCat")) {
 				list = complete(mainCatList());
+			} else if(getUserReq().equals("areaCat")) {
+				list3 = complete(areaCatList());
+			}	else if(getUserReq().equals("itemCat")) {
+				list = mainCatList();
+				list3 = areaCatList();
 			} else if (getUserReq().equals("qna")) {
 				list = complete(qnaList());
 			} else if (getUserReq().equals("faq")) {
@@ -97,6 +103,15 @@ public class ListAction extends ActionSupport {
 		}
 
 		return list;
+	}
+
+	public List areaCatList() throws Exception {
+		blockCount = 10;
+		list3 = new ArrayList<AreaCategoryVO>();
+		System.out.println("왜안되니...");
+		list3 = sqlMapper.queryForList("selectAreaCatAll");
+		
+		return list3;
 	}
 	
 	public List qnaList() throws Exception { 
@@ -170,7 +185,7 @@ public class ListAction extends ActionSupport {
 		if (find==null || find.equals("")) {
 			if (getMem_id().equals("")) {
 				list = sqlMapper.queryForList("selectItemAll");
-			} else if (!getMem_id().equals("")) {
+			} else if (getUserType.equals("myPage")) {
 				list = sqlMapper.queryForList("selectMyItemAll", getMem_id());
 			}
 		
@@ -357,6 +372,16 @@ public class ListAction extends ActionSupport {
 
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
+	}
+
+
+	public List getList3() {
+		return list3;
+	}
+
+
+	public void setList3(List list3) {
+		this.list3 = list3;
 	}
 
 

@@ -18,6 +18,7 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.Reader;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.io.File;
 import java.io.IOException;
 
@@ -73,6 +74,11 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	private String sal_id;
 	private String sal_name;
 	private String re_date;
+	private String mainCat;
+
+	private int area_no;
+	private String area_name;
+	
 
 	private String img = "";
 	
@@ -96,6 +102,8 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		try {
 			if (getUserReq().equals("mainCat")) {
 				mainCatWrite();
+			} else if (getUserReq().equals("areaCat")) {
+				areaCatWrite();
 			} else if (getUserReq().equals("faq")) {
 				faqWrite();
 			} else if (getUserReq().equals("qna")) {
@@ -145,6 +153,22 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 			sqlMapper.update("mainCatModify", paramClass);
 		}
 
+
+	}
+
+	public void areaCatWrite() throws SQLException, IOException {
+
+		AreaCategoryVO paramClass = new AreaCategoryVO();
+		
+		paramClass.setNo(getNo());
+		paramClass.setName(getName());
+		paramClass.setCat_code(getCat_code());
+		
+		if (getModifyReq().equals("") || getModifyReq() == null ) {
+			sqlMapper.insert("areaCatInsert", paramClass);
+		} else {
+			sqlMapper.update("areaCatModify", paramClass);
+		}
 
 	}
 
@@ -286,8 +310,11 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	public void itemWrite() throws SQLException, IOException {
 
 		ItemVO paramClass = new ItemVO();
-		
-		//file upload start
+
+		double num = getPrice();  
+		DecimalFormat dfNumber = new DecimalFormat("#,##0");
+		String itemPrice = dfNumber.format(num);
+		System.out.println(itemPrice);
 		if (getUpload() != null) {
 			if(no == 0 ) {
 				no = (int) sqlMapper.queryForObject("itemSeqNo");
@@ -298,10 +325,9 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		}
 		paramClass.setImg(img);
 		//file upload end
-		
 		paramClass.setNo(getNo());
 		paramClass.setName(getName());
-		paramClass.setPrice(getPrice());
+		paramClass.setPrice(itemPrice);
 		paramClass.setCat_no(getCat_no());
 		paramClass.setArea_cat_no(getArea_cat_no());
 		paramClass.setItem_sum(getItem_sum());
@@ -310,7 +336,7 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setSal_id(getSal_id());
 		paramClass.setSal_name(getSal_name());
 		paramClass.setRe_date(getRe_date());
-		
+		paramClass.setItem_check(0);
 		
 		if (getModifyReq().equals("") || getModifyReq() == null ) {
 			sqlMapper.insert("insertItem", paramClass);
@@ -743,6 +769,34 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		this.re_date = re_date;
 	}
 	
+	public void setMainCat(String mainCat) {
+		this.mainCat = mainCat;
+	}
+
+	public String getMainCat () {
+		return mainCat;
+	}
+
+
+	public int getArea_no() {
+		return area_no;
+	}
+
+
+	public void setArea_no(int area_no) {
+		this.area_no = area_no;
+	}
+
+
+	public String getArea_name() {
+		return area_name;
+	}
+
+
+	public void setArea_name(String area_name) {
+		this.area_name = area_name;
+	}
 	
 
+	
 }

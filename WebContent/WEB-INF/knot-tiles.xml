@@ -54,6 +54,10 @@
 		<put-attribute name="body" value="/list/mainCatList.jsp" />
 	</definition>
 
+	<definition name="admin_areaCat" extends="admin">
+		<put-attribute name="body" value="/list/areaCatList.jsp" />
+	</definition>
+
 	<definition name="admin_order" extends="admin">
 		<put-attribute name="body" value="/list/orderList.jsp" />
 	</definition>
@@ -83,6 +87,10 @@
 
 	<definition name="admin_mainCatForm" extends="admin">
 		<put-attribute name="body" value="/write/mainCatWrite.jsp" />
+	</definition>
+
+	<definition name="admin_areaCatForm" extends="admin">
+		<put-attribute name="body" value="/write/areaCatWrite.jsp" />
 	</definition>
 
 	<definition name="admin_orderForm" extends="admin">

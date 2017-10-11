@@ -4,7 +4,7 @@
 
 
 	<ul>
-		<h2>자주묻는게시판</h2>
+		<h2>메인 카테고리 관리</h2>
 	</ul>
 		
 		<form action="admin_mainCatWrite.action" method="post" enctype="multipart/form-data"> 
