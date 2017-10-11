@@ -237,16 +237,16 @@ margin:0;
 } /* hide submenu */
 
 #nav2 li ul {
-	display: none;
+    display: none;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 3px;
     padding: 0;
     margin: 0;
 }
 
 #nav2 li:hover > ul {
-	display: block;
+    display: block;
 }
 
 #nav li:hover > ul {
@@ -267,7 +267,7 @@ text-transform:inherit;
 } /* Submenu item */
 
 
-#nav2 li ul li,#nav2 li ul li a {
+#nav2 li ul li {
 height: 35px; /* submenu item height */
 min-width: 150px; /* submenu item minimal width */
 line-height: 35px;

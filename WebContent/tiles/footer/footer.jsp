@@ -8,7 +8,7 @@
 	<div id="foot_mid">
 		<ul>
 			<li id="foot_logo">
-				<a href="http://localhost:9090/KnotProject/main.action">
+				<a href="main.action">
 					<img src="image/icon/logo2.png" alt="main">
 				</a>
 			</li>

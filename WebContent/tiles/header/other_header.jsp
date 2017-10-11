@@ -1,4 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 		<div id="top">
@@ -25,12 +28,64 @@
 							<a href="#">
 								<img src="image/icon/member.png">
 							</a>
-							<ul>
-								<a href="mypage.action"><li>마이페이지</li></a>
-								<a href=""><li>고객센터</li></a>
-								<a href=""><li>주문내역</li></a>
-								<a href=""><li>로그아웃</li></a>
-							</ul>
+
+							<c:if test="${sessionScope.mem_lev eq 3}">
+								<ul>
+									<a href=""><li>
+										${sessionScope.mem_name} 님 
+									</li>
+									</a>
+								<a href="admin_member.action">
+									<li>관리자 페이지</li>
+								</a>
+								<a href="logout.action">
+									<li>로그아웃</li>
+								</a>
+								</ul>
+							</c:if>
+
+							<c:if test="${sessionScope.mem_lev eq 2}">
+								<ul>
+									<li>
+										${sessionScope.mem_name} 님 
+									</li>
+								<a href="myPage.action">
+									<li>마이 페이지 </li>
+								</a>
+								<a href="logout.action">
+									<li>로그아웃</li>
+								</a>
+								</ul>
+							</c:if>
+
+							<c:if test="${sessionScope.mem_lev eq 1}">
+								<ul>
+									<li>
+										${sessionScope.mem_name} 님 
+									</li>
+								<a href="myPage.action">
+									<li>마이 페이지 </li>
+								</a>
+								<a href="logout.action">
+									<li>재능 판매 등록</li>
+								</a>
+								<a href="myPage_itemForm.action">
+									<li>로그아웃</li>
+								</a>
+								</ul>
+							</c:if>
+
+							<c:if test="${empty sessionScope.mem_lev}">
+								<ul>
+								<a href="loginForm.action">
+									<li>로그인</li>
+								</a>
+								<a href="memberForm.action">
+									<li>회원가입</li>
+								</a>
+								</ul>
+							</c:if>
+						
 						</li>
 					</ul>
 				</div>

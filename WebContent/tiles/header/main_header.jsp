@@ -39,7 +39,7 @@
 									<li>로그아웃</li>
 								</a>
 								</ul>
-							</c:if>
+							</c:if> 
 
 							<c:if test="${sessionScope.mem_lev eq 2}">
 								<ul>
@@ -54,7 +54,7 @@
 								</a>
 								</ul>
 							</c:if>
-
+ 
 							<c:if test="${sessionScope.mem_lev eq 1}">
 								<ul>
 									<li>
@@ -117,9 +117,23 @@
 								</li>
 
 								<s:iterator value="menulist" status="stat">
+
+								<s:url id="viewURL" action="other_cat_item">
+
+							        <s:param name="cat_no">
+							            <s:property value="no" />
+							        </s:param>
+
+							        <s:param name="userReq"> item </s:param>
+						    	</s:url>
+
+
 									<li id="cate_img">
-										<img src="image/icon/need.png" width="150">
-										<p><s:property value="name" /></p>
+										<s:a href="%{viewURL}">
+											<img src="image/icon/need.png" width="150">
+											<p><s:property value="name" /></p>	
+										</s:a>
+										
 									</li>
 								</s:iterator>
 
@@ -143,9 +157,23 @@
 								</li>
 								
 								<s:iterator value="menulist2" status="stat">
+
+								<s:url id="viewURL" action="other_cat_item">
+
+							        <s:param name="cat_no">
+							            <s:property value="no" />
+							        </s:param>
+
+							        <s:param name="userReq"> item </s:param>
+						    	</s:url>
+
+
 									<li id="cate_img">
-										<img src="image/icon/need.png" width="150">
-										<p><s:property value="name" /></p>
+										<s:a href="%{viewURL}">
+											<img src="image/icon/need.png" width="150">
+											<p><s:property value="name" /></p>	
+										</s:a>
+										
 									</li>
 								</s:iterator>
 
