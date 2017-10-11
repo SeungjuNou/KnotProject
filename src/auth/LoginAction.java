@@ -87,6 +87,13 @@ public class LoginAction implements Action, ServletRequestAware{
 		}
 
 	}
+
+	public String idCheck() throws SQLException {
+		int countId = (int) sqlMapper.queryForObject("idCheck", getMem_id());
+		return String.valueOf(countId);
+	}
+
+
 	
 	
 

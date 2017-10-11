@@ -530,6 +530,10 @@
 			<result type="chain">admin_member</result>
 		</action>
 
+		<action name="idCheckAction" class="auth.LoginAction" method="idCheck">
+			<result type="redirect-action">main</result>
+		</action>
+
 	</package>
 
 
