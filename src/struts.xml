@@ -22,7 +22,11 @@
 
 	</package> 
 	
-
+	<!-- ///////////////////////////// -->
+	<!-- ///////////////////////////// -->
+				<!-- other -->
+	<!-- ///////////////////////////// -->
+	<!-- ///////////////////////////// -->
 
 
 
@@ -37,31 +41,36 @@
 
 		<!-- other - Item -->
 
-		<action name="other_area_item" class="totalList.ListAction">
+		<action name="other_find_item" class="totalList.ListAction">
 			<param name="userReq">item</param>
-			<param name="userType">other_area_</param>
+			<param name="userType">other_find_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
-			<result type="tiles">admin_item</result>
+			<result type="tiles">other_item</result>
+
 		</action> 
 
-		<action name="myPage_itemForm" class="totalWrite.WriteAction" method="form">
-			<result type="tiles">myPage_itemForm</result>
-		</action>
-		
-		<action name="myPage_itemWrite" class="totalWrite.WriteAction">
-			<result type="redirect-action">myPage_item</result>
+		<action name="other_cat_item" class="totalList.ListAction">
+			<param name="userReq">item</param>
+			<param name="userType">other_cat_</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">other_item</result>
+
+		</action> 
+
+		<action name="other_area_cat_item" class="totalList.ListAction">
+			<param name="userReq">item</param>
+			<param name="userType">other_area_cat_</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">other_item</result>
+		</action> 
+
+		<action name="other_itemView" class="totalView.ViewAction">
+			<result type="tiles">other_itemView</result>
 		</action>
 
-		<action name="myPage_itemView" class="totalView.ViewAction">
-			<result type="tiles">myPage_itemView</result>
-		</action>
-
-		<action name="myPage_itemDelete" class="totalDelete.DeleteAction">
-			<result type="redirect-action">myPage_item</result>
-		</action>
-
- 
 	</package>
 
 
@@ -140,7 +149,7 @@
 			<param name="userType">myPage</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
-			<result type="tiles">admin_item</result>
+			<result type="tiles">myPage_item</result>
 		</action> 
 
 		<action name="myPage_itemForm" class="totalWrite.WriteAction" method="form">
@@ -385,7 +394,23 @@
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">admin_item</result>
-		</action> 
+		</action>
+
+		<action name="admin_nc_item" class="totalList.ListAction">
+			<param name="userReq">item</param>
+			<param name="userType">admin_nc_</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_item</result>
+		</action>
+
+		<action name="admin_ok_item" class="totalList.ListAction">
+			<param name="userReq">item</param>
+			<param name="userType">admin_ok_</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_item</result>
+		</action>
 
 		<action name="admin_itemForm" class="totalList.ListAction">
 			<param name="userReq">itemCat</param>
@@ -393,6 +418,10 @@
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">admin_itemForm</result>
+		</action>
+
+		<action name="admin_itemOk" class="auth.LoginAction" method="itemOk">
+			<result type="redirect-action">admin_nc_item</result>
 		</action>
 		
 		<action name="admin_itemWrite" class="totalWrite.WriteAction">
@@ -470,13 +499,8 @@
 
 	</package>
 
-	<!-- ///////////////////////////// -->
-				<!-- other -->
-	<!-- ///////////////////////////// -->
 
 	
-
-
 
 	<!-- ///////////////////////////// -->
 	<!-- ///////////////////////////// -->

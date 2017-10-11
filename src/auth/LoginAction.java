@@ -5,6 +5,7 @@ import model.*;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -28,6 +29,9 @@ public class LoginAction implements Action, ServletRequestAware{
 	int mem_lev;
 	int mem_no;
 	String mem_name;
+
+	int no;
+	String Sal_id;
 
 	HttpServletRequest request;
 	HttpSession session;
@@ -113,6 +117,11 @@ public class LoginAction implements Action, ServletRequestAware{
 		}
 		
 		return result;
+	}
+
+	public void itemOk() throws SQLException {
+		sqlMapper.update("memLevChange", getSal_id());
+		sqlMapper.update("itemCheckChange", getNo());
 	}
 
 
@@ -209,6 +218,30 @@ public class LoginAction implements Action, ServletRequestAware{
 
 	public void setMem_no(int mem_no) {
 		this.mem_no = mem_no;
+	}
+
+	public String getMem_name() {
+		return mem_name;
+	}
+
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
+	}
+
+	public String getSal_id() {
+		return Sal_id;
+	}
+
+	public void setSal_id(String sal_id) {
+		Sal_id = sal_id;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	

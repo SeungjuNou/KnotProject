@@ -13,16 +13,22 @@ public class PagingAction {
 	private int endPage; // 마지막 페이지
 	private String userType;
 	private String userReq;
+	private String find;
 
 	private StringBuffer pagingHtml;
 
 	public PagingAction(int currentPage, int totalCount, int blockCount, int blockPage, String userType,
-			String userReq) {
+			String userReq, String find) {
 
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.currentPage = currentPage;
 		this.totalCount = totalCount;
+		this.find = find;
+
+		if (find == null || find.equals("null")) {
+			find = "";
+		}
 
 		totalPage = (int) Math.ceil((double) totalCount / blockCount);
 
@@ -47,7 +53,7 @@ public class PagingAction {
 		pagingHtml = new StringBuffer();
 
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a href=" + userType + "_" + userReq + ".action?currentPage=" + (startPage - 1) + ">");
+			pagingHtml.append("<a href=" + userType + "_" + userReq + ".action?currentPage=" + (startPage - 1) + "&find=" + find +">");
 			pagingHtml.append("이전");
 			pagingHtml.append("</a>");
 		}
@@ -65,7 +71,7 @@ public class PagingAction {
 			} else {
 				pagingHtml.append("&nbsp;<a href='" + userType + "_" + userReq + ".action?currentPage=");
 				pagingHtml.append(i);
-				pagingHtml.append("'>");
+				pagingHtml.append("&find=" + find + "'>");
 				pagingHtml.append(i);
 				pagingHtml.append("</a>");
 			}
@@ -75,7 +81,7 @@ public class PagingAction {
 		pagingHtml.append("&nbsp;&nbsp;|&nbsp;&nbsp;");
 
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a href=" + userType + "_" + userReq + ".action?currentPage=" + (endPage + 1) + ">");
+			pagingHtml.append("<a href=" + userType + "_" + userReq + ".action?currentPage=" + (endPage + 1) + "&find=" + find +">");
 			pagingHtml.append("다음");
 			pagingHtml.append("</a>");
 		}

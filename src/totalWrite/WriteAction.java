@@ -343,6 +343,7 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		} else {
 			sqlMapper.update("itemModify", paramClass);
 		}
+
 	}
 
 

@@ -4,16 +4,16 @@ import java.util.Date;
 
 public class OrderVO {
 	
-	private int no;
-	private String re_item;
-	private String re_mem_name;
-	private String re_sal_id; 
-	private int re_price;	  
-	private String checkin_date; //
-	private String checkout_date; //
-	private String re_cat_no; 
-	private Date order_date; 
-	private String order_dtl; 
+	private int no; //예약번호.
+	private String re_item; //상품 이름.
+	private String re_mem_name; //예약자 이름.
+	private String re_sal_id;  //판매자 id.
+	private int re_price;	  //상품 가격.
+	private String checkin_date; // 체크인 날짜.
+	private String checkout_date; // 체크아웃 날짜.
+	private String re_cat_no; //상품 카테고리 번호.
+	private Date order_date; // 기 예약 일자.
+	private String order_dtl; //주문 요청사항.
 	
 	
 	public int getNo() {

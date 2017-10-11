@@ -33,6 +33,7 @@
                 <s:property value="price" />
                 <s:property value="cat_no" />
                 <s:property value="sal_id" />
+                <input type="button" value="승인" class="inputb" onClick="javascript:location.href='admin_itemOk.action?no=<s:property value="no" />&currentPage=<s:property value="currentPage" />&sal_id=<s:property value="sal_id" />';">
         </li>
     </ul>
            

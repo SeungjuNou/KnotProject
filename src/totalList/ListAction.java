@@ -37,6 +37,9 @@ public class ListAction extends ActionSupport {
 	private int mem_lev = 0;
 	String mem_id = "";
 	
+	private int cat_no;
+	private int area_cat_no;
+	
 
 	public ListAction() throws IOException {
 		
@@ -181,12 +184,24 @@ public class ListAction extends ActionSupport {
 	public List itemList() throws Exception {
 		blockCount = 10;
 		list = new ArrayList<ItemVO>();
+
+		ItemVO itemVo = new ItemVO();
+		itemVo.setCat_no(getCat_no());
+		itemVo.setArea_cat_no(getArea_cat_no());
 		
 		if (find==null || find.equals("")) {
-			if (getMem_id().equals("")) {
+			if (getUserType().equals("admin")) {
 				list = sqlMapper.queryForList("selectItemAll");
-			} else if (getUserType.equals("myPage")) {
+			} else if (getUserType().equals("admin_nc_")) {
+				list = sqlMapper.queryForList("selectNcItemAll");
+			} else if (getUserType().equals("admin_ok_")) {
+				list = sqlMapper.queryForList("selectOkItemAll");
+			} else if (getUserType().equals("myPage")) {
 				list = sqlMapper.queryForList("selectMyItemAll", getMem_id());
+			} else if (getUserType().equals("other_cat_")) { //메인카테고리 상품리스트 
+				list = sqlMapper.queryForList("selectOtherCatItemAll", itemVo);
+			} else if (getUserType().equals("other_area_cat_")) { //지역카테고리 상품리스트 
+				list = sqlMapper.queryForList("selectOtherAreaCatItemAll", itemVo);
 			}
 		
 		} else {
@@ -200,7 +215,7 @@ public class ListAction extends ActionSupport {
 	public List complete(List list) throws Exception {
 		
 		totalCount = list.size(); 
-		page = new PagingAction(currentPage, totalCount, blockCount, blockPage, userType, userReq);
+		page = new PagingAction(currentPage, totalCount, blockCount, blockPage, userType, userReq , getFind());
 		
 		pagingHtml = page.getPagingHtml().toString(); 
 		int lastCount = totalCount;
@@ -382,6 +397,26 @@ public class ListAction extends ActionSupport {
 
 	public void setList3(List list3) {
 		this.list3 = list3;
+	}
+
+
+	public int getCat_no() {
+		return cat_no;
+	}
+
+
+	public void setCat_no(int cat_no) {
+		this.cat_no = cat_no;
+	}
+
+
+	public int getArea_cat_no() {
+		return area_cat_no;
+	}
+
+
+	public void setArea_cat_no(int area_cat_no) {
+		this.area_cat_no = area_cat_no;
 	}
 
 
