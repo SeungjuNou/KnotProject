@@ -35,7 +35,7 @@
 		ORDER BY NO DESC
 	</select>
 	
-	<insert id="noticeInsert" parameterClass="notice">
+	<insert id="insertNotice" parameterClass="notice">
 		INSERT INTO NOTICE (NO, TODATE, NAME, CONTENT)
 		VALUES (NOTI_NO_SEQ.NEXTVAL, #todate#, #name#, #content#)
 	</insert>

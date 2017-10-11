@@ -24,14 +24,59 @@
 		select * from ITEM
 	</sql>
 
+	<sql id="where-item-no">
+		WHERE NO = #no#
+	</sql>
+	
+	<sql id="where-item-name">
+		WHERE NAME LIKE #%find%#
+	</sql>
+
+	<select id="itemSeqNo" resultClass="int">
+		SELECT LAST_NUMBER  FROM USER_SEQUENCES WHERE SEQUENCE_NAME = UPPER('ITEM_NO_SEQ')
+	</select>
+
 	<select id="selectItemAll" resultMap="itemRes" parameterClass="int">
 		<include refid="item-select-all" />
 		ORDER BY NO DESC
 	</select>
 
+	<select id="selectMyItemAll" resultMap="itemRes" parameterClass="String">
+		<include refid="item-select-all" />
+		WHERE SAL_ID = #sal_id#
+		ORDER BY NO DESC
+	</select>
+
+	<select id="itemFindSelectAll" resultMap="itemRes" parameterClass="String">
+		
+		<include refid="where-item-name" />
+		ORDER BY NO DESC
+	</select>
+
+	<select id="selectItemOne" resultMap="itemRes" parameterClass="int">
+		<include refid="item-select-all" />
+		<include refid="where-item-no" />
+		ORDER BY NO DESC
+	</select>
+
+	<insert id="insertItem" parameterClass="item">
+		insert into ITEM (NO, NAME, PRICE, CAT_NO, AREA_CAT_NO, ITEM_SUM, ITEM_DETAIL, ITEM_READHIT, SAL_ID, SAL_NAME, RE_DATE) 
+		values (ITEM_NO_SEQ.NEXTVAL, #name#, #price#, #cat_no#, #area_cat_no#, #item_sum#, #item_detail#, #item_readhit#, #sal_id#, #sal_name#, #re_date#)
+	</insert>
+
+	<update id="itemModify" parameterClass="item">
+		UPDATE ITEM SET NAME = #name#, PRICE = #price#, ITEM_SUM = #item_sum#, ITEM_DETAIL = #item_detail#
+		<include refid="where-item-no" />
+	</update> 
+
 	<select id="selectMainItem" resultMap="itemRes" parameterClass="int">
 		select * from ( select * from ITEM where NO  = #catNo# order by ITEM_READHIT desc) where rownum <![CDATA[ <= 4]]>
 	</select>
+
+	<delete id="deleteItem" parameterClass="int">
+		DELETE FROM ITEM
+		<include refid="where-item-no" />
+	</delete>
 
 
 </sqlMap>

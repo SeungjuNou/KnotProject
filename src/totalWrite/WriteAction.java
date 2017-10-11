@@ -7,6 +7,7 @@ import model.*;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -53,9 +54,27 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	private String memo;
 	private int mem_lev;
 
+	private String re_item;
+	private String re_mem_name;
+	private String re_sal_id;
+	private int re_price;
+	private String checkin_date;
+	private String checkout_date;
+	private String re_cat_no;
+	private Date order_date;
+	private String order_dtl;
+
+	private int price;
+	private int cat_no;
+	private int area_cat_no;
+	private String item_sum;
+	private String item_detail;
+	private int item_readhit;
+	private String sal_id;
+	private String sal_name;
+	private String re_date;
 
 	private String img = "";
-
 	
 	public WriteAction() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -74,17 +93,26 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		todate = today.getTime();
 		fileUploadPath = request.getRealPath("/image/"+ getUserReq() + "/");
 		
-
-		if (getUserReq().equals("mainCat")) {
-			mainCatWrite();
-		} else if (getUserReq().equals("faq")) {
-			faqWrite();
-		} else if (getUserReq().equals("qna")) {
-			qnaWrite();
-		} else if (getUserReq().equals("member")) {
-			memberWrite();
-		} else if (getUserReq().equals("notice")) {
-			noticeWrite();
+		try {
+			if (getUserReq().equals("mainCat")) {
+				mainCatWrite();
+			} else if (getUserReq().equals("faq")) {
+				faqWrite();
+			} else if (getUserReq().equals("qna")) {
+				qnaWrite();
+			} else if (getUserReq().equals("member")) {
+				memberWrite();
+			} else if (getUserReq().equals("notice")) {
+				noticeWrite();
+			} else if (getUserReq().equals("order")) {
+				orderWrite();
+			} else if (getUserReq().equals("item")) {
+				itemWrite();
+			} else {
+				return ERROR;
+			}
+		} catch (Exception ex) {
+			return ERROR;
 		}
 		
 		return SUCCESS;
@@ -112,9 +140,9 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setName(getName());
 		
 		if (getModifyReq().equals("") || getModifyReq() == null ) {
-			sqlMapper.insert("mainCatInsertBoard", paramClass);
+			sqlMapper.insert("mainCatInsert", paramClass);
 		} else {
-			sqlMapper.update("mainCatModifyBoard", paramClass);
+			sqlMapper.update("mainCatModify", paramClass);
 		}
 
 
@@ -130,9 +158,9 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setContent(getContent());
 		
 		if (getModifyReq().equals("") || getModifyReq() == null ) {
-			sqlMapper.insert("insertFaqBoard", paramClass);
+			sqlMapper.insert("insertFaq", paramClass);
 		} else {
-			sqlMapper.update("mainfaqModifyBoard", paramClass);
+			sqlMapper.update("faqModify", paramClass);
 		}
 	}
 	
@@ -159,7 +187,6 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setMem_pwd(getMem_pwd());
 		paramClass.setMem_name(getMem_name());
 		paramClass.setMem_phone(getMem_phone());
-		paramClass.setImg(img);
 		paramClass.setMemo(getMemo());
 		paramClass.setMem_lev(getMem_lev());
 		paramClass.setTodate(todate);
@@ -178,7 +205,7 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		//file upload start
 		if (getUpload() != null) {
 			if(no == 0 ) {
-				no = (int) sqlMapper.queryForObject("memberSeqNo");
+				no = (int) sqlMapper.queryForObject("qnaSeqNo");
 			} else {
 				no = getNo();
 			}
@@ -198,7 +225,7 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		
 		
 		if (getModifyReq().equals("") || getModifyReq() == null ) {
-			sqlMapper.insert("insertQnaBoard", paramClass);
+			sqlMapper.insert("insertQna", paramClass);
 		} else {
 			sqlMapper.update("qnaModify", paramClass);
 		}
@@ -214,9 +241,8 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setContent(getContent());
 		
 		if (getModifyReq().equals("") || getModifyReq() == null ) {
-			sqlMapper.insert("noticeInsert", paramClass);
+			sqlMapper.insert("insertNotice", paramClass);
 		} else {
-			System.out.println("notice test");
 			sqlMapper.update("noticeModify", paramClass);
 		}
 	}
@@ -238,7 +264,61 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		
 	}
 
-	
+
+	public void orderWrite() throws SQLException, IOException {
+
+		OrderVO paramClass = new OrderVO();
+
+		paramClass.setRe_item(getRe_item());
+		paramClass.setRe_mem_name(getRe_mem_name());
+		paramClass.setRe_sal_id(getRe_sal_id());
+		paramClass.setRe_price(getRe_price());
+		paramClass.setCheckin_date(getCheckin_date());
+		paramClass.setCheckout_date(getCheckout_date());
+		paramClass.setRe_cat_no(getRe_cat_no());
+		paramClass.setOrder_dtl(getOrder_dtl());
+		paramClass.setOrder_date(todate);
+
+		sqlMapper.insert("insertOrder", paramClass);
+		
+	}
+
+	public void itemWrite() throws SQLException, IOException {
+
+		ItemVO paramClass = new ItemVO();
+		
+		//file upload start
+		if (getUpload() != null) {
+			if(no == 0 ) {
+				no = (int) sqlMapper.queryForObject("itemSeqNo");
+			} else {
+				no = getNo();
+			}
+			img = uploadImg();
+		}
+		paramClass.setImg(img);
+		//file upload end
+		
+		paramClass.setNo(getNo());
+		paramClass.setName(getName());
+		paramClass.setPrice(getPrice());
+		paramClass.setCat_no(getCat_no());
+		paramClass.setArea_cat_no(getArea_cat_no());
+		paramClass.setItem_sum(getItem_sum());
+		paramClass.setItem_detail(getItem_detail());
+		paramClass.setItem_readhit(0);
+		paramClass.setSal_id(getSal_id());
+		paramClass.setSal_name(getSal_name());
+		paramClass.setRe_date(getRe_date());
+		
+		
+		if (getModifyReq().equals("") || getModifyReq() == null ) {
+			sqlMapper.insert("insertItem", paramClass);
+		} else {
+			sqlMapper.update("itemModify", paramClass);
+		}
+	}
+
 
 
 	public static Reader getReader() {
@@ -482,5 +562,187 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 	public void setModifyReq(String modifyReq) {
 		this.modifyReq = modifyReq;
 	}
+
+
+	public String getRe_item() {
+		return re_item;
+	}
+
+
+	public void setRe_item(String re_item) {
+		this.re_item = re_item;
+	}
+
+
+	public String getRe_mem_name() {
+		return re_mem_name;
+	}
+
+
+	public void setRe_mem_name(String re_mem_name) {
+		this.re_mem_name = re_mem_name;
+	}
+
+
+	public String getRe_sal_id() {
+		return re_sal_id;
+	}
+
+
+	public void setRe_sal_id(String re_sal_id) {
+		this.re_sal_id = re_sal_id;
+	}
+
+
+	public int getRe_price() {
+		return re_price;
+	}
+
+
+	public void setRe_price(int re_price) {
+		this.re_price = re_price;
+	}
+
+
+	public String getCheckin_date() {
+		return checkin_date;
+	}
+
+
+	public void setCheckin_date(String checkin_date) {
+		this.checkin_date = checkin_date;
+	}
+
+
+	public String getCheckout_date() {
+		return checkout_date;
+	}
+
+
+	public void setCheckout_date(String checkout_date) {
+		this.checkout_date = checkout_date;
+	}
+
+
+	public String getRe_cat_no() {
+		return re_cat_no;
+	}
+
+
+	public void setRe_cat_no(String re_cat_no) {
+		this.re_cat_no = re_cat_no;
+	}
+
+
+	public Date getOrder_date() {
+		return order_date;
+	}
+
+
+	public void setOrder_date(Date order_date) {
+		this.order_date = order_date;
+	}
+
+
+	public String getOrder_dtl() {
+		return order_dtl;
+	}
+
+
+	public void setOrder_dtl(String order_dtl) {
+		this.order_dtl = order_dtl;
+	}
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+	public int getCat_no() {
+		return cat_no;
+	}
+
+
+	public void setCat_no(int cat_no) {
+		this.cat_no = cat_no;
+	}
+
+
+	public int getArea_cat_no() {
+		return area_cat_no;
+	}
+
+
+	public void setArea_cat_no(int area_cat_no) {
+		this.area_cat_no = area_cat_no;
+	}
+
+
+	public String getItem_sum() {
+		return item_sum;
+	}
+
+
+	public void setItem_sum(String item_sum) {
+		this.item_sum = item_sum;
+	}
+
+
+	public String getItem_detail() {
+		return item_detail;
+	}
+
+
+	public void setItem_detail(String item_detail) {
+		this.item_detail = item_detail;
+	}
+
+
+	public int getItem_readhit() {
+		return item_readhit;
+	}
+
+
+	public void setItem_readhit(int item_readhit) {
+		this.item_readhit = item_readhit;
+	}
+
+
+	public String getSal_id() {
+		return sal_id;
+	}
+
+
+	public void setSal_id(String sal_id) {
+		this.sal_id = sal_id;
+	}
+
+
+	public String getSal_name() {
+		return sal_name;
+	}
+
+
+	public void setSal_name(String sal_name) {
+		this.sal_name = sal_name;
+	}
+
+
+	public String getRe_date() {
+		return re_date;
+	}
+
+
+	public void setRe_date(String re_date) {
+		this.re_date = re_date;
+	}
+	
+	
 
 }

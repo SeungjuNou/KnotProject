@@ -34,6 +34,8 @@
 			<interceptor-ref name="params"/>
 			<result type="tiles">other</result>
 		</action>
+
+
  
 	</package>
 
@@ -106,6 +108,32 @@
 		</action>
 
 
+		<!-- myPage - Item -->
+
+		<action name="myPage_item" class="totalList.ListAction">
+			<param name="userReq">item</param>
+			<param name="userType">myPage</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_item</result>
+		</action> 
+
+		<action name="myPage_itemForm" class="totalWrite.WriteAction" method="form">
+			<result type="tiles">myPage_itemForm</result>
+		</action>
+		
+		<action name="myPage_itemWrite" class="totalWrite.WriteAction">
+			<result type="redirect-action">myPage_item</result>
+		</action>
+
+		<action name="myPage_itemView" class="totalView.ViewAction">
+			<result type="tiles">myPage_itemView</result>
+		</action>
+
+		<action name="myPage_itemDelete" class="totalDelete.DeleteAction">
+			<result type="redirect-action">myPage_item</result>
+		</action>
+
 		
 
 		
@@ -125,14 +153,15 @@
 
 	 	<interceptors>
 	    		<interceptor name="AdminCheck" class="intercept.AdminCheck"/>
-	  	</interceptors> 
+	    		<interceptor name="SessionValue" class="intercept.SessionValue"/>
+	  	</interceptors>  
 	  	
-	  	<global-results>
+	  	<!-- <global-results>
     		<result name="error" type="tiles">errorPage</result>
     	</global-results>
     	<global-exception-mappings>
     		<exception-mapping result="error" exception="java.lang.Exception"/>
-    	</global-exception-mappings> 
+    	</global-exception-mappings>  -->
 
 		<!-- admin - Member -->
 		<action name="admin_member" class="totalList.ListAction">
@@ -268,6 +297,59 @@
 		
 		<action name="admin_mainCatDelete" class="totalDelete.DeleteAction">
 			<result type="chain">admin_mainCat</result>
+		</action>
+		
+		<!-- admin - Order -->
+
+		<action name="admin_order" class="totalList.ListAction">
+			<param name="userReq">order</param>
+			<param name="userType">admin</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_order</result>
+		</action> 
+
+		<action name="admin_orderForm" class="totalWrite.WriteAction" method="form">
+			<result type="tiles">admin_orderForm</result>
+		</action>
+		
+		<action name="admin_orderWrite" class="totalWrite.WriteAction">
+			<result type="redirect-action">admin_order</result>
+		</action>
+
+		<action name="admin_orderView" class="totalView.ViewAction">
+			<result type="tiles">admin_orderView</result>
+		</action>
+
+		<action name="admin_orderDelete" class="totalDelete.DeleteAction">
+			<result type="redirect-action">admin_order</result>
+		</action>
+
+
+		<!-- admin - item -->
+
+		<action name="admin_item" class="totalList.ListAction">
+			<param name="userReq">item</param>
+			<param name="userType">admin</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_item</result>
+		</action> 
+
+		<action name="admin_itemForm" class="totalWrite.WriteAction" method="form">
+			<result type="tiles">admin_itemForm</result>
+		</action>
+		
+		<action name="admin_itemWrite" class="totalWrite.WriteAction">
+			<result type="redirect-action">admin_item</result>
+		</action>
+
+		<action name="admin_itemView" class="totalView.ViewAction">
+			<result type="tiles">admin_itemView</result>
+		</action>
+
+		<action name="admin_itemDelete" class="totalDelete.DeleteAction">
+			<result type="redirect-action">admin_item</result>
 		</action>
 		
 		

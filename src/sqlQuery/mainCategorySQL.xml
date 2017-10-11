@@ -47,13 +47,13 @@
 		SELECT LAST_NUMBER  FROM USER_SEQUENCES WHERE SEQUENCE_NAME = UPPER('CAT_NO_SEQ')
 	</select>
 	
-	<insert id="mainCatInsertBoard" parameterClass="cat">
+	<insert id="mainCatInsert" parameterClass="cat">
 		INSERT INTO MAIN_CATEGORY (NO, NAME, IMG)
 		VALUES (CAT_NO_SEQ.NEXTVAL, #name#, #img#)
 	</insert>
 
 
-	<update id="mainCatModifyBoard" parameterClass="cat">
+	<update id="mainCatModify" parameterClass="cat">
 		UPDATE MAIN_CATEGORY SET NAME = #name#, IMG = #img#
 		<include refid="where-cat-no" />
 	</update>

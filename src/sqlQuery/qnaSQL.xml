@@ -44,7 +44,7 @@
 		SELECT LAST_NUMBER  FROM USER_SEQUENCES WHERE SEQUENCE_NAME = UPPER('QNA_NO_SEQ')
 	</select>
 	  
-	<insert id="insertQnaBoard" parameterClass="qna">
+	<insert id="insertQna" parameterClass="qna">
 		insert into QNA (NO, MEM_ID, MEM_NAME, NAME, CONTENT, ANSWER, TODATE, IMG, ANSWER_CHECK) 
 		values (QNA_NO_SEQ.NEXTVAL, #mem_id#, #mem_name#, #name#, #content#, #answer#, #todate#, #img#, #answer_check#)
 	</insert>

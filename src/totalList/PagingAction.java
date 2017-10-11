@@ -24,8 +24,6 @@ public class PagingAction {
 		this.currentPage = currentPage;
 		this.totalCount = totalCount;
 
-		System.out.println(currentPage + "개수 계산 ");
-
 		totalPage = (int) Math.ceil((double) totalCount / blockCount);
 
 		if (totalPage == 0) {
@@ -38,8 +36,6 @@ public class PagingAction {
 
 		startCount = (currentPage - 1) * blockCount;
 		endCount = (startCount + blockCount);
-		
-		System.out.println(startCount + "  " + endCount + " 개수 계산2 ");
 
 		startPage = (int) ((currentPage - 1) / blockPage) * blockPage + 1;
 		endPage = startPage + blockPage - 1;

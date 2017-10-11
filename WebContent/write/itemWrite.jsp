@@ -3,10 +3,10 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-	<form action="itemWrite.action" method="post" enctype="multipart/form-data">
+	<form action="admin_itemWrite.action" method="post" enctype="multipart/form-data">
 	
 
-	<s:hidden name="userReq" value="itemWrite" />
+	<s:hidden name="userReq" value="item" />
 	<s:hidden name="no" value="%{resultClass.no}"/>
 
 	<s:if test="resultClass != NULL">   

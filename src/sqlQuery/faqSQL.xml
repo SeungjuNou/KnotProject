@@ -42,11 +42,11 @@
 		ORDER BY NO DESC
 	</select>
 		
-	<insert id="insertFaqBoard" parameterClass="faq">
+	<insert id="insertFaq" parameterClass="faq">
 		INSERT INTO FAQ (NO, NAME, CONTENT) VALUES (FAQ_NO_SEQ.NEXTVAL, #name#, #content#)
 	</insert>
 
-	<update id="mainfaqModifyBoard" parameterClass="faq">
+	<update id="faqModify" parameterClass="faq">
 		UPDATE FAQ SET NAME = #name#, CONTENT = #content#
 		<include refid="where-faq-no" />
 	</update>

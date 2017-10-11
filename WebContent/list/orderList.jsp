@@ -6,10 +6,10 @@
 
     <s:iterator value="list" status="stat">
 
-    <s:url id="viewURL" action="admin_orderModifyForm">
+    <s:url id="viewURL" action="admin_orderView">
 
-        <s:param name="re_item_no">
-            <s:property value="re_item_no" />
+        <s:param name="no">
+            <s:property value="no" />
         </s:param>
 
         <s:param name="currentPage">
@@ -24,19 +24,24 @@
     <ul>
         <li>
             <s:a href="%{viewURL}">
-            	<s:property value="re_item_no" />
+            	<s:property value="no" />
             </s:a>
            		<s:property value="re_item" />
       			<s:property value="re_mem_id" />
             	<s:property value="re_sal_id" />
             	<s:property value="re_price" />
-            	<s:property value="re_cat_no" />
-            	<s:property value="order_date" />
-            	<s:property value="order_dtl" />
         </li>
     </ul>
 
-    <s:property value="pagingHtml" escape="false" />
-           
+
     
     </s:iterator>
+    
+    <s:property value="pagingHtml" escape="false" />
+ 
+ <input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_orderForm.action?&currentPage=<s:property value="currentPage" />';">
+
+<form action="admin_qna.action" method="post">
+    <s:textfield name="find" theme="simple" value="" maxlength="20"/>
+    <input type="submit" value="검색" class="inputb"/>
+</form>

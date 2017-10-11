@@ -54,6 +54,14 @@
 		<put-attribute name="body" value="/list/mainCatList.jsp" />
 	</definition>
 
+	<definition name="admin_order" extends="admin">
+		<put-attribute name="body" value="/list/orderList.jsp" />
+	</definition>
+
+	<definition name="admin_item" extends="admin">
+		<put-attribute name="body" value="/list/itemList.jsp" />
+	</definition>
+
 	
 	<!-- 관리자 입력 및 수정 -->
 
@@ -75,6 +83,14 @@
 
 	<definition name="admin_mainCatForm" extends="admin">
 		<put-attribute name="body" value="/write/mainCatWrite.jsp" />
+	</definition>
+
+	<definition name="admin_orderForm" extends="admin">
+		<put-attribute name="body" value="/write/orderWrite.jsp" />
+	</definition>
+
+	<definition name="admin_itemForm" extends="admin">
+		<put-attribute name="body" value="/write/itemWrite.jsp" />
 	</definition>
 
 
@@ -99,6 +115,15 @@
 	<definition name="admin_mainCatView" extends="admin">
 		<put-attribute name="body" value="/view/mainCatView.jsp" />
 	</definition>
+	
+	<definition name="admin_orderView" extends="admin">
+		<put-attribute name="body" value="/view/orderView.jsp" />
+	</definition>
+
+	<definition name="admin_itemView" extends="admin">
+		<put-attribute name="body" value="/view/itemView.jsp" />
+	</definition>
+
 	
 
 

@@ -23,8 +23,6 @@ public class AdminCheck extends AbstractInterceptor implements ServletRequestAwa
 	HttpServletRequest request;
 	HttpSession session;
 
-
-
 	int mem_lev = 0;
 
 	@Override
@@ -32,18 +30,14 @@ public class AdminCheck extends AbstractInterceptor implements ServletRequestAwa
 		session = ServletActionContext.getRequest().getSession(false);
 		
 		try{
-			System.out.println("test1");
 			mem_lev = ((Integer)(session.getAttribute("mem_lev"))).intValue();
-			System.out.println("test2");
 			if ( mem_lev == 3) {
 	   			result = invocation.invoke();
 	   		} else {
 	   			result = "login";
 	   		}
-			System.out.println(mem_lev);
 			
 		} catch (Exception ex) {
-			System.out.println("test5");
 			result = "login";
 		}
 		

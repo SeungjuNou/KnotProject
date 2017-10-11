@@ -39,17 +39,25 @@ public class DeleteAction extends ActionSupport implements  ServletRequestAware 
 
 		fileUploadPath = request.getRealPath("/image/"+ getUserReq() + "/");
 
-		if (getUserReq().equals("faq")) {
-			faqDelete();
-		} else if(getUserReq().equals("member")) {
-			memberDelete();
-		} else if(getUserReq().equals("qna")) {
-			qnaDelete();
-		} else if(getUserReq().equals("mainCat")) {
-			mainCatDelete();
-		} else if(getUserReq().equals("notice")) {
-			noticeDelete();
-		}	
+		try {
+			if (getUserReq().equals("faq")) {
+				faqDelete();
+			} else if (getUserReq().equals("member")) {
+				memberDelete();
+			} else if (getUserReq().equals("qna")) {
+				qnaDelete();
+			} else if (getUserReq().equals("mainCat")) {
+				mainCatDelete();
+			} else if (getUserReq().equals("notice")) {
+				noticeDelete();
+			} else if (getUserReq().equals("order")) {
+				orderDelete();
+			} else if (getUserReq().equals("item")) {
+				itemDelete();
+			}
+		} catch (Exception ex) {
+			return ERROR;
+		} 	
 
 		return SUCCESS;
 	}
@@ -87,6 +95,15 @@ public class DeleteAction extends ActionSupport implements  ServletRequestAware 
 	
 	public void noticeDelete() throws SQLException, IOException {
 		sqlMapper.update("deleteNotice", getNo());
+	}
+
+	public void orderDelete() throws SQLException, IOException {
+		sqlMapper.update("deleteOrder", getNo());
+	}
+
+	public void itemDelete() throws SQLException, IOException {
+		System.out.println(getNo());
+		sqlMapper.update("deleteItem", getNo());
 	}
 
 	public void deleteImg(String img) throws IOException {

@@ -58,6 +58,10 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 			result = qnaView();
 		} else if (getUserReq().equals("notice")) {
 			noticeView();
+		} else if (getUserReq().equals("order")) {
+			result = orderView();	
+		} else if (getUserReq().equals("item")) {
+			itemView();
 		} else {
 			result = ERROR;
 		}
@@ -111,6 +115,40 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 		}
 		
 		return result;
+	}
+
+	public String orderView() throws SQLException {
+
+		resultClass = new OrderVO();
+		resultClass = (OrderVO) sqlMapper.queryForObject("selectOrderOne", getNo());
+
+		String mem_id = (String) request.getSession().getAttribute("mem_id").toString();
+		String dbMem_id = "admin"; //오더에 MEM_ID 랑 이름 두개가 존재해야함. 
+				//(String) ((OrderVO) resultClass).getMem_id();
+		
+		if (loginAction.userAuth(dbMem_id, mem_id)) {
+			result = SUCCESS;
+		} else {
+			result = ERROR;
+		}
+		
+		return result;
+	}
+
+	public void itemView() throws SQLException {
+
+		resultClass = new ItemVO();
+		resultClass = (ItemVO) sqlMapper.queryForObject("selectItemOne", getNo());
+
+		String mem_id = (String) request.getSession().getAttribute("mem_id").toString();
+		String dbMem_id = (String) ((ItemVO) resultClass).getSal_id();
+		
+		if (loginAction.userAuth(dbMem_id, mem_id)) {
+			result = SUCCESS;
+		} else {
+			result = ERROR;
+		}
+		
 	}
 
 	public void noticeView() throws SQLException {

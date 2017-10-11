@@ -43,6 +43,6 @@
     		<input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_qnaForm.action?&currentPage=<s:property value="currentPage" />';">
     </c:if>
     	<form action="admin_qna.action" method="post">
-			<s:textfield name="find" theme="simple" value="" maxlength="20"/> 
-				<input type="submit" value="검색" class="inputb"/>
+			<s:textfield name="find" theme="simple" value="" maxlength="20"/>
+            <input type="submit" value="검색" class="inputb"/>
 		</form>

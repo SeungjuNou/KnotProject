@@ -6,7 +6,7 @@
 
     <s:iterator value="list" status="stat">
 
-    <s:url id="viewURL" action="admin_itemModifyForm">
+    <s:url id="viewURL" action="admin_itemView">
 
         <s:param name="no">
             <s:property value="no" />
@@ -23,18 +23,16 @@
        
     <ul>
         <li>
+                <s:property value="img" />
             	<s:property value="no" />
-            <s:a href="%{viewURL}">
-            	<s:property value="name" />
-            </s:a>
+                
+                <s:a href="%{viewURL}">
+            	   <s:property value="name" />
+                </s:a>
+
                 <s:property value="price" />
                 <s:property value="cat_no" />
-                <s:property value="area_cat_no" />
-                <s:property value="item_sum" />
-                <s:property value="img" />
                 <s:property value="sal_id" />
-                <s:property value="sal_name" />
-                <s:property value="re_date" />
         </li>
     </ul>
            

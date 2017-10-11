@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient; 
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+
  
 import java.util.*;
 import model.*;
@@ -16,7 +17,8 @@ import java.io.IOException;
 public class ListAction extends ActionSupport {
 	
 	public static Reader reader;	
-	public static SqlMapClient sqlMapper;	
+	public static SqlMapClient sqlMapper;
+
 
 	private List list; //쿼리실행 결과를 담을 list객체 변수 선언.
 	private Map<Integer, Object> list2 = new HashMap<Integer, Object>();
@@ -31,6 +33,8 @@ public class ListAction extends ActionSupport {
 	private String userReq = ""; // 사용자가 요청하는 리스트이름.
 	private int catLen = 1; //메인 카테고리 길이 
 	private String userType="";
+	private int mem_lev = 0;
+	String mem_id = "";
 	
 
 	public ListAction() throws IOException {
@@ -44,23 +48,28 @@ public class ListAction extends ActionSupport {
 	//사용자의 요청을 파악해서 원하는 메서드를 호출하는 메서드
 	public String execute() throws Exception {
 
-		if (getUserReq().equals("member")) {
-			list = complete(memberList());
-		} else if(getUserReq().equals("mainCat")) {
-			list = complete(mainCatList());
-		} else if (getUserReq().equals("qna")) {
-			list = complete(qnaList());
-		} else if (getUserReq().equals("faq")) {
-			list = complete(faqList());
-		} else if (getUserReq().equals("item")) {
-			list = complete(itemList());
-		} else if (getUserReq().equals("notice")) {
-			list = complete(noticeList());
-		} else if (getUserReq().equals("main")) {
-			mainList();
-		} else {
-			list = complete(memberList());
-		}
+		//try {
+			if (getUserReq().equals("member")) {
+				list = complete(memberList());
+			} else if(getUserReq().equals("mainCat")) {
+				list = complete(mainCatList());
+			} else if (getUserReq().equals("qna")) {
+				list = complete(qnaList());
+			} else if (getUserReq().equals("faq")) {
+				list = complete(faqList());
+			} else if (getUserReq().equals("item")) {
+				list = complete(itemList());
+			} else if (getUserReq().equals("notice")) {
+				list = complete(noticeList());
+			} else if (getUserReq().equals("order")) {
+				list = complete(orderList());
+			} else if (getUserReq().equals("main")) {
+				mainList();
+			}
+		//} catch (Exception ex) {
+			//return ERROR;
+		//}
+		
 
 		return SUCCESS;
 		
@@ -115,12 +124,6 @@ public class ListAction extends ActionSupport {
 
 		return list;
 	}
-	
-	public List itemList() throws Exception { 
-		/*list = new ArrayList<ItemVO>();
-		list = sqlMapper.queryForList("selectItemAll");*/
-		return list;
-	}
 
 	public List noticeList() throws Exception {
 		blockCount = 10;
@@ -147,6 +150,37 @@ public class ListAction extends ActionSupport {
 		return list2;
 	}
 
+	public List orderList() throws Exception {
+		blockCount = 10;
+		list = new ArrayList<OrderVO>();
+		
+		if (find==null || find.equals("")) {
+			list = sqlMapper.queryForList("selectOrderAll");
+		} else {
+			list = sqlMapper.queryForList("OrderFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
+		}
+
+		return list;
+	}
+
+	public List itemList() throws Exception {
+		blockCount = 10;
+		list = new ArrayList<ItemVO>();
+		
+		if (find==null || find.equals("")) {
+			if (getMem_id().equals("")) {
+				list = sqlMapper.queryForList("selectItemAll");
+			} else if (!getMem_id().equals("")) {
+				list = sqlMapper.queryForList("selectMyItemAll", getMem_id());
+			}
+		
+		} else {
+			list = sqlMapper.queryForList("itemFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
+		}
+
+		return list;
+	}
+
 
 	public List complete(List list) throws Exception {
 		
@@ -154,7 +188,6 @@ public class ListAction extends ActionSupport {
 		page = new PagingAction(currentPage, totalCount, blockCount, blockPage, userType, userReq);
 		
 		pagingHtml = page.getPagingHtml().toString(); 
-		System.out.println(currentPage + "현재페이지 계");
 		int lastCount = totalCount;
 
 		if (page.getEndCount() < totalCount) {
@@ -306,7 +339,27 @@ public class ListAction extends ActionSupport {
 		this.userType = userType;
 	}
 	
-	
+
+	public int getMem_lev() {
+		return mem_lev;
+	}
+
+
+	public void setMem_lev(int mem_lev) {
+		this.mem_lev = mem_lev;
+	}
+
+
+	public String getMem_id() {
+		return mem_id;
+	}
+
+
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
+	}
+
+
 	
 	
 }

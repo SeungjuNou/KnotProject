@@ -4,21 +4,23 @@ import java.util.Date;
 
 public class OrderVO {
 	
-	private int re_item_no;
+	private int no;
 	private String re_item;
-	private String re_mem_id;
-	private String re_sal_id;
-	private int re_price;
-	private String re_cat_no;
-	private Date order_date;
-	private String order_dtl;
+	private String re_mem_name;
+	private String re_sal_id; 
+	private int re_price;	  
+	private String checkin_date; //
+	private String checkout_date; //
+	private String re_cat_no; 
+	private Date order_date; 
+	private String order_dtl; 
 	
 	
-	public int getRe_item_no() {
-		return re_item_no;
+	public int getNo() {
+		return no;
 	}
-	public void setRe_item_no(int re_item_no) {
-		this.re_item_no = re_item_no;
+	public void setNo(int no) {
+		this.no = no;
 	}
 	public String getRe_item() {
 		return re_item;
@@ -26,11 +28,11 @@ public class OrderVO {
 	public void setRe_item(String re_item) {
 		this.re_item = re_item;
 	}
-	public String getRe_mem_id() {
-		return re_mem_id;
+	public String getRe_mem_name() {
+		return re_mem_name;
 	}
-	public void setRe_mem_id(String re_mem_id) {
-		this.re_mem_id = re_mem_id;
+	public void setRe_mem_name(String re_mem_name) {
+		this.re_mem_name = re_mem_name;
 	}
 	public String getRe_sal_id() {
 		return re_sal_id;
@@ -61,6 +63,18 @@ public class OrderVO {
 	}
 	public void setOrder_dtl(String order_dtl) {
 		this.order_dtl = order_dtl;
+	}
+	public String getCheckin_date() {
+		return checkin_date;
+	}
+	public void setCheckin_date(String checkin_date) {
+		this.checkin_date = checkin_date;
+	}
+	public String getCheckout_date() {
+		return checkout_date;
+	}
+	public void setCheckout_date(String checkout_date) {
+		this.checkout_date = checkout_date;
 	}
 
 	
