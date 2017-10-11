@@ -237,6 +237,12 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		}
 		paramClass.setImg(img);
 		//file upload end
+
+		if (getAnswer() != null || getAnswer().equals("")) {
+			paramClass.setAnswer_check(1); //관리자가 답변을 했을 경우.
+		} else {
+			paramClass.setAnswer_check(0); //새로 등록할 경우. 
+		}
 		
 		paramClass.setNo(getNo());
 		paramClass.setMem_id(getMem_id());
@@ -244,7 +250,6 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setName(getName());
 		paramClass.setContent(getContent());
 		paramClass.setAnswer(getAnswer());
-		paramClass.setAnswer_check(getAnswer_check());
 		paramClass.setTodate(todate);
 		
 		

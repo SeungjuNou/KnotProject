@@ -51,6 +51,12 @@ line-height: 20px;
 margin: 22px 0 18px 0;
 }
 
+.bodyForm {
+	width: 80%;
+	height: auto;
+	margin: 50px auto;
+}
+
 </style>
 
 </head>
@@ -62,46 +68,9 @@ margin: 22px 0 18px 0;
 			<tiles:insertAttribute name="header" />
 		</li>
 		<li class="body">
-			<tiles:insertAttribute name="body" />
-			<ul>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-				<li>asdfjkl;asfk;l</li>
-			</ul>
+			<div class="bodyForm">
+					<tiles:insertAttribute name="body" />
+			</div>
 		</li>
 		<li class="foot">
 			<tiles:insertAttribute name="footer" />		

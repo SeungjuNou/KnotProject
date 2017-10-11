@@ -50,7 +50,7 @@
 	</insert>
 
 	<update id="qnaModify" parameterClass="qna">
-		UPDATE QNA SET NAME = #name#, CONTENT = #content#, IMG = img
+		UPDATE QNA SET NAME = #name#, CONTENT = #content#, IMG = img, ANSWER_CHECK = #answer_check#
 		<include refid="where-qna-no" />
 	</update>
 	

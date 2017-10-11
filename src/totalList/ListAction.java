@@ -167,6 +167,8 @@ public class ListAction extends ActionSupport {
 			list = sqlMapper.queryForList("selectMainItem", catNo);
 			list2.put(catNo, list);
 		}
+
+		
 		menulist = new ArrayList<MainCategoryVO>();
 		menulist2 = new ArrayList<MainCategoryVO>();
 		list3 = new ArrayList<MainCategoryVO>();

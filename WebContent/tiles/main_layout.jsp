@@ -38,6 +38,12 @@
 	background-color: gray;
 }
 
+.bodyForm {
+	width: 80%;
+	height: auto;
+	margin: 50px auto;
+}
+
 
 #footer {
 	display: none;
@@ -54,8 +60,9 @@
 				<tiles:insertAttribute name="header" />
 			</li>
 			<li class="content">
-				<tiles:insertAttribute name="body" />
-				ss
+				<div class="bodyForm">
+					<tiles:insertAttribute name="body" />
+				</div>
 			</li>
 			<li class="foot">
 				<tiles:insertAttribute name="footer" />		
