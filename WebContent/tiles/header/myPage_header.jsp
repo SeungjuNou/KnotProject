@@ -8,13 +8,13 @@
 			<div id="top_inner">
 			
 				<div id="top_logo">
-					<a href="#">
+					<a href="main.action">
 						<img src="image/icon/logo.png">
 					</a>
 				</div> 
  
 				<fieldset id="top_find">
-					<form action="#">
+					<form action="other_find_item.action">
 						<button onclick="other.action" class="find_button">
 							<img src="image/icon/find2.png">
 						</button>
@@ -49,7 +49,7 @@
 									<li>
 										${sessionScope.mem_name} 님 
 									</li>
-								<a href="myPage.action">
+								<a href="myPage_notice.action">
 									<li>마이 페이지 </li>
 								</a>
 								<a href="logout.action">
@@ -63,7 +63,7 @@
 									<li>
 										${sessionScope.mem_name} 님 
 									</li>
-								<a href="myPage.action">
+								<a href="myPage_notice.action">
 									<li>마이 페이지 </li>
 								</a>
 								<a href="myPage_itemForm.action">
@@ -99,9 +99,9 @@
 		<div id="menu_div">
 			<div id="navigation">
 				<div id="menu">
-					<ul id="nav">
+					<ul id="nav"> 
 						<li>
-							<a href="#">추천상품</a>
+							<a href="main.action">홈으로</a>
 						</li> 
 
 						<li>
@@ -153,7 +153,7 @@
 						<!-- END Blog Item -->
 
 						<li>
-							<a href="myPage_notice.action">자주묻는 질문</a>
+							<a href="myPage_faq.action">자주묻는 질문</a>
 						</li> 
 						
 					</ul><!-- #nav END-->

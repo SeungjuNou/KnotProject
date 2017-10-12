@@ -46,7 +46,7 @@
 									<li>
 										${sessionScope.mem_name} 님 
 									</li>
-								<a href="myPage.action">
+								<a href="myPage_notice.action">
 									<li>마이 페이지 </li>
 								</a>
 								<a href="logout.action">
@@ -60,7 +60,7 @@
 									<li>
 										${sessionScope.mem_name} 님 
 									</li>
-								<a href="myPage.action">
+								<a href="myPage_notice.action">
 									<li>마이 페이지 </li>
 								</a>
 								<a href="logout.action">

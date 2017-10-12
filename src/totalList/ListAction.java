@@ -223,7 +223,7 @@ public class ListAction extends ActionSupport {
 
 	public List itemList() throws Exception {
 		menuCatList();
-		blockCount = 10;
+		blockCount = 10; 
 		list = new ArrayList<ItemVO>();
 
 		ItemVO itemVo = new ItemVO();

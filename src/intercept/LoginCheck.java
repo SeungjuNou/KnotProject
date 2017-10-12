@@ -29,11 +29,16 @@ public class LoginCheck extends AbstractInterceptor implements ServletRequestAwa
 	public String intercept(ActionInvocation invocation) throws Exception {
 		session = ServletActionContext.getRequest().getSession(false);
 		
+		System.out.println(session);
+
 		try{
 			mem_lev = ((Integer)(session.getAttribute("mem_lev"))).intValue();
 			
+
 			if ( mem_lev >= 1) { //lev가 1 이상이면.
+	   			System.out.println("loginCheck test");
 	   			result = invocation.invoke();
+
 	   		} else {
 	   			result = "login";
 	   		}
