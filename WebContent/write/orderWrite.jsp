@@ -3,12 +3,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-	
-	
 <form action="admin_orderWrite.action" method="post">
 	
-
 	<s:hidden name="userReq" value="order" />
 	<s:hidden name="re_item" value="%{resultClass.name}"/>
 	<s:hidden name="re_price" value="%{resultClass.price}"/>
