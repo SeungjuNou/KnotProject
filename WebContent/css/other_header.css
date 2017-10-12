@@ -10,7 +10,7 @@
 	position: fixed;
     height: 100px;
     width: 80%;
-    padding: 0 10%;  
+    padding: 0 10%;   
     /* border: solid 2px black; */
     z-index: 1; 
     background-color: rgba(46, 114, 192, 0.74);

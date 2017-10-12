@@ -179,6 +179,10 @@
 		<put-attribute name="body" value="/list/itemList.jsp" />
 	</definition>
 
+	<definition name="myPage_order" extends="myPage">
+		<put-attribute name="body" value="/list/orderList.jsp" />
+	</definition>
+
 	
 	<!-- 사용자 입력 및 수정 -->
 

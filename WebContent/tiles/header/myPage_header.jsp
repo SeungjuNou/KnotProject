@@ -66,10 +66,10 @@
 								<a href="myPage.action">
 									<li>마이 페이지 </li>
 								</a>
-								<a href="logout.action">
+								<a href="myPage_itemForm.action">
 									<li>재능 판매 등록</li>
 								</a>
-								<a href="myPage_itemForm.action">
+								<a href="logout.action">
 									<li>로그아웃</li>
 								</a>
 								</ul>
@@ -100,49 +100,62 @@
 			<div id="navigation">
 				<div id="menu">
 					<ul id="nav">
-						<li><a href="#">Home</a>
+						<li>
+							<a href="#">추천상품</a>
+						</li> 
+
+						<li>
+							<a href="#">분야별</a>
 							<ul>
-								<li><a href="#">Lorem ipsum</a></li>
-								<li><a href="#">Aenean massa</a></li>
-								<li><a href="#">Nullam dictum felis</a></li>
-								<li><a href="#">Aenean leo ligula</a></li>
-								<li><a href="#">Curabitur ullamcorper</a></li>
-								<li><a href="#">Item - Level 2</a>
-									<ul>
-										<li><a href="#">Sub item 1</a></li>
-										<li><a href="#">Sub item 2</a></li>
-										<li><a href="#">Item - Level 3</a></li>	<!-- Level 3 END -->					
-									</ul>
-								</li>	<!-- Level 2 END -->					
-							</ul> 
-						</li> <!-- Level 1 END -->
-						<!-- END Home Item -->
-						
-						<li><a href="#">Portfolio</a>
-							<ul>
-								<li><a href="#">Maecenas tempus</a></li>
-								<li><a href="#">Vestibulum ante ipsum</a></li>
-								<li><a href="#">Praesent adipiscing</a></li>
-								<li><a href="#">Curabitur ligula</a></li>
-								<li><a href="#">Vestibulum</a>>
-								</li>						
+								<s:iterator value="menulist" status="stat">
+									<s:url id="cat_item" action="other_cat_item">
+        	
+							        	 <s:param name="cat_no">
+							            	<s:property value="no" />
+							        	</s:param>
+
+							        	<s:param name="userReq"> item </s:param>
+						    	
+						    		</s:url>
+
+									<li>
+										<s:a href="%{cat_item}">
+											<s:property value="name" />
+										</s:a>
+									</li>
+								</s:iterator> 
 							</ul>
 						</li>
 						<!-- END Portfolio Item -->
 						
-						<li><a href="#">Blog</a>
+						<li>
+							<a href="#">지역별</a>
 							<ul>
-								<li><a href="#">Fusce id purus</a></li>
-								<li><a href="#">Aenean viverra</a></li>
-								<li><a href="#">Phasellus magna</a></li>
-								<li><a href="#">Morbi ac felis</a></li>
+								<s:iterator value="menulist2" status="stat">
+									<s:url id="area_cat_item" action="other_area_item">
+        	
+							        	 <s:param name="area_cat_no">
+							            	<s:property value="no" />
+							        	</s:param>
+
+							        	<s:param name="userReq"> item </s:param>
+						    	
+						    		</s:url>
+
+									<li>
+										<s:a href="%{area_cat_item}">
+											<s:property value="name" />
+										</s:a>
+									</li>
+								</s:iterator>
 							</ul>
 						</li>
 						<!-- END Blog Item -->
+
+						<li>
+							<a href="myPage_notice.action">자주묻는 질문</a>
+						</li> 
 						
-						<li><a href="#">Services</a></li>
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Contact Us</a></li>
 					</ul><!-- #nav END-->
 					
 
@@ -155,6 +168,42 @@
 		======================================-->
 
 		<s:url id="member_id" action="myPage_qna.action">
+        	
+        	<s:param name="currentPage">
+            	<s:property value="currentPage" />
+        	</s:param>
+
+        	<s:param name="mem_id">
+            	${sessionScope.mem_id}
+        	</s:param>
+    	
+    	</s:url>
+
+    	<s:url id="re_sal_id" action="myPgae_sal_order.action">
+        	
+        	<s:param name="currentPage">
+            	<s:property value="currentPage" />
+        	</s:param>
+
+        	<s:param name="mem_id">
+            	${sessionScope.mem_id}
+        	</s:param>
+    	
+    	</s:url>
+
+    	<s:url id="re_mem_name" action="myPgae_user_order.action">
+        	
+        	<s:param name="currentPage">
+            	<s:property value="currentPage" />
+        	</s:param>
+
+        	<s:param name="mem_name">
+            	${sessionScope.mem_name}
+        	</s:param>
+    	
+    	</s:url>
+
+    	<s:url id="my_item" action="myPage_item.action">
         	
         	<s:param name="currentPage">
             	<s:property value="currentPage" />
@@ -182,10 +231,22 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
-							예약 내역
-						</a>
+
+						<c:if test="${sessionScope.mem_lev eq 2}">
+							<s:a href="%{re_sal_id}">
+								예약내역
+							</s:a>
+						</c:if>
+
+						<c:if test="${sessionScope.mem_lev eq 1}">
+							<s:a href="%{re_mem_name}">
+								예약내역
+							</s:a>
+						</c:if>
+
 					</li>
+					
+
 					<li>
 						<s:a href="%{member_id}">
 							문의하기
@@ -197,9 +258,19 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
-							자주묻는 질문
-						</a> 
+						
+						<c:if test="${sessionScope.mem_lev eq 1}">
+							<a href="#">
+								자주묻는 질문
+							</a> 
+						</c:if>
+						
+						<c:if test="${sessionScope.mem_lev eq 2}">
+							<s:a href="%{my_item}">
+								판매상품
+							</s:a>
+						</c:if>
+
 					</li>
 					<li>
 						<a href="#">

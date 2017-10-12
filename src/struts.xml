@@ -50,7 +50,8 @@
 			<interceptor-ref name="params"/>
 			<result type="tiles">other_item</result>
 
-		</action> 
+		</action>
+
 
 		<action name="other_area_cat_item" class="totalList.ListAction">
 			<param name="userReq">item</param>
@@ -59,6 +60,14 @@
 			<interceptor-ref name="params"/>
 			<result type="tiles">other_item</result>
 		</action> 
+
+		<action name="other_area_item" class="totalList.ListAction">
+			<param name="userReq">item</param>
+			<param name="userType">other_area_</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">other_item</result>
+		</action>
 
 		<action name="other_itemView" class="totalView.ViewAction">
 			<result type="tiles">other_itemView</result>
@@ -163,6 +172,48 @@
 
 		<action name="myPage_itemDelete" class="totalDelete.DeleteAction">
 			<result type="redirect-action">myPage_item</result>
+		</action>
+
+		<!-- myPage - Order -->
+
+		<action name="myPgae_order" class="totalList.ListAction">
+			<param name="userReq">order</param>
+			<param name="userType">myPage</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">myPage_order</result>
+		</action> 
+
+		<action name="myPgae_sal_order" class="totalList.ListAction">
+			<param name="userReq">order</param>
+			<param name="userType">myPgae_sal_</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">myPage_order</result>
+		</action> 
+
+		<action name="myPgae_user_order" class="totalList.ListAction">
+			<param name="userReq">order</param>
+			<param name="userType">myPgae_user_</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">myPage_order</result>
+		</action> 
+
+		<action name="admin_orderForm" class="totalView.ViewAction">
+			<result type="tiles">admin_orderForm</result>
+		</action>
+		
+		<action name="admin_orderWrite" class="totalWrite.WriteAction">
+			<result type="redirect-action">admin_order</result>
+		</action>
+
+		<action name="admin_orderView" class="totalView.ViewAction">
+			<result type="tiles">admin_orderView</result>
+		</action>
+
+		<action name="admin_orderDelete" class="totalDelete.DeleteAction">
+			<result type="redirect-action">admin_order</result>
 		</action>
 
 		

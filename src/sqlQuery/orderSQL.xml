@@ -37,11 +37,25 @@
 		 ORDER BY NO DESC
 	</select>
 
+	<select id="selectSalOrderAll" resultMap="orderRes" parameterClass="String">
+		<include refid="select-order-all" />
+		WHERE RE_SAL_ID = #mem_id#
+		 ORDER BY NO DESC
+	</select>
+
+	<select id="selectUserOrderAll" resultMap="orderRes" parameterClass="int">
+		<include refid="select-order-all" />
+		WHERE RE_MEM_NAME = #mem_name#
+		 ORDER BY NO DESC
+	</select>
+
 	<select id="OrderFindSelectAll" resultMap="orderRes" parameterClass="String">
 		<include refid="select-order-all" />
 		<include refid="where-order-item" />
 		ORDER BY NO DESC
 	</select>
+
+
 
 	<select id="selectOrderOne" resultMap="orderRes" parameterClass="int">
 		<include refid="select-order-all" />

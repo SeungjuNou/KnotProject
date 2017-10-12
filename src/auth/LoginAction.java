@@ -88,7 +88,7 @@ public class LoginAction implements Action, ServletRequestAware{
 
 	}
 
-	public String idCheck() throws SQLException {
+/*	public int idCheck() throws SQLException {
 		int countId = (int) sqlMapper.queryForObject("idCheck", getMem_id());
 
 		if (countId == 0) {
@@ -96,7 +96,7 @@ public class LoginAction implements Action, ServletRequestAware{
 		} else {
 			return "false";
 		}
-	}
+	} */
 
 
 	

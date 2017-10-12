@@ -56,13 +56,19 @@
 	<select id="selectOtherCatItemAll" resultMap="itemRes" parameterClass="item">
 		<include refid="item-select-all" />
 		WHERE ITEM_CHECK = 1 AND CAT_NO = #cat_no#
-		ORDER BY NO DESC
+		ORDER BY ITEM_READHIT DESC
 	</select>
 
 	<select id="selectOtherAreaCatItemAll" resultMap="itemRes" parameterClass="item">
 		<include refid="item-select-all" />
 		WHERE ITEM_CHECK = 1 AND CAT_NO = #cat_no# AND AREA_CAT_NO = #area_cat_no#
-		ORDER BY NO DESC
+		ORDER BY ITEM_READHIT DESC
+	</select>
+
+	<select id="selectOtherAreaCatAll" resultMap="itemRes" parameterClass="int">
+		<include refid="item-select-all" />
+		WHERE ITEM_CHECK = 1 AND AREA_CAT_NO = #area_cat_no#
+		ORDER BY ITEM_READHIT DESC
 	</select>
 
 	<select id="selectMyItemAll" resultMap="itemRes" parameterClass="String">

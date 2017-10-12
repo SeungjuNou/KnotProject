@@ -96,6 +96,14 @@ public class ListAction extends ActionSupport {
 		
 		return list;
 	} 
+	
+	public void menuCatList() throws Exception {
+		menulist = new ArrayList<MainCategoryVO>();
+		menulist2 = new ArrayList<AreaCategoryVO>();
+		
+		menulist = sqlMapper.queryForList("selectCatAll");
+		menulist2 = sqlMapper.queryForList("selectAreaCatAll");
+	}
 
 	public List mainCatList() throws Exception {
 		blockCount = 10;
@@ -113,13 +121,13 @@ public class ListAction extends ActionSupport {
 	public List areaCatList() throws Exception {
 		blockCount = 10;
 		list3 = new ArrayList<AreaCategoryVO>();
-		System.out.println("왜안되니...");
 		list3 = sqlMapper.queryForList("selectAreaCatAll");
 		
 		return list3;
 	}
 	
 	public List qnaList() throws Exception { 
+		menuCatList();
 		blockCount = 5;
 		list = new ArrayList<QnaVO>();
 
@@ -131,7 +139,6 @@ public class ListAction extends ActionSupport {
 			} else if (getUserType().equals("admin")) {
 				list = sqlMapper.queryForList("selectQnaAll");	
 			} else if (getUserType().equals("myPage")) {
-				System.out.println(getMem_id());
 				list = sqlMapper.queryForList("selectMyQnaAll", getMem_id());	
 			}
 
@@ -143,6 +150,7 @@ public class ListAction extends ActionSupport {
 	}
 	
 	public List faqList() throws Exception { 
+		menuCatList();
 		blockCount = 10;
 		list = new ArrayList<FaqVO>();
 
@@ -156,6 +164,7 @@ public class ListAction extends ActionSupport {
 	}
 
 	public List noticeList() throws Exception {
+		menuCatList();
 		blockCount = 10;
 		list = new ArrayList<NoticeVO>();
 		
@@ -169,6 +178,7 @@ public class ListAction extends ActionSupport {
 	}
 
 	public Map mainList() throws Exception {
+
 		blockCount = 5;
 		catLen = (int) sqlMapper.queryForObject("countMainCategory");
 		list = new ArrayList<ItemVO>();
@@ -183,18 +193,27 @@ public class ListAction extends ActionSupport {
 		menulist2 = new ArrayList<MainCategoryVO>();
 		list3 = new ArrayList<MainCategoryVO>();
 		list3 = sqlMapper.queryForList("selectCatAll");
-		System.out.println(list3.size());
+		
+		int listSize = list3.size();
 		menulist = list3.subList(0, 5);
-		menulist2 = list3.subList(5, 10);
+		menulist2 = list3.subList(5, listSize);
+		
 		return list2;
 	}
 
 	public List orderList() throws Exception {
+		menuCatList();
 		blockCount = 10;
 		list = new ArrayList<OrderVO>();
 		
 		if (find==null || find.equals("")) {
-			list = sqlMapper.queryForList("selectOrderAll");
+			if (getUserType().equals("admin")) {
+				list = sqlMapper.queryForList("selectOrderAll");
+			} else if (getUserType().equals("myPgae_sal_")) {
+				list = sqlMapper.queryForList("selectSalOrderAll", getMem_id());	
+			} else if (getUserType().equals("myPage_user_")) {
+				list = sqlMapper.queryForList("selectUserOrderAll", getMem_id());	
+			}
 		} else {
 			list = sqlMapper.queryForList("OrderFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
 		}
@@ -203,12 +222,15 @@ public class ListAction extends ActionSupport {
 	}
 
 	public List itemList() throws Exception {
+		menuCatList();
 		blockCount = 10;
 		list = new ArrayList<ItemVO>();
 
 		ItemVO itemVo = new ItemVO();
 		itemVo.setCat_no(getCat_no());
 		itemVo.setArea_cat_no(getArea_cat_no());
+
+		System.out.println(getUserType());
 		
 		if (find==null || find.equals("")) {
 			if (getUserType().equals("admin")) {
@@ -221,7 +243,8 @@ public class ListAction extends ActionSupport {
 				list = sqlMapper.queryForList("selectMyItemAll", getMem_id());
 			} else if (getUserType().equals("other_cat_")) { //메인카테고리 상품리스트 
 				list = sqlMapper.queryForList("selectOtherCatItemAll", itemVo);
-				System.out.println("메인카테고리 리스트.");
+			} else if (getUserType().equals("other_area_")) { //메인카테고리 상품리스트 
+				list = sqlMapper.queryForList("selectOtherAreaCatAll", getArea_cat_no());
 			} else if (getUserType().equals("other_area_cat_")) { //지역카테고리 상품리스트 
 				list = sqlMapper.queryForList("selectOtherAreaCatItemAll", itemVo);
 			}
