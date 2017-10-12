@@ -124,7 +124,17 @@ public class ListAction extends ActionSupport {
 		list = new ArrayList<QnaVO>();
 
 		if (find==null || find.equals("")) {
-			list = sqlMapper.queryForList("selectQnaAll");
+			if (getUserType().equals("admin_nc_")) {
+				list = sqlMapper.queryForList("selectNcQnaAll");	
+			} else if (getUserType().equals("admin_ok_")) {
+				list = sqlMapper.queryForList("selectOkQnaAll");
+			} else if (getUserType().equals("admin")) {
+				list = sqlMapper.queryForList("selectQnaAll");	
+			} else if (getUserType().equals("myPage")) {
+				System.out.println(getMem_id());
+				list = sqlMapper.queryForList("selectMyQnaAll", getMem_id());	
+			}
+
 		} else {
 			list = sqlMapper.queryForList("QnaFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
 		}
@@ -211,6 +221,7 @@ public class ListAction extends ActionSupport {
 				list = sqlMapper.queryForList("selectMyItemAll", getMem_id());
 			} else if (getUserType().equals("other_cat_")) { //메인카테고리 상품리스트 
 				list = sqlMapper.queryForList("selectOtherCatItemAll", itemVo);
+				System.out.println("메인카테고리 리스트.");
 			} else if (getUserType().equals("other_area_cat_")) { //지역카테고리 상품리스트 
 				list = sqlMapper.queryForList("selectOtherAreaCatItemAll", itemVo);
 			}

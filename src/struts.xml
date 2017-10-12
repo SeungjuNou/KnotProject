@@ -229,6 +229,22 @@
 			<interceptor-ref name="params"/>
 			<result type="tiles">admin_qna</result>
 		</action>
+
+		<action name="admin_nc_qna" class="totalList.ListAction">
+			<param name="userReq">qna</param>
+			<param name="userType">admin_nc_</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_qna</result>
+		</action>
+
+		<action name="admin_ok_item" class="totalList.ListAction">
+			<param name="userReq">qna</param>
+			<param name="userType">admin_ok_</param>
+			<interceptor-ref name="staticParams"/>
+			<interceptor-ref name="params"/>
+			<result type="tiles">admin_item</result>
+		</action>
 		
 		 <action name="admin_qnaForm" class="totalWrite.WriteAction" method="form">
 			<result type="tiles">admin_qnaForm</result>
@@ -249,6 +265,8 @@
 		<action name="admin_qnaDelete" class="totalDelete.DeleteAction">
 			<result type="chain">admin_qna</result>
 		</action>
+
+
 
 
 
@@ -531,8 +549,10 @@
 		</action>
 
 		<action name="idCheckAction" class="auth.LoginAction" method="idCheck">
-			<result type="redirect-action">main</result>
+			<result>idCheck.jsp</result>
 		</action>
+
+	
 
 	</package>
 

@@ -33,6 +33,24 @@
 		<include refid="qna-select-all" />
 		ORDER BY NO DESC
 	</select>
+
+	<select id="selectNcQnaAll" resultMap="qnaRes" parameterClass="int">
+		<include refid="qna-select-all" />
+		WHERE ANSWER_CHECK = 0
+		ORDER BY NO DESC
+	</select>
+
+	<select id="selectMyQnaAll" resultMap="qnaRes" parameterClass="String">
+		<include refid="qna-select-all" />
+		WHERE MEM_ID = #mem_id#
+		ORDER BY NO DESC
+	</select>
+
+	<select id="selectOkQnaAll" resultMap="qnaRes" parameterClass="int">
+		<include refid="qna-select-all" />
+		WHERE ANSWER_CHECK = 1
+		ORDER BY NO DESC
+	</select>
 	
 	<select id="QnaFindSelectAll" resultMap="qnaRes" parameterClass="String">
       <include refid="qna-select-all" />
