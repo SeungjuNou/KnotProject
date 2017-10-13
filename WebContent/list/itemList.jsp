@@ -24,16 +24,18 @@
     <ul>
         <li>
                 <s:property value="img" />
-            	<s:property value="no" />
+            		<s:property value="no" />
                 
                 <s:a href="%{viewURL}">
-            	   <s:property value="name" />
-                </s:a>
-
+            	   		<s:property value="name" />
                 <s:property value="price" />
+                <s:property value="item_sum" />
+                </s:a>
                 <s:property value="cat_no" />
                 <s:property value="sal_id" />
-                <input type="button" value="승인" class="inputb" onClick="javascript:location.href='admin_itemOk.action?no=<s:property value="no" />&currentPage=<s:property value="currentPage" />&sal_id=<s:property value="sal_id" />';">
+             	<c:if test="${sessionScope.mem_lev eq 3}">
+                		<input type="button" value="승인" class="inputb" onClick="javascript:location.href='admin_itemOk.action?no=<s:property value="no" />&currentPage=<s:property value="currentPage" />&sal_id=<s:property value="sal_id" />';">
+                </c:if>
         </li>
     </ul>
            
@@ -42,4 +44,3 @@
 
     <s:property value="pagingHtml" escape="false" />
     
-<input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_itemForm.action?&currentPage=<s:property value="currentPage" />';">

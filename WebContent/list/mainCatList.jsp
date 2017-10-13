@@ -38,9 +38,9 @@
 
     	<s:property value="pagingHtml" escape="false" />
    		 
-   			<c:if test="${sessionScope.mem_lev eq 2}">
+   			
 				<input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_mainCatForm.action?&currentPage=<s:property value="currentPage" />';">
-			</c:if>
+			
 
 			<form action="admin_mainCat.action" method="post">
     	    <s:textfield name="find" theme="simple" value="" maxlength="20"/> 

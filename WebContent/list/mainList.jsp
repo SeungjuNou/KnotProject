@@ -13,11 +13,14 @@
 	      	<li>
 		      	<h2>카테고리 이름 들어갈 곳</h2> <br>
 		      	<s:property value="#stat.index" />
+		      	<s:property value="name" />
 	      	</li> 
 	      	
 	      	<li>
 	      		<s:iterator value="list2[#stat.index]" status="stat2">
 	      			<s:property value="name" />
+
+	      			ㅇㄴㅁㄴㅇㄹㄴㅁ
 	      		</s:iterator>
 				
 	      	</li>

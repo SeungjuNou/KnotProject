@@ -198,6 +198,10 @@
 		<put-attribute name="body" value="/write/itemWrite.jsp" />
 	</definition>
 
+	<definition name="myPage_orderForm" extends="myPage">
+		<put-attribute name="body" value="/write/orderWrite.jsp" />
+	</definition>
+
 
 	<!-- 사용자 상세보기 -->
 
@@ -215,6 +219,10 @@
 	
 	<definition name="myPage_noticeView" extends="myPage">
 		<put-attribute name="body" value="/view/noticeView.jsp" />
+	</definition>
+
+	<definition name="myPage_orderView" extends="myPage">
+		<put-attribute name="body" value="/view/orderView.jsp" />
 	</definition>
 	
 
@@ -250,6 +258,10 @@
 
 	<definition name="other_item" extends="other">
 		<put-attribute name="body" value="/list/itemList.jsp" />
+	</definition>
+	
+	<definition name="other_itemForm" extends="other">
+		<put-attribute name="body" value="/list/itemWrite.jsp" />
 	</definition>
 
 

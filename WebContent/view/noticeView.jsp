@@ -21,14 +21,16 @@
 			<s:property value="resultClass.name" />	 
 		</li>
 		<li>
-			CONTENT		: 
+			CONTENT		
+		</li>
+		<li>
 			<s:property value="resultClass.content" /> 
 		</li>
 </ul>
 
 <c:if test="${sessionScope.mem_lev eq 3}">
 	
-	<input type="button" name="modify" value="수정" class="inputb" onclick=javascript:location.href='admin_noticeModifyForm.action?no=<s:property value="resultClass.no" />&currentPage=<s:property value="currentPage" />&userReq=notice';">
+	<input type="button" name="modify" value="수정" class="inputb" onclick="javascript:location.href='admin_noticeModifyForm.action?no=<s:property value="resultClass.no" />&currentPage=<s:property value="currentPage" />&userReq=notice';">
 
 	<input type="button" name="list" value="삭제" class="inputb" onclick="javascript:location.href='admin_noticeDelete.action?no=<s:property value="resultClass.no" />&currentPage=<s:property value="currentPage" />&userReq=notice';">
 

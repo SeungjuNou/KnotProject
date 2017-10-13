@@ -39,9 +39,8 @@
     
     <s:property value="pagingHtml" escape="false" />
  
- <input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_orderForm.action?&currentPage=<s:property value="currentPage" />';">
+ <c:if test="${sessionScope.mem_lev eq 3}">
+    <input type="button" value="글쓰기" class="inputb" onClick="javascript:location.href='admin_orderForm.action?&currentPage=<s:property value="currentPage" />';">
+</c:if>
 
-<form action="admin_qna.action" method="post">
-    <s:textfield name="find" theme="simple" value="" maxlength="20"/>
-    <input type="submit" value="검색" class="inputb"/>
-</form>
+

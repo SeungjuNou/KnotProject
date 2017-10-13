@@ -36,7 +36,13 @@
 }
 
 </script> 
-<form name="memberInfo" action="admin_itemWrite.action" enctype="multipart/form-data" method="post" onsubmit="return check_onclick();"> 
+<c:if test="${sessionScope.mem_lev eq 3}">
+	<form name="memberInfo" action="admin_itemWrite.action" enctype="multipart/form-data" method="post" onsubmit="return check_onclick();">
+</c:if> 
+
+<c:if test="${sessionScpoe.mem_lev le 3}">
+	<form name="memberInfo" action="other_itemWrite.action" enctype="multipart/form-data" method="post" onsubmit="return check_onclick();">
+</c:if>
 	
 
 	<s:hidden name="userReq" value="item" />

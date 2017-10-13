@@ -192,6 +192,7 @@ public class ListAction extends ActionSupport {
 		menulist = new ArrayList<MainCategoryVO>();
 		menulist2 = new ArrayList<MainCategoryVO>();
 		list3 = new ArrayList<MainCategoryVO>();
+		
 		list3 = sqlMapper.queryForList("selectCatAll");
 		
 		int listSize = list3.size();

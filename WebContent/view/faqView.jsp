@@ -8,9 +8,10 @@
 			<h2>FAQ</h2>
 		</li>
       
-      	<li>	NO			: <s:property value="resultClass.no" /> 	 </li>
+      	
       	<li>	NAME		: <s:property value="resultClass.name" /> 	 </li>
-      	<li>	CONTENT		: <s:property value="resultClass.content" /> </li>
+      	<li>	CONTENT	</li>
+      	<li>  <s:property value="resultClass.content" /> </li>
 </ul>
 
 <c:if test="${sessionScope.mem_lev eq 3}">
