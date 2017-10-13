@@ -63,10 +63,10 @@
 								<a href="myPage_notice.action">
 									<li>마이 페이지 </li>
 								</a>
-								<a href="logout.action">
+								<a href="myPage_itemForm.action">
 									<li>재능 판매 등록</li>
 								</a>
-								<a href="myPage_itemForm.action">
+								<a href="logout.action">
 									<li>로그아웃</li>
 								</a>
 								</ul>

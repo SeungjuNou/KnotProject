@@ -96,10 +96,12 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 	@SuppressWarnings("deprecation")
 	public String execute() throws Exception {
+		System.out.println(getUserReq() + "asdfjkasfd");
 		todate = today.getTime();
 		fileUploadPath = request.getRealPath("/image/"+ getUserReq() + "/");
 		
-		try {
+		System.out.println(getUserReq() + "asdfjkasfd");
+
 			if (getUserReq().equals("mainCat")) {
 				mainCatWrite();
 			} else if (getUserReq().equals("areaCat")) {
@@ -116,12 +118,8 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 				orderWrite();
 			} else if (getUserReq().equals("item")) {
 				itemWrite();
-			} else {
-				return ERROR;
-			}
-		} catch (Exception ex) {
-			return ERROR;
-		}
+			} 
+		
 		
 		return SUCCESS;
 	
@@ -240,6 +238,7 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 
 		if (getAnswer() != null || getAnswer().equals("")) {
 			paramClass.setAnswer_check(1); //관리자가 답변을 했을 경우.
+			System.out.println("왜 안넘어가");
 		} else {
 			paramClass.setAnswer_check(0); //새로 등록할 경우. 
 		}
@@ -252,12 +251,15 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setAnswer(getAnswer());
 		paramClass.setTodate(todate);
 		
+		System.out.println("왜 안넘어가2");
 		
 		if (getModifyReq().equals("") || getModifyReq() == null ) {
 			sqlMapper.insert("insertQna", paramClass);
 		} else {
 			sqlMapper.update("qnaModify", paramClass);
 		}
+		
+		System.out.println("왜 안넘어가3");
 	}
 
 
@@ -276,27 +278,14 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		}
 	}
 	
-	
-
-	public String uploadImg() throws IOException {
-	
-		String file_name = userReq + no;
-		String file_ext = getUploadFileName().substring(getUploadFileName().lastIndexOf('.') + 1, getUploadFileName().length());
-		
-		File destFile = new File(fileUploadPath + file_name + "." + file_ext);
-		
-		FileUtils.copyFile(getUpload(), destFile);
-
-
-		String resultName = file_name + "." + file_ext;
-		return resultName;
-		
-	}
 
 
 	public void orderWrite() throws SQLException, IOException {
 
 		OrderVO paramClass = new OrderVO();
+
+		System.out.println("진입확인.. ");
+
 
 		paramClass.setRe_item(getRe_item());
 		paramClass.setRe_mem_name(getRe_mem_name());
@@ -307,6 +296,8 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setRe_cat_no(getRe_cat_no());
 		paramClass.setOrder_dtl(getOrder_dtl());
 		paramClass.setOrder_date(todate);
+
+		System.out.println("진입확인..2 ");
 
 		sqlMapper.insert("insertOrder", paramClass);
 		
@@ -319,6 +310,7 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		double num = getPrice();  
 		DecimalFormat dfNumber = new DecimalFormat("#,##0");
 		String itemPrice = dfNumber.format(num);
+
 		System.out.println(itemPrice);
 		if (getUpload() != null) {
 			if(no == 0 ) {
@@ -329,6 +321,8 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 			img = uploadImg();
 		}
 		paramClass.setImg(img);
+
+		System.out.println(getSal_name() + "판매자이름 테스스ㅡ스스스.");
 		//file upload end
 		paramClass.setNo(getNo());
 		paramClass.setName(getName());
@@ -338,8 +332,8 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 		paramClass.setItem_sum(getItem_sum());
 		paramClass.setItem_detail(getItem_detail());
 		paramClass.setItem_readhit(0);
-		paramClass.setSal_id(getSal_id());
-		paramClass.setSal_name(getSal_name());
+		paramClass.setSal_id(getMem_id());
+		paramClass.setSal_name(getMem_name());
 		paramClass.setRe_date(getRe_date());
 		paramClass.setItem_check(0);
 		
@@ -349,6 +343,23 @@ public class WriteAction extends ActionSupport implements  ServletRequestAware {
 			sqlMapper.update("itemModify", paramClass);
 		}
 
+	}
+
+
+	public String uploadImg() throws IOException {
+	
+		String file_name = userReq + no;
+		String file_ext = getUploadFileName().substring(getUploadFileName().lastIndexOf('.') 
+			+ 1, getUploadFileName().length());
+		
+		File destFile = new File(fileUploadPath + file_name + "." + file_ext);
+		
+		FileUtils.copyFile(getUpload(), destFile);
+
+
+		String resultName = file_name + "." + file_ext;
+		return resultName;
+		
 	}
 
 

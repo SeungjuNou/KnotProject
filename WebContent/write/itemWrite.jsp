@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script type="text/javascript">
       function check_onclick() {
@@ -23,11 +22,6 @@
                 alert("항목세부정보를 입력해주십시오.");
                 return false;
 		}
-       else if(f.upload.value == ""){
-           alert("사진을 등록해주세요.");
-           return false;
-		}
-
    else {
    alert("등록되었습니다.")
    f.submit();
@@ -36,19 +30,15 @@
 }
 
 </script> 
-<c:if test="${sessionScope.mem_lev eq 3}">
-	<form name="memberInfo" action="admin_itemWrite.action" enctype="multipart/form-data" method="post" onsubmit="return check_onclick();">
-</c:if> 
 
-<c:if test="${sessionScpoe.mem_lev le 3}">
 	<form name="memberInfo" action="other_itemWrite.action" enctype="multipart/form-data" method="post" onsubmit="return check_onclick();">
-</c:if>
+
 	
 
 	<s:hidden name="userReq" value="item" />
-	<s:hidden name="no" value="%{resultClass.no}"/>
-	<s:hidden name="sal_id" value="%{sessionScope.mem_id}"/>
-	<s:hidden name="sal_name" value="%{sessionScope.mem_name}"/>
+	<input type="hidden" name="no" value="${sessionScope.no}">
+	<input type="hidden" name="mem_id" value="${sessionScope.mem_id}">
+	<input type="hidden" name="mem_name" value="${sessionScope.mem_name}">
 
 	<s:if test="resultClass != NULL">   
 		<s:hidden name="modifyReq" value="modifyReq"/> 

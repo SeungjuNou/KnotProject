@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<!--
 <script>
  
 //     아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
@@ -34,7 +34,7 @@
 
 
 </script>
-
+-->
 
 	
 	
@@ -52,7 +52,7 @@
 	<ul>
 		<li>
 			아이디 	:	
-			<s:textfield name="mem_id" theme="simple" value="%{resultClass.mem_id}" required class="id" oninput="checkId()" id="checkaa" />
+			<s:textfield name="mem_id" theme="simple" value="%{resultClass.mem_id}" />
 		</li>
 		<li>
 			패스워드 	:	

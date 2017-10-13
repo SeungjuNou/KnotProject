@@ -131,9 +131,10 @@ public class LoginAction implements Action, ServletRequestAware{
 		return result;
 	}
 
-	public void itemOk() throws SQLException {
+	public String itemOk() throws SQLException {
 		sqlMapper.update("memLevChange", getSal_id());
 		sqlMapper.update("itemCheckChange", getNo());
+		return SUCCESS;
 	}
 
 

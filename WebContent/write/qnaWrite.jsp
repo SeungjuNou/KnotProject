@@ -6,8 +6,13 @@
 
 <h2>QNA</h2>
 
+<c:if test="${sessionScope.mem_lev eq 3}">
 <form action="admin_qnaWrite.action" method="post" enctype="multipart/form-data" >
+</c:if>
 
+<c:if test="${sessionScope.mem_lev le 2}">
+<form action="admin_qnaWrite.action" method="post" enctype="multipart/form-data" >
+</c:if>
 	
 	<s:hidden name="userReq" value="qna" />
 	<s:hidden name="no" value="%{resultClass.no}"/>

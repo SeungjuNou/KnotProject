@@ -19,10 +19,7 @@
 	      	<li>
 	      		<s:iterator value="list2[#stat.index]" status="stat2">
 	      			<s:property value="name" />
-
-	      			ㅇㄴㅁㄴㅇㄹㄴㅁ
 	      		</s:iterator>
-				
 	      	</li>
 
 	    </ul>

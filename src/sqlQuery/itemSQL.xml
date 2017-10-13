@@ -18,6 +18,7 @@
 		<result property="sal_id" column="SAL_ID"/>
 		<result property="sal_name" column="SAL_NAME"/>
 		<result property="re_date" column="RE_DATE"/>  
+		<result property="item_check" column="ITEM_CHECK"/>
 	</resultMap>
 
 	<sql id="item-select-all">
@@ -90,8 +91,8 @@
 	</select>
 
 	<insert id="insertItem" parameterClass="item">
-		insert into ITEM (NO, NAME, PRICE, CAT_NO, AREA_CAT_NO, ITEM_SUM, ITEM_DETAIL, ITEM_READHIT, SAL_ID, SAL_NAME, RE_DATE) 
-		values (ITEM_NO_SEQ.NEXTVAL, #name#, #price#, #cat_no#, #area_cat_no#, #item_sum#, #item_detail#, #item_readhit#, #sal_id#, #sal_name#, #re_date#)
+		insert into ITEM (NO, NAME, PRICE, CAT_NO, AREA_CAT_NO, ITEM_SUM, ITEM_DETAIL, ITEM_READHIT, SAL_ID, SAL_NAME, RE_DATE, ITEM_CHECK) 
+		values (ITEM_NO_SEQ.NEXTVAL, #name#, #price#, #cat_no#, #area_cat_no#, #item_sum#, #item_detail#, #item_readhit#, #sal_id#, #sal_name#, #re_date#, #item_check#)
 	</insert>
 
 	<update id="itemModify" parameterClass="item">
@@ -114,7 +115,7 @@
 	</update>
 
 	<select id="selectMainItem" resultMap="itemRes" parameterClass="int">
-		select * from ( select * from ITEM where NO  = #catNo# order by ITEM_READHIT desc) where rownum <![CDATA[ <= 4]]>
+		select * from ( select * from ITEM where CAT_NO  = #catNo# order by ITEM_READHIT desc) where rownum <![CDATA[<= 4]]>
 	</select>
 
 	<delete id="deleteItem" parameterClass="int">

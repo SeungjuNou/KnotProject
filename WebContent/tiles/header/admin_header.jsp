@@ -23,7 +23,7 @@
 								<li><a href="admin_qna.action">1:1문의</a>
 									<ul>
 										<li><a href="admin_nc_qna.action">미 완료된 문의보기</a></li>
-										<li><a href="admin_ok_item.action">완료된 문의보기</a></li>
+										<li><a href="admin_ok_qna.action">완료된 문의보기</a></li>
 									</ul>
 								</li>					
 							</ul> 

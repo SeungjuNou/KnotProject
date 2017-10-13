@@ -183,7 +183,7 @@ public class ListAction extends ActionSupport {
 		catLen = (int) sqlMapper.queryForObject("countMainCategory");
 		list = new ArrayList<ItemVO>();
 
-		for (int catNo = 1; catNo <= catLen; catNo++) {
+		for (int catNo = 0; catNo < catLen; catNo++) {
 			list = sqlMapper.queryForList("selectMainItem", catNo);
 			list2.put(catNo, list);
 		}
@@ -218,7 +218,7 @@ public class ListAction extends ActionSupport {
 		} else {
 			list = sqlMapper.queryForList("OrderFindSelectAll", "%"+getFind()+"%"); //검색 했을때.
 		}
-
+ 
 		return list;
 	}
 
@@ -234,13 +234,13 @@ public class ListAction extends ActionSupport {
 		System.out.println(getUserType());
 		
 		if (find==null || find.equals("")) {
-			if (getUserType().equals("admin")) {
+			if (getUserType().equals("admin_")) {
 				list = sqlMapper.queryForList("selectItemAll");
 			} else if (getUserType().equals("admin_nc_")) {
 				list = sqlMapper.queryForList("selectNcItemAll");
 			} else if (getUserType().equals("admin_ok_")) {
 				list = sqlMapper.queryForList("selectOkItemAll");
-			} else if (getUserType().equals("myPage")) {
+			} else if (getUserType().equals("myPage_")) {
 				list = sqlMapper.queryForList("selectMyItemAll", getMem_id());
 			} else if (getUserType().equals("other_cat_")) { //메인카테고리 상품리스트 
 				list = sqlMapper.queryForList("selectOtherCatItemAll", itemVo);

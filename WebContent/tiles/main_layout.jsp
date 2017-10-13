@@ -60,14 +60,6 @@
 			<li class="head">
 				<tiles:insertAttribute name="header" />
 			</li>
-			<li class="content">
-				<div class="bodyForm">
-					<tiles:insertAttribute name="body" />
-				</div>
-			</li>
-			<li class="foot">
-				<tiles:insertAttribute name="footer" />		
-			</li>
 		</ul>
 	</div>
 

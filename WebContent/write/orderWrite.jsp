@@ -3,13 +3,14 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<form action="admin_orderWrite.action" method="post">
+<form action="myPage_orderWrite.action" method="post">
 	
 	<s:hidden name="userReq" value="order" />
 	<s:hidden name="re_item" value="%{resultClass.name}"/>
 	<s:hidden name="re_price" value="%{resultClass.price}"/>
 	<s:hidden name="re_cat_no" value="%{resultClass.cat_no}"/>
 	<s:hidden name="re_sal_id" value="%{resultClass.sal_id}"/>
+	<input type="hidden" name="re_mem_name" value="${sessionScope.mem_name}"> 
 
 	<ul>
 		<li>
@@ -18,7 +19,7 @@
 		</li>
 		<li>
 			예약자 성함 	:	
-			<s:textfield name="re_mem_name"  theme="simple" />
+			${sessionScope.mem_name}
 		</li>
 		<li>
 			가격 			:	

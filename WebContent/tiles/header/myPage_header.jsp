@@ -215,20 +215,36 @@
     	
     	</s:url>
 
+    	<s:url id="memberFormgo" action="memberModify.action">
+        	
+        	<s:param name="currentPage">
+            	<s:property value="currentPage" />
+        	</s:param>
+
+        	<s:param name="mem_id">
+            	${sessionScope.mem_id}
+        	</s:param>
+
+        	<s:param name="userReq">
+        	member
+        	</s:param>
+    	
+    	</s:url>
+
 
 
 		<div id="under_top">
 			<div id="ut_inner">
 				<ul>
 					<li id="myPage_bu">
-						<a href="MyPage.action">
+						<a href="#">
 							MY Page
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<s:a href="%{memberFormgo}">
 							회원정보
-						</a>
+						</s:a>
 					</li>
 					<li>
 
@@ -253,7 +269,7 @@
 						</s:a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="myPage_notice.action">
 							공지사항
 						</a>
 					</li>

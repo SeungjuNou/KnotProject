@@ -53,7 +53,7 @@ public class PagingAction {
 		pagingHtml = new StringBuffer();
 
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a href=" + userType + "_" + userReq + ".action?currentPage=" + (startPage - 1) + "&find=" + find +">");
+			pagingHtml.append("<a href=" + userType + userReq + ".action?currentPage=" + (startPage - 1) + "&find=" + find +">");
 			pagingHtml.append("이전");
 			pagingHtml.append("</a>");
 		}
@@ -69,7 +69,7 @@ public class PagingAction {
 				pagingHtml.append(i);
 				pagingHtml.append("</font></b>");
 			} else {
-				pagingHtml.append("&nbsp;<a href='" + userType + "_" + userReq + ".action?currentPage=");
+				pagingHtml.append("&nbsp;<a href='" + userType +  userReq + ".action?currentPage=");
 				pagingHtml.append(i);
 				pagingHtml.append("&find=" + find + "'>");
 				pagingHtml.append(i);
@@ -81,7 +81,7 @@ public class PagingAction {
 		pagingHtml.append("&nbsp;&nbsp;|&nbsp;&nbsp;");
 
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a href=" + userType + "_" + userReq + ".action?currentPage=" + (endPage + 1) + "&find=" + find +">");
+			pagingHtml.append("<a href=" + userType +  userReq + ".action?currentPage=" + (endPage + 1) + "&find=" + find +">");
 			pagingHtml.append("다음");
 			pagingHtml.append("</a>");
 		}

@@ -76,14 +76,13 @@
 		
 		<action name="other_itemForm" class="totalList.ListAction">
 			<param name="userReq">itemCat</param>
-			<param name="userType">admin</param>
+			<param name="userType">admin_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="params"/>
 			<result type="tiles">other_itemForm</result>
 		</action>
 		
 		<action name="other_itemWrite" class="totalWrite.WriteAction">
-			<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">main</result>
 		</action>
 		
@@ -106,18 +105,12 @@
 	    		<interceptor name="LoginCheck" class="intercept.LoginCheck"/>
 	  	</interceptors>  
 
-	  	<global-results>
-    		<result name="error" type="tiles">errorPage</result>
-    	</global-results>
-
-    	<global-exception-mappings>
-    		<exception-mapping result="error" exception="java.lang.Exception"/>
-    	</global-exception-mappings>  
+	  
 		
 
 		<action name="myPage" class="totalList.ListAction">
 			<param name="userReq">member</param>
-			<param name="userType">myPage</param>
+			<param name="userType">myPage_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="LoginCheck"/>
 			<result name="login" type="tiles">loginForm</result>
@@ -129,7 +122,7 @@
 		
 		<action name="myPage_qna" class="totalList.ListAction">
 			<param name="userReq">qna</param>
-			<param name="userType">myPage</param>
+			<param name="userType">myPage_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="LoginCheck"/>
 			<interceptor-ref name="params"/>
@@ -138,14 +131,10 @@
 		</action>
 		
 		 <action name="myPage_qnaForm" class="totalWrite.WriteAction" method="form">
-		 	<interceptor-ref name="LoginCheck"/>
-		 	<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">myPage_qnaForm</result>
 		</action>
 		  
 		<action name="myPage_qnaWrite" class="totalWrite.WriteAction">
-			<interceptor-ref name="LoginCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">myPage_qna</result>
 		</action>
 		
@@ -155,7 +144,7 @@
 		
 		<action name="myPage_faq" class="totalList.ListAction">
 			<param name="userReq">faq</param>
-			<param name="userType">myPage</param>
+			<param name="userType">myPage_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="LoginCheck"/>
 			<interceptor-ref name="params"/>
@@ -168,7 +157,7 @@
 
 		<action name="myPage_notice" class="totalList.ListAction">
 			<param name="userReq">notice</param>
-			<param name="userType">myPage</param>
+			<param name="userType">myPage_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="LoginCheck"/>
 			<interceptor-ref name="params"/>
@@ -181,7 +170,7 @@
 
 		<action name="myPage_item" class="totalList.ListAction">
 			<param name="userReq">item</param>
-			<param name="userType">myPage</param>
+			<param name="userType">myPage_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="LoginCheck"/>
 			<interceptor-ref name="params"/>
@@ -191,7 +180,7 @@
 
 		<action name="myPage_itemForm" class="totalList.ListAction">
 			<param name="userReq">itemCat</param>
-			<param name="userType">myPage</param>
+			<param name="userType">myPage_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="LoginCheck"/>
 			<interceptor-ref name="params"/>
@@ -200,20 +189,14 @@
 		</action>
 		
 		<action name="myPage_itemWrite" class="totalWrite.WriteAction">
-			<interceptor-ref name="LoginCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">myPage_item</result>
 		</action>
 
 		<action name="myPage_itemView" class="totalView.ViewAction">
-			<interceptor-ref name="LoginCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">myPage_itemView</result>
 		</action>
 
 		<action name="myPage_itemDelete" class="totalDelete.DeleteAction">
-			<interceptor-ref name="LoginCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">myPage_item</result>
 		</action>
 
@@ -221,7 +204,7 @@
 
 		<action name="myPgae_order" class="totalList.ListAction">
 			<param name="userReq">order</param>
-			<param name="userType">myPage</param>
+			<param name="userType">myPgae_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="LoginCheck"/>
 			<interceptor-ref name="params"/>
@@ -250,20 +233,14 @@
 		</action> 
 
 		<action name="myPage_orderForm" class="totalView.ViewAction">
-			<interceptor-ref name="LoginCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">myPage_orderForm</result>
 		</action>
 		
 		<action name="myPage_orderWrite" class="totalWrite.WriteAction">
-			<interceptor-ref name="LoginCheck"/>
-			<result name="login" type="tiles">loginForm</result>
-			<result type="redirect-action">myPgae_order</result>
+			<result type="redirect-action">main</result>
 		</action>
 
 		<action name="myPage_orderView" class="totalView.ViewAction">
-			<interceptor-ref name="LoginCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_orderView</result>
 		</action>
 		
@@ -308,7 +285,7 @@
 		<!-- admin - Member -->
 		<action name="admin_member" class="totalList.ListAction">
 			<param name="userReq">member</param>
-			<param name="userType">admin</param>
+			<param name="userType">admin_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="AdminCheck"/>
 			<interceptor-ref name="params"/>
@@ -323,7 +300,7 @@
 		
 		<action name="admin_qna" class="totalList.ListAction">
 			<param name="userReq">qna</param>
-			<param name="userType">admin</param>
+			<param name="userType">admin_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="AdminCheck"/>
 			<interceptor-ref name="params"/>
@@ -341,43 +318,33 @@
 			<result type="tiles">admin_qna</result>
 		</action>
 
-		<action name="admin_ok_item" class="totalList.ListAction">
+		<action name="admin_ok_qna" class="totalList.ListAction">
 			<param name="userReq">qna</param>
 			<param name="userType">admin_ok_</param>
 			<interceptor-ref name="staticParams"/>
 			<interceptor-ref name="AdminCheck"/>
 			<interceptor-ref name="params"/>
 			<result name="login" type="tiles">loginForm</result>
-			<result type="tiles">admin_item</result>
+			<result type="tiles">admin_qna</result>
 		</action>
 		
 		 <action name="admin_qnaForm" class="totalWrite.WriteAction" method="form">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_qnaForm</result>
 		</action>
 		  
 		<action name="admin_qnaWrite" class="totalWrite.WriteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
-			<result type="redirect-action">admin_qna</result>
+			<result type="redirect-action">admin_nc_qna</result>
 		</action>
 
 		<action name="admin_qnaView" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_qnaView</result>
 		</action>
 
 		<action name="admin_qnaModifyForm" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_qnaForm</result>
 		</action>
 		
 		<action name="admin_qnaDelete" class="totalDelete.DeleteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_qna</result>
 		</action>
 
@@ -400,32 +367,22 @@
 		</action>
 		
 		<action name="admin_faqForm" class="totalWrite.WriteAction" method="form">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_faqForm</result>
 		</action>
 
 		 <action name="admin_faqWrite" class="totalWrite.WriteAction">
-		 	<interceptor-ref name="AdminCheck"/>
-		 	<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">admin_faq</result>
 		</action>
 
 		<action name="admin_faqView" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_faqView</result>
 		</action> 
 
 		<action name="admin_faqModifyForm" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_faqForm</result>
 		</action>
 		
 		<action name="admin_faqDelete" class="totalDelete.DeleteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_faq</result>
 		</action>
 
@@ -447,32 +404,22 @@
 
 
 		<action name="admin_noticeForm" class="totalWrite.WriteAction" method="form">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_noticeForm</result>
 		</action>
 		
 		<action name="admin_noticeWrite" class="totalWrite.WriteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">admin_notice</result>
 		</action>
 		
 		<action name="admin_noticeDelete" class="totalDelete.DeleteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_notice</result>
     		</action>
 
 		<action name="admin_noticeView" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_noticeView</result>
 		</action> 
 
 		<action name="admin_noticeModifyForm" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_noticeForm</result>
 		</action>
 	
@@ -494,32 +441,22 @@
 		</action> 
 
 		<action name="admin_mainCatForm" class="totalWrite.WriteAction" method="form">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_mainCatForm</result>
 		</action>
 		
 		<action name="admin_mainCatWrite" class="totalWrite.WriteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">admin_mainCat</result>
 		</action>
 
 		<action name="admin_mainCatView" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_mainCatView</result>
 		</action> 
 
 		<action name="admin_mainCatModifyForm" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_mainCatForm</result>
 		</action>
 		
 		<action name="admin_mainCatDelete" class="totalDelete.DeleteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_mainCat</result>
 		</action>
 
@@ -540,26 +477,18 @@
 		</action> 
 
 		<action name="admin_areaCatForm" class="totalWrite.WriteAction" method="form">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_areaCatForm</result>
 		</action>
 		
 		<action name="admin_areaCatWrite" class="totalWrite.WriteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">admin_areaCat</result>
 		</action>
 
 		<action name="admin_areaCatModifyForm" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_areaCatForm</result>
 		</action>
 		
 		<action name="admin_areaCatDelete" class="totalDelete.DeleteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_areaCat</result>
 		</action>
 
@@ -580,26 +509,18 @@
 		</action> 
 
 		<action name="admin_orderForm" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_orderForm</result>
 		</action>
 		
 		<action name="admin_orderWrite" class="totalWrite.WriteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">admin_order</result>
 		</action>
 
 		<action name="admin_orderView" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="tiles">admin_orderView</result>
 		</action>
 
 		<action name="admin_orderDelete" class="totalDelete.DeleteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">admin_order</result>
 		</action>
 
@@ -641,8 +562,6 @@
 		</action>
 
 		<action name="admin_itemOk" class="auth.LoginAction" method="itemOk">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="redirect-action">admin_nc_item</result>
 		</action>
 		
@@ -657,26 +576,21 @@
 		</action>
 		
 		<action name="admin_itemWrite" class="totalWrite.WriteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
+
 			<result type="redirect-action">admin_item</result>
 		</action>
 
 		<action name="admin_itemView" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
+
 			<result type="tiles">admin_itemView</result>
 		</action>
 
 		<action name="admin_itemDelete" class="totalDelete.DeleteAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
+			
 			<result type="redirect-action">admin_item</result>
 		</action>
 
 		<action name="admin_itemModifyForm" class="totalView.ViewAction">
-			<interceptor-ref name="AdminCheck"/>
-			<result name="login" type="tiles">loginForm</result>
 			<result type="chain">admin_areaCatForm</result>
 		</action>
 		

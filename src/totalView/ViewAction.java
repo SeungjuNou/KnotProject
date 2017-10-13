@@ -50,6 +50,8 @@ public class ViewAction extends ActionSupport implements ServletRequestAware {
 
 
 	public String execute() throws Exception {
+
+		System.out.println(getUserReq());
 		
 		if (getUserReq().equals("faq")) {
 			faqView();

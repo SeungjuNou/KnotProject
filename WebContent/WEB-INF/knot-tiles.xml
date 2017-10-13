@@ -259,9 +259,13 @@
 	<definition name="other_item" extends="other">
 		<put-attribute name="body" value="/list/itemList.jsp" />
 	</definition>
+
+	<definition name="other_itemView" extends="other">
+		<put-attribute name="body" value="/view/itemView.jsp" />
+	</definition>
 	
 	<definition name="other_itemForm" extends="other">
-		<put-attribute name="body" value="/list/itemWrite.jsp" />
+		<put-attribute name="body" value="/write/itemWrite.jsp" />
 	</definition>
 
 
